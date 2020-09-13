@@ -58,21 +58,14 @@ const Header = (props) =>{
         <div className = {"header"}>
             <div className = {"top"}>
                 <div className = {"logo"}>
-                    {widthFlag ? <Link to="/" onClick={() => naviClick("naviToggle1")}>Readme</Link>:<Link>Readme</Link>}
+                    {widthFlag ? <Link to="/" onClick={() => naviClick("naviToggle1")}><img width='200px' height='50px' src='https://files.slack.com/files-pri/T019NDZRUJJ-F019YK6UV8W/_____________________________readme_logo.png'></img></Link>:<Link><img width='200px' height='50px' src='https://files.slack.com/files-pri/T019NDZRUJJ-F019YK6UV8W/_____________________________readme_logo.png'></img></Link>}
                 </div>
                 <div className = {"navigation"}>
                     <div className={"pc_navigation"}>
                         <ul>
                             <li className={naviToggle1&&'navi_click'}><Link to="/" onClick={() => naviClick("naviToggle1")}>Home</Link></li>
-                            <li className={naviToggle2&&'navi_click'}><Link to="/crewfind" onClick={() => naviClick("naviToggle2")}>모임탐색</Link></li>
-                            <li className={naviToggle3&&'navi_click'}>
-                                {session_name
-                                    ?<Link to="/crewcreate" onClick={() => naviClick("naviToggle3")}>학생회</Link>
-                                    :<Link to="/login" onClick={() => naviClick("loginAlert")}>선거</Link>
-                                }
-                                
-                                
-                            </li>
+                            <li className={naviToggle2&&'navi_click'}><Link to="/council" onClick={() => naviClick("naviToggle2")}>학생회</Link></li>
+                            <li className={naviToggle3&&'navi_click'}><Link to="/vote" onClick={() => naviClick("naviToggle3")}>선거</Link></li>
                             <li className={naviToggle4&&'navi_click'}>{session_name?<Link onClick={() => naviClick("logout") }>로그아웃</Link>:<Link to="/login" onClick={() => naviClick("naviToggle4")}>로그인</Link>}</li>
                         </ul>
                     </div>

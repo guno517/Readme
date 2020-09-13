@@ -1,11 +1,11 @@
 import React, {useState, useEffect} from "react";
-const Login = (props) => {
- 
+const Council = (props) => {
+
     return(
         <div>
-          로그인 페이지
+            학생회 페이지
         </div>
     )
 }
 
-export default Login;
+export default Council;

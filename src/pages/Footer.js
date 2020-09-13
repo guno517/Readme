@@ -74,13 +74,8 @@ const Footer = (props) =>{
             <div className = {"mob_menu"}>
                 <ul>
                     <li><Link to="/" className={naviToggle1&&'mobile_navi_click'} onClick={() => naviClick("naviToggle1")}>Home</Link></li>
-                    <li><Link to="/crewFind" className={naviToggle2&&'mobile_navi_click'} onClick={() => naviClick("naviToggle2")}>학생회</Link></li>
-                    <li>
-                        {session_name
-                            ?<Link to="/crewcreate" className={naviToggle3&&'mobile_navi_click'} onClick={() => naviClick("naviToggle3")}>선거</Link>
-                            :<Link to="/login" className={naviToggle3&&'mobile_navi_click'} onClick={() => naviClick("loginAlert")}>선거</Link>
-                        }
-                    </li>
+                    <li><Link to="/council" className={naviToggle2&&'mobile_navi_click'} onClick={() => naviClick("naviToggle2")}>학생회</Link></li>
+                    <li><Link to="/vote" className={naviToggle3&&'mobile_navi_click'} onClick={() => naviClick("naviToggle3")}>선거</Link></li>
                     <li>{session_name?<Link to="/login" className={naviToggle4&&'mobile_navi_click'} onClick={() => naviClick("logout")}>로그아웃</Link>:<Link to="/login" className={naviToggle4&&'mobile_navi_click'} onClick={() => naviClick("naviToggle4")}>로그인</Link>}</li>
                 </ul>
             </div>
