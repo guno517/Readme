@@ -1,9 +1,10 @@
 import React from 'react'
+import "./css/MainPoster.css"   
 
 const MainPoster = () => {
     return (
-        <div style={{height:'350px', border:'1px solid black', margin:'20px'}}>
-            MainPoster
+        <div className="poster">
+            <img className="poster_img" src="https://files.slack.com/files-pri/T019NDZRUJJ-F01A9A3UWUF/test.png"></img>
         </div>
     )
 }

@@ -7,6 +7,7 @@ const Header = (props) =>{
     const [naviToggle2, setNaviToggle2] = useState(false);
     const [naviToggle3, setNaviToggle3] = useState(false);
     const [naviToggle4, setNaviToggle4] = useState(false);
+    const [naviToggle5, setNaviToggle5] = useState(false);
     const [widthFlag, setWidth] = useState(true);
     const [session_name, setSession_name] = useState();
 
@@ -16,6 +17,7 @@ const Header = (props) =>{
             setNaviToggle2(false);
             setNaviToggle3(false);
             setNaviToggle4(false);
+            setNaviToggle5(false);
             
             const width = window.innerWidth;
             if(width <= 768){
@@ -27,18 +29,28 @@ const Header = (props) =>{
             setNaviToggle2(true);
             setNaviToggle3(false);
             setNaviToggle4(false);
+            setNaviToggle5(false);
         }
         else if(type === "naviToggle3"){
                 setNaviToggle1(false);
                 setNaviToggle2(false);
                 setNaviToggle3(true);
                 setNaviToggle4(false);
+                setNaviToggle5(false);
         }
         else if(type === "naviToggle4"){
             setNaviToggle1(false);
             setNaviToggle2(false);
             setNaviToggle3(false);
             setNaviToggle4(true);
+            setNaviToggle5(false);
+        }
+        else if(type === "naviToggle5"){
+            setNaviToggle1(false);
+            setNaviToggle2(false);
+            setNaviToggle3(false);
+            setNaviToggle4(false);
+            setNaviToggle5(true);
         }
         else if(type === "logout"){
             sessionStorage.clear();
@@ -66,7 +78,8 @@ const Header = (props) =>{
                             <li className={naviToggle1&&'navi_click'}><Link to="/" onClick={() => naviClick("naviToggle1")}>Home</Link></li>
                             <li className={naviToggle2&&'navi_click'}><Link to="/council" onClick={() => naviClick("naviToggle2")}>학생회</Link></li>
                             <li className={naviToggle3&&'navi_click'}><Link to="/vote" onClick={() => naviClick("naviToggle3")}>선거</Link></li>
-                            <li className={naviToggle4&&'navi_click'}>{session_name?<Link onClick={() => naviClick("logout") }>로그아웃</Link>:<Link to="/login" onClick={() => naviClick("naviToggle4")}>로그인</Link>}</li>
+                            <li className={naviToggle4&&'navi_click'}><Link to="/notice" onClick={() => naviClick("naviToggle4")}>공지사항</Link></li>
+                            <li className={naviToggle5&&'navi_click'}>{session_name?<Link onClick={() => naviClick("logout") }>로그아웃</Link>:<Link to="/login" onClick={() => naviClick("naviToggle4")}>로그인</Link>}</li>
                         </ul>
                     </div>
                 </div>
