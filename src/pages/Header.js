@@ -70,10 +70,6 @@ const Header = (props) =>{
         <div className = {"header"}>
             <div className = {"top"}>
                 <div className = {"logo"}>
-                    {/* 주석 부분은 확인하시면 지워주세요! */}
-                    {/* logo 이미지가 로드되지 않고 깨져서 public/images 폴더 추가해서 이미지 경로 변경했어요 */}
-                    {/* 이미지 화질 깨지지 않게 200px x 50px로 logo image 다시 제작했어요 */}
-                    {/* 앞으로 웹 페이지에서 필요한 사진 있으면 public/images 폴더에 추가하면 좋을 거 같아요! */}
                     {widthFlag ? <Link to="/" onClick={() => naviClick("naviToggle1")}><img src='/images/readmeLogo.png'></img></Link>:<Link><img src='/public/images/readmeLogo.png'></img></Link>}
                 </div>
                 <div className = {"navigation"}>
