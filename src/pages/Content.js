@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Council from './components/Council';
 import Vote from './components/Vote';
 import Notice from './components/Notice';
+
 const Content = () => {
     return(
         <div style={{marginTop:"59px"}}>
