@@ -6,8 +6,6 @@ const Main = () => {
     return(
         <div>
             <MainPoster></MainPoster>
-            <MainNotice></MainNotice>
-            <MainCouncilPreview></MainCouncilPreview>
         </div>
     )
 }

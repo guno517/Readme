@@ -1,41 +1,11 @@
 import React,{useState, useEffect} from 'react'
 import "./css/MainPoster.css"   
-import poster_img1 from '../../img/poster1.png'
-
-
-let posterStyle = {
-    width:"100%",
-    height:"1000px",
-    backgroundImage: `url(${poster_img1})`,
-    backgroundRepeat:"no-repeat",
-    backgroundSize:"cover",
-};
-let animate_wrap = {
-    paddingTop: "10%",
-    height: "250px",
-    margin: "0 auto",
-    width: "80%",
-    textAlign: "center",
-}
-
-let animate_wrap_p ={
-    color:"rgb(189,91,97)",
-    fontSize:'50px',
-    margin:0,
-    display:"inline-block",
-    transition: "2s",
-}
-let animate_wrap_p2 ={
-    color:'rgb(189,91,97)',
-    fontSize:'56px',
-    margin:0,
-    fontWeight:'600',
-    transition: "2s",
-}
+import poster2 from "../../img/poster2.png"
 
 const MainPoster = () => {
-    const [animateText, setanimateText] = useState('none')
+    const [animateText, setanimateText] = useState('animateText')
     const [animateText2, setanimateText2] = useState('none')
+    const [animate3, setAnimate3] = useState('none')
 
 const onAnimateText = () =>{
     setanimateText('animateText')
@@ -45,14 +15,39 @@ const onAnimateText = () =>{
 useEffect(() => {
         onAnimateText();
 }, [])
+
+function getCurrentScroll(){
+    return  window.scrollY
+    }
+
+document.addEventListener('scroll', () => {
+    const currentScroll = getCurrentScroll()
+
+    if (625 <= currentScroll){
+        setAnimate3('animate_on')
+        setanimateText('none')
+        setanimateText2('none')
+    }else if(currentScroll <= 500){
+        setAnimate3('none')
+        setanimateText('animateText')
+        setanimateText2('animateText2')
+    }else{
+        return 0;
+    }
+})
     return (
         <div>
-            <div style={posterStyle}>
-                <div className={"animate_wrap"} style={animate_wrap}>
-                    <p className={animateText}>공약보다 더</p>
-                    <p className={animateText2}>중요한건 실천입니다</p>
+            <div className={"poster1"}>
+                <div className={"animate_wrap"} >
+                    <p className={animateText}><span className={animateText2}>공약 </span>보다 더</p>
+                    <p className={animateText}>중요한건 <span className={animateText2}>실천 </span>입니다</p>
                 </div>
             </div>
+            <div className={"poster2"}>
+                <div  className={animate3}>
+                </div>
+            </div>
+            
         </div>
     )
 }
