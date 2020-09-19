@@ -1,21 +1,18 @@
 import React,{useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import "./css/Footer.css";
-
 const Footer = (props) =>{
     const [naviToggle1, setNaviToggle1] = useState(true);
     const [naviToggle2, setNaviToggle2] = useState(false);
     const [naviToggle3, setNaviToggle3] = useState(false);
     const [naviToggle4, setNaviToggle4] = useState(false);
     const [session_name, setSession_name] = useState();
-    
     const naviClick = (type) =>{
         if (type === "naviToggle1"){
             setNaviToggle1(true);
             setNaviToggle2(false);
             setNaviToggle3(false);
             setNaviToggle4(false);
-
         }else if(type === "naviToggle2"){
             setNaviToggle1(false);
             setNaviToggle2(true);
@@ -47,7 +44,6 @@ const Footer = (props) =>{
     useEffect(()=>{
         setSession_name(window.sessionStorage.getItem('name'))
     })
-
     return (
         <div className = {"footer"}>
             <div className = {"pc_footer"}>
@@ -62,7 +58,6 @@ const Footer = (props) =>{
                                                 <li>환불정책</li>
                                             </ul>
                                         </div>
-                                    
                                         <div className={"SNS"}>
                                             <ul>
                                                 <li><Link to="#"><img src="https://cdn.pixabay.com/photo/2017/06/22/06/22/facebook-2429746_960_720.png" width="30px" height="30px" alt="facebook"></img></Link></li>
@@ -82,5 +77,4 @@ const Footer = (props) =>{
         </div>
     )
 }
- 
 export default Footer;
