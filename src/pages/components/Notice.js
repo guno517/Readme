@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -36,6 +36,7 @@ const useStyles1 = makeStyles((theme) => ({
 }));
 
 function TablePaginationActions(props) {
+
   const classes = useStyles1();
   const theme = useTheme();
   const { count, page, rowsPerPage, onChangePage } = props;
@@ -154,6 +155,28 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
+  const [noticeData, setNoticeData] = useState(['']);
+
+  const fetchApi = async() =>{
+    await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:5000/notice")
+      .then((response) =>{
+        if(response.status === 200){
+          response.json()
+          .then(data => {
+            setNoticeData(data.notice)
+          })
+        }
+        else{
+          console.log("server error")
+        }
+      }      
+  )}
+
+  useEffect(() => {
+    fetchApi();
+  }, [])
+  
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">

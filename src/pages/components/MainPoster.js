@@ -1,6 +1,5 @@
 import React,{useState, useEffect} from 'react'
 import "./css/MainPoster.css"   
-import poster2 from "../../img/poster2.png"
 
 const MainPoster = () => {
     const [animateText, setanimateText] = useState('animateText')
