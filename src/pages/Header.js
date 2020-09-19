@@ -1,7 +1,6 @@
 import React,{useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import "./css/Header.css";
-
 const Header = (props) =>{
     const [naviToggle1, setNaviToggle1] = useState(true);
     const [naviToggle2, setNaviToggle2] = useState(false);
@@ -10,7 +9,6 @@ const Header = (props) =>{
     const [naviToggle5, setNaviToggle5] = useState(false);
     const [widthFlag, setWidth] = useState(true);
     const [session_name, setSession_name] = useState();
-
     const naviClick = (type) =>{
         if (type === "naviToggle1"){
             setNaviToggle1(true);
@@ -18,7 +16,6 @@ const Header = (props) =>{
             setNaviToggle3(false);
             setNaviToggle4(false);
             setNaviToggle5(false);
-            
             const width = window.innerWidth;
             if(width <= 768){
                 setWidth(false);
@@ -65,7 +62,6 @@ const Header = (props) =>{
     useEffect(()=>{
         setSession_name(window.sessionStorage.getItem('name'))
     })
-
     return (
         <div className = {"header"}>
             <div className = {"top"}>
@@ -87,5 +83,4 @@ const Header = (props) =>{
         </div>
     )
 }
-
-export default Header;
+export default Header
