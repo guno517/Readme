@@ -15,7 +15,6 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableHead from '@material-ui/core/TableHead';
-import "./css/MainNotice.css";
 
 //공지사항 테이블 상단 제목 작성자 작성일의 배경색, 글자색 및 테이블 폰트 크기 지정
 const StyledTableCell = withStyles((theme) => ({
