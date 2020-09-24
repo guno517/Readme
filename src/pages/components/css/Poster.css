@@ -1,0 +1,16 @@
+.poster_img{
+    min-height: 250px;
+    background-color: rgb(88,204,255);
+}
+/* 포스터 2 animation */
+
+.poster_img_on{
+    transition: 5s;
+    opacity: 1;
+}
+
+.none{
+    transition: 2.5s;
+    font-weight: 600;
+    opacity: 0;
+}
