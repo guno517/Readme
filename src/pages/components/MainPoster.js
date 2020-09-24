@@ -4,57 +4,83 @@ import "./css/MainPoster.css"
 
 const poster1 =  require("../../img/poster1.png");
 const poster2 =  require("../../img/poster2.png");
-const poster3 =  require("../../img/poster2.png");
+const poster3 =  require("../../img/poster1.png");
 const poster4 =  require("../../img/poster2.png");
 
 const MainPoster = () => {
-    const [animatePoster, setanimatePoster1] = useState('none')
+    const [animatePoster, setAnimatePoster1] = useState('none')
     const [animateText, setAnimateText] = useState('none')
-    const [animateText1, setanimateText1] = useState('none')
+    const [animateText1, setAnimateText1] = useState('none')
     const [posterImg2, setAnimatePoster2] = useState('none')
     const [posterImg3, setAnimatePoster3] = useState('none')
     const [posterImg4, setAnimatePoster4] = useState('none')
-    const [width, setWidth] = useState(1000)
-    const [divice, setDevice] = useState('pc')
+    const [width, setWidth] = useState()
+    const [width2, setWidth2] = useState()
+    const [width3, setWidth3] = useState()
+    const [device, setDevice] = useState('pc')
 
 const onAnimateText = () =>{
     setTimeout(()=>{
-        setanimatePoster1('poster1_on')
+        setAnimatePoster1('poster1_on')
     },100)
     setTimeout(()=>{
         setAnimateText('animate_text')
     },1400)
     setTimeout(()=>{
-        setanimateText1('animate_text1')
+        setAnimateText1('animate_text1')
     },3200)
 }
 
 // window 창 크기 별 scroll 분기를 위해
 const mobileCheck = () =>{
-    if(1600 < window.innerWidth){
-        setWidth(950)
-        setDevice('pc')
+
+    if(350 <= window.innerWidth && window.innerWidth <600){
+        setWidth(0)
+        setWidth2(160)
+        setWidth3(440)
+        setAnimatePoster2('poster_img_on')
     }
-    else if(1400 < window.innerWidth){ 
-        setWidth(750)
+    else if(600 <= window.innerWidth && window.innerWidth  < 800){ 
+        setWidth(0)
+        setWidth2(450)
+        setWidth3(980)
+        setAnimatePoster2('poster_img_on')
+
     }
-    else if(1200 < window.innerWidth){ 
-        setWidth(550)
+    else if(800 <= window.innerWidth && window.innerWidth  < 1000){ 
+        setWidth(100)
+        setWidth2(700)
+        setWidth3(130)
     }
-    else if(1000 < window.innerWidth){ 
-        setWidth(300)
+    else if(1000 <= window.innerWidth && window.innerWidth  < 1200){ 
+        setWidth(450)
+        setWidth2(1150)
+        setWidth3(1950)
+    }
+    else if(1200 <= window.innerWidth && window.innerWidth  < 1400){
+        setWidth(450)
+        setWidth2(1300)
+        setWidth3(2300)
+    }
+    else if(1400 <= window.innerWidth && window.innerWidth  < 1600){ 
+        setWidth(700)
+        setWidth2(1800)
+        setWidth3(2900)
+    }
+    else if(1600 < window.innerWidth){
+        setWidth(700)
+        setWidth2(1800)
+        setWidth3(3080)
     }
     else{
-        setWidth(5)
-        setDevice('mob')
-        setTimeout(()=>{
-            setAnimatePoster2('poster_img_on')
-        },300)
+        setWidth(950)
+        setWidth3(3000)
     }
 }
-useEffect(() => {
+useEffect( () => {
     mobileCheck();
     onAnimateText();
+
 }, [])
 
 // 마우스 위치 알기
@@ -64,22 +90,24 @@ function getCurrentScroll(){
 
 document.addEventListener('scroll', () => {
     const currentScroll = getCurrentScroll()
-    if(divice == 'pc'){
-        if (width <= currentScroll){
+    // if(divice === 'pc'){
+        if(currentScroll < width){
+            setAnimatePoster1('poster_img_on')
+        }
+        else if (width <= currentScroll && currentScroll < width2){
             setAnimatePoster2('poster_img_on')
-            setanimatePoster1('none')
-            setanimateText1('none')
-        }else if(currentScroll <= width){
-            setAnimatePoster2('none')
-            setanimatePoster1('poster1_on')
-            setanimateText1('animate_text1')
-        }else{
+        }else if(width2<= currentScroll && currentScroll < width3){
+            setAnimatePoster3('poster_img_on')
+        }else if(width3 <= currentScroll){
+            setAnimatePoster4('poster_img_on')
+        }
+        else{
             return 0;
         }
-    }else{
-        setanimatePoster1('poster1_on')
-        setAnimatePoster2('poster2_on')
-    }
+    // }else{
+    //     setAnimatePoster1('poster1_on')
+    //     setAnimatePoster2('poster2_on')
+    // }
 })
 
     return (
