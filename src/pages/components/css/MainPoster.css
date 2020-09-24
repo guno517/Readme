@@ -5,7 +5,7 @@
     min-height: 250px;
 }
 .poster1_on{
-    transition:3s;
+    transition:5s;
     opacity: 1;
 }
 .poster2{
@@ -14,12 +14,12 @@
 }
 /* 포스터 2 animation */
 .poster2_on{
-    transition: 2.5s;
+    transition: 5s;
     opacity: 1;
 }
 
 .none{
-    transition: 2s;
+    transition: 2.5s;
     font-weight: 600;
     opacity: 0;
 }
@@ -33,14 +33,14 @@
 }
 /* 포스터 1 텍스트 animation */
 .animate_text{
-    transition:3s;
+    transition:3.5s;
     color:rgb(189,91,97);
     font-size:46px;
     margin:0;
 }
 .animate_text1{
     font-weight: 600;
-    transition: 3.5s;
+    transition: 4s;
     opacity: 1;
     color:rgb(189,91,97);
     font-size:52px;
@@ -103,7 +103,7 @@
 
 @media (max-width: 480px) {
     .animate_wrap{
-        bottom: 80%;
+        bottom: 77.5%;
     }
     .animate_text{
         /* transition: 2.5s; */

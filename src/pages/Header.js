@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
 import Menu from "./components/Menu";
-
+import Logo from "../img/readmeLogo.png"
 import "./css/Header.css";
 const Header = (props) =>{
    
@@ -9,7 +9,7 @@ const Header = (props) =>{
         <div className = {"header"}>
             <div className = {"top"}>
                 <div className = {"logo"}>
-                    <Link to="/"><img src='/images/readmeLogo.png'></img></Link>
+                    <Link to="/"><img src={Logo}></img></Link>
                 </div>
                 <div className = {"navigation"}>
                     <div className={"pc_navigation"}>
