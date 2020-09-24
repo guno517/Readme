@@ -17,13 +17,13 @@ const MainPoster = () => {
 const onAnimateText = () =>{
     setTimeout(()=>{
         setanimatePoster1('poster1_on')
-    },300)
+    },100)
     setTimeout(()=>{
         setAnimateText('animate_text')
-    },1000)
+    },1400)
     setTimeout(()=>{
         setanimateText1('animate_text1')
-    },1500)
+    },3200)
 }
 const mobileCheck = () =>{
     if(1600 < window.innerWidth){

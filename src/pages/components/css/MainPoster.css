@@ -28,7 +28,7 @@
     width: 80%;
     text-align: center;
     position:absolute;
-    bottom: 57%;
+    bottom: 55%;
     left: 10%;
 }
 /* 포스터 1 텍스트 animation */
@@ -49,19 +49,19 @@
 
 @media (max-width: 1400px) {
     .animate_wrap{
-        bottom: 62%;
+        bottom: 60%;
     }
 }
 
 @media (max-width: 1260px) {
     .animate_wrap{
-        bottom: 65%;
+        bottom: 63%;
     }
 }
 
 @media (max-width: 1058px) {
     .animate_wrap{
-        bottom: 71%;
+        bottom: 69%;
     }
     .animate_text{
         /* transition: 2.5s; */
@@ -75,7 +75,7 @@
 
 @media (max-width: 768px) {
     .animate_wrap{
-        bottom: 76%;
+        bottom: 75%;
     }
     .animate_text{
         /* transition: 2.5s; */
@@ -89,7 +89,7 @@
 
 @media (max-width: 580px) {
     .animate_wrap{
-        bottom: 79%;
+        bottom: 78%;
     }
     .animate_text{
         /* transition: 2.5s; */
@@ -103,7 +103,7 @@
 
 @media (max-width: 480px) {
     .animate_wrap{
-        bottom: 82%;
+        bottom: 80%;
     }
     .animate_text{
         /* transition: 2.5s; */
