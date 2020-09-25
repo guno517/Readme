@@ -36,13 +36,12 @@
 /* 포스터 1 텍스트 animation */
 .animate_text{
     transition:3.5s;
-    color:rgb(189,91,97);
     font-size:46px;
     margin:0;
 }
 .animate_text1{
-    font-weight: 600;
     transition: 4s;
+    font-weight: 600;
     opacity: 1;
     color:rgb(189,91,97);
     font-size:52px;
@@ -86,12 +85,6 @@
     }
     .animate_text1{
         font-size:32px;
-    }
-    .poster1_on{
-        transition:10s;
-    }
-    .poster_img_on{
-        transition: 10s;
     }
 }
 

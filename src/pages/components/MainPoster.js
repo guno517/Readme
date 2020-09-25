@@ -52,25 +52,33 @@ const mobileCheck = () =>{
         setWidth(0)
         setWidth2(1)
         setWidth3(250)
-        setAnimatePoster2('poster_img_on')
+        setTimeout(()=>{
+            setAnimatePoster2('poster_img_on')
+        },1500)
     }
     else if(424 <= window.innerWidth && window.innerWidth <550){
         setWidth(0)
         setWidth2(100)
         setWidth3(400)
-        setAnimatePoster2('poster_img_on')
+        setTimeout(()=>{
+            setAnimatePoster2('poster_img_on')
+        },1500)
     }
     else if(550 <= window.innerWidth && window.innerWidth  < 700){ 
         setWidth(0)
         setWidth2(250)
         setWidth3(680)
-        setAnimatePoster2('poster_img_on')
+        setTimeout(()=>{
+            setAnimatePoster2('poster_img_on')
+        },1500)
     }
     else if(700 <= window.innerWidth && window.innerWidth  < 800){ 
         setWidth(0)
         setWidth2(450)
         setWidth3(950)
-        setAnimatePoster2('poster_img_on')
+        setTimeout(()=>{
+            setAnimatePoster2('poster_img_on')
+        },1500)
     }
     else if(800 <= window.innerWidth && window.innerWidth  < 1000){ 
         setWidth(100)
