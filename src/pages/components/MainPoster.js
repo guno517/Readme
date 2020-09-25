@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import Poster from "./Poster"
 import "./css/MainPoster.css"   
+import { useDispatch } from 'react-redux'
 
 const poster1 =  require("../../img/poster1.png");
 const poster2 =  require("../../img/poster2.png");
@@ -8,6 +9,9 @@ const poster3 =  require("../../img/poster1.png");
 const poster4 =  require("../../img/poster2.png");
 
 const MainPoster = () => {
+
+    const dispatch = useDispatch()
+
     const [animatePoster, setAnimatePoster1] = useState('none')
     const [animateText, setAnimateText] = useState('none')
     const [animateText1, setAnimateText1] = useState('none')
@@ -19,6 +23,17 @@ const MainPoster = () => {
     const [width3, setWidth3] = useState()
     const [device, setDevice] = useState('pc')
 
+useEffect( () => {
+    dispatch({
+        type:'UPDATE_MENU',
+        id:0
+    })
+
+    mobileCheck();
+    onAnimateText();
+
+}, [])
+    
 const onAnimateText = () =>{
     setTimeout(()=>{
         setAnimatePoster1('poster1_on')
@@ -33,55 +48,65 @@ const onAnimateText = () =>{
 
 // window 창 크기 별 scroll 분기를 위해
 const mobileCheck = () =>{
-
-    if(350 <= window.innerWidth && window.innerWidth <600){
+    if (window.innerWidth < 424){
         setWidth(0)
-        setWidth2(160)
-        setWidth3(440)
+        setWidth2(1)
+        setWidth3(250)
         setAnimatePoster2('poster_img_on')
     }
-    else if(600 <= window.innerWidth && window.innerWidth  < 800){ 
+    else if(424 <= window.innerWidth && window.innerWidth <550){
+        setWidth(0)
+        setWidth2(100)
+        setWidth3(400)
+        setAnimatePoster2('poster_img_on')
+    }
+    else if(550 <= window.innerWidth && window.innerWidth  < 700){ 
+        setWidth(0)
+        setWidth2(250)
+        setWidth3(680)
+        setAnimatePoster2('poster_img_on')
+    }
+    else if(700 <= window.innerWidth && window.innerWidth  < 800){ 
         setWidth(0)
         setWidth2(450)
-        setWidth3(980)
+        setWidth3(950)
         setAnimatePoster2('poster_img_on')
-
     }
     else if(800 <= window.innerWidth && window.innerWidth  < 1000){ 
         setWidth(100)
-        setWidth2(700)
-        setWidth3(130)
+        setWidth2(600)
+        setWidth3(1320)
     }
     else if(1000 <= window.innerWidth && window.innerWidth  < 1200){ 
-        setWidth(450)
-        setWidth2(1150)
-        setWidth3(1950)
+        setWidth(260)
+        setWidth2(1000)
+        setWidth3(1800)
     }
     else if(1200 <= window.innerWidth && window.innerWidth  < 1400){
-        setWidth(450)
-        setWidth2(1300)
-        setWidth3(2300)
+        setWidth(430)
+        setWidth2(1280)
+        setWidth3(2150)
     }
     else if(1400 <= window.innerWidth && window.innerWidth  < 1600){ 
-        setWidth(700)
-        setWidth2(1800)
-        setWidth3(2900)
+        setWidth(600)
+        setWidth2(1550)
+        setWidth3(2650)
     }
-    else if(1600 < window.innerWidth){
+    else if(1600 <= window.innerWidth && window.innerWidth  < 1800){
         setWidth(700)
         setWidth2(1800)
         setWidth3(3080)
+    }
+    else if(1800 <= window.innerWidth){
+        setWidth(900)
+        setWidth2(2100)
+        setWidth3(3400)
     }
     else{
         setWidth(950)
         setWidth3(3000)
     }
 }
-useEffect( () => {
-    mobileCheck();
-    onAnimateText();
-
-}, [])
 
 // 마우스 위치 알기
 function getCurrentScroll(){
@@ -90,7 +115,6 @@ function getCurrentScroll(){
 
 document.addEventListener('scroll', () => {
     const currentScroll = getCurrentScroll()
-    // if(divice === 'pc'){
         if(currentScroll < width){
             setAnimatePoster1('poster_img_on')
         }
@@ -104,10 +128,6 @@ document.addEventListener('scroll', () => {
         else{
             return 0;
         }
-    // }else{
-    //     setAnimatePoster1('poster1_on')
-    //     setAnimatePoster2('poster2_on')
-    // }
 })
 
     return (

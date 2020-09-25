@@ -5,7 +5,7 @@
     min-height: 250px;
 }
 .poster1_on{
-    transition:5s;
+    transition:7s;
     opacity: 1;
 }
 .poster_img{
@@ -15,12 +15,13 @@
 /* 포스터 2 animation */
 
 .poster_img_on{
-    transition: 5s;
+    transition: 10s;
     opacity: 1;
 }
 
 .none{
     transition: 2.5s;
+    zoom: 0.8;
     font-weight: 600;
     opacity: 0;
 }
@@ -74,9 +75,9 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 798px) {
     .animate_wrap{
-        bottom: 75%;
+        bottom: 76%;
     }
     .animate_text{
         /* transition: 2.5s; */
@@ -85,6 +86,12 @@
     }
     .animate_text1{
         font-size:32px;
+    }
+    .poster1_on{
+        transition:10s;
+    }
+    .poster_img_on{
+        transition: 10s;
     }
 }
 
