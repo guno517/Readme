@@ -1,0 +1,32 @@
+.demo-wrapper {
+    border: 1px solid #0D3C83 !important;
+    margin: 1%;
+    max-width: 100%;
+}
+
+.demo-editor {
+    height: 350px !important;
+    border: 1px solid #0D3C83 !important;
+    padding: 1% !important;
+    border-radius: 2px !important;
+    margin: 1%;
+}
+
+#title {
+    border: 1px solid #0D3C83;
+    padding: 10px;
+    border-radius: 2px !important;
+    margin-left: 1%;
+    margin-top: 1%;
+    max-width: 100%;
+}
+
+#savebutton {
+    float: right;
+    width: 100px;
+    border: 1px solid #f1f1f1;
+    border-radius: 2px !important;
+    margin-right: 1%;
+    background-color: black;
+    color: white;
+}

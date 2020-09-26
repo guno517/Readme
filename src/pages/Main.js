@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import MainPoster from "./components/MainPoster"
-import MainCouncilPreview from "./components/MainCouncilPreview"
 const Main = () => {
     return(
         <div>
