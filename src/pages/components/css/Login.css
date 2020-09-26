@@ -1,0 +1,107 @@
+.login_wrap{
+    margin: 130px 0px 50px 0px;
+    min-height: 450px;
+    height: 700px;
+}
+.login_form{
+    height:600px;
+    margin:0 auto;
+    border:1px solid rgb(90, 130, 190);
+    border-radius: 25px;
+    width: 35%;
+    margin: 0 auto;
+    padding: 0px 5%;
+}
+
+.login_form > h2{
+    text-align: center;
+    margin-bottom: 50px;
+    margin-top:40px;
+}
+
+.login_form > h4{
+    margin:15px 0px;
+}
+
+.login_form > input{
+    padding:5px;
+    width:100%;
+    height:30px;
+    border-radius: 5px;
+    border:1px solid #d3d3d3;
+    font-size: 18px;
+}
+.sign_button{
+    margin-top: 30px;
+}
+.sign_in{
+    display:inline-block;
+    width: 100%;
+    background-color: rgb(90, 130, 190);
+    padding:8px 0px;
+    border:1px solid #dddddd;
+    border-radius: 5px;
+    font-weight: 600;
+    outline: none;
+}
+.sign_up{
+    display:inline-block;
+    width: 100%;
+    background-color: white;
+    margin-top:10px;
+    padding:8px 0px;
+    border:1px solid #dddddd;
+    font-weight: 600;
+    outline: none;
+}
+.sign_in > a{
+    color:white;
+}
+.sign_up > a{
+    color:black;
+}
+
+button a{
+    display:inline-block;
+    width: 100%;
+    height: 100%;
+    font-size: 16px;
+}
+.forget{
+    display: inline-block;
+    text-align: right;
+    font-size: 15px;
+    margin-top:10px;
+    width:100%;
+}
+
+@media (max-width: 1058px) {
+    .login_form{
+        width: 50%;
+    }
+}
+@media (max-width: 480px) {
+    .login_form{
+        width: 90%;
+        border:none;
+    }
+	.login_form > h2{
+        margin:30px 0px;
+        font-size: 20px;
+    }
+    .login_form input{
+        padding:10px 0px 10px 5px;
+    }
+    .login_form button{
+        height: 35px;
+    }
+    .sign_up{
+        margin-top: 20px;
+    }
+    .sign_button{
+        margin-top: 50px;
+    }
+    .forget{
+        margin-top:30px;
+    }
+}

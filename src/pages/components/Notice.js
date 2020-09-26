@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import { withStyles, makeStyles, useTheme } from '@material-ui/core/styles';
 import Table from '@material-ui/core/Table';
@@ -15,7 +15,8 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 import TableHead from '@material-ui/core/TableHead';
-import "./css/MainNotice.css";
+import { useDispatch } from 'react-redux'
+
 
 //공지사항 테이블 상단 제목 작성자 작성일의 배경색, 글자색 및 테이블 폰트 크기 지정
 const StyledTableCell = withStyles((theme) => ({
@@ -36,6 +37,7 @@ const useStyles1 = makeStyles((theme) => ({
 }));
 
 function TablePaginationActions(props) {
+
   const classes = useStyles1();
   const theme = useTheme();
   const { count, page, rowsPerPage, onChangePage } = props;
@@ -154,6 +156,34 @@ export default function CustomPaginationActionsTable() {
     setPage(0);
   };
 
+  const [noticeData, setNoticeData] = useState(['']);
+
+  const fetchApi = async() =>{
+    await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:5000/notice")
+      .then((response) =>{
+        if(response.status === 200){
+          response.json()
+          .then(data => {
+            setNoticeData(data.notice)
+          })
+        }
+        else{
+          console.log("server error")
+        }
+      }      
+  )}
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    fetchApi();
+    // 이태희 네비게이션을 위해
+       dispatch({
+           type:'UPDATE_MENU',
+           id:3
+       })
+  }, [])
+  
+  
   return (
     <TableContainer component={Paper}>
       <Table className={classes.table} aria-label="custom pagination table">
