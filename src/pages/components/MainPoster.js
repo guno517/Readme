@@ -31,7 +31,7 @@ useEffect( () => {
 
     mobileCheck();
     onAnimateText();
-
+    
 }, [])
     
 const onAnimateText = () =>{
@@ -111,8 +111,9 @@ const mobileCheck = () =>{
         setWidth3(3400)
     }
     else{
-        setWidth(950)
-        setWidth3(3000)
+        setWidth(1)
+        setWidth2(1)
+        setWidth3(1)
     }
 }
 

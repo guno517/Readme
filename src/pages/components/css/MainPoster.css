@@ -36,6 +36,7 @@
 /* 포스터 1 텍스트 animation */
 .animate_text{
     transition:3.5s;
+    color:rgb(189,91,97);
     font-size:46px;
     margin:0;
 }
