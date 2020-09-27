@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { useDispatch } from 'react-redux'
-   
+
 const Vote = (props) => {
     const dispatch = useDispatch()
 
