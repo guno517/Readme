@@ -39,7 +39,7 @@ const Login = (props) => {
     }
 
     const LoginSubmit = async() =>{
-        const response = await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:5000/login", {
+        const response = await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/login", {
             method:"POST",
             body: {
                 id: id,

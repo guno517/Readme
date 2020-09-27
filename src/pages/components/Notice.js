@@ -19,6 +19,8 @@ import { Link } from 'react-router-dom';
 import "./css/Notice.css" 
 import { useDispatch } from 'react-redux'
 
+const noticeposter =  require("../../img/Notice.png");
+
 //공지사항 테이블 상단 제목 작성자 작성일의 배경색, 글자색 및 테이블 폰트 크기 지정
 const StyledTableCell = withStyles((theme) => ({
   head: {
@@ -190,7 +192,7 @@ export default function CustomPaginationActionsTable() {
       <TableContainer>
         <div>
             <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <img width="100%" src='/images/Notice.png'></img>
+            <img width="100%" src={noticeposter}></img>
         </div>
         <Table className={classes.table} aria-label="custom pagination table">
           <TableHead id="tablehead">
