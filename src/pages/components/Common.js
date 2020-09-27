@@ -6,7 +6,7 @@ const LinkComponent = (props) => {
     const { onClick } = props; //Menu Active Change Redux
 
     return(
-        <li ><Link onClick={()=>onClick(id)} to={link} style={{color:isActive ? 'red' : 'black'}} >{name}</Link></li>
+        <li ><Link to={link} style={{color:isActive ? 'white' : 'black'}} >{name}</Link></li>
     )
 }
 

@@ -5,21 +5,23 @@
     min-height: 250px;
 }
 .poster1_on{
-    transition:5s;
+    transition:7s;
     opacity: 1;
 }
-.poster2{
+.poster_img{
     min-height: 250px;
     background-color: rgb(88,204,255);
 }
 /* 포스터 2 animation */
-.poster2_on{
-    transition: 5s;
+
+.poster_img_on{
+    transition: 10s;
     opacity: 1;
 }
 
 .none{
     transition: 2.5s;
+    zoom: 0.8;
     font-weight: 600;
     opacity: 0;
 }
@@ -39,8 +41,8 @@
     margin:0;
 }
 .animate_text1{
-    font-weight: 600;
     transition: 4s;
+    font-weight: 600;
     opacity: 1;
     color:rgb(189,91,97);
     font-size:52px;
@@ -73,9 +75,9 @@
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 798px) {
     .animate_wrap{
-        bottom: 75%;
+        bottom: 76%;
     }
     .animate_text{
         /* transition: 2.5s; */
