@@ -41,14 +41,15 @@ const Login = (props) => {
     const LoginSubmit = async() =>{
         const response = await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:5000/login", {
             method:"POST",
-            body: {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
                 id: id,
-                pass: pass
-            }}
+                pass: pass         
+              })
+           }
         )
-        .catch(e => {
-            alert("login Fail");
-         })
         .then(async(response) => {
             const response_json = await response.json();
             const member = response_json.user[0];
@@ -56,12 +57,14 @@ const Login = (props) => {
                 sessionSave(arr, member[arr])
             }
         })
-        .catch(e => {
-           return e.message;
-        })
         .then(() =>{
-            alert("login Success");
+            alert("로그인에 성공하셨습니다.");
         })
+        .catch(e => {
+            window.location.href = "http://localhost:3000/login";
+           alert("로그인에 실패하셨습니다.");
+        })
+        
         return response;
     }
 
