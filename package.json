@@ -19,6 +19,8 @@
     "react-scripts": "3.4.3",
     "reactstrap": "^8.6.0",
     "recompose": "^0.30.0"
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -41,7 +43,9 @@
       "last 1 safari version"
     ]
   },
+  "homepage": "https://th0532.github.io/Readme/",
   "devDependencies": {
-    "cross-env": "^7.0.2"
+    "cross-env": "^7.0.2",
+    "gh-pages": "^3.1.0"
   }
 }

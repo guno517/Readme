@@ -1,7 +1,8 @@
-let mysql = require('mysql');
-let express = require('express');
-let bodyParser = require('body-parser');
-let app = express();
+const mysql = require('mysql');
+const express = require('express');
+const bodyParser = require('body-parser');
+const router = express.Router();
+const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,15 +48,39 @@ app.use('/notice', (req, res) => {
   });
 })
 
-app.use('/new', (req, res) => {
-  let sql = 'SELECT * FROM new';
+app.use('/activity', (req, res) => {
+  let sql = 'SELECT * FROM activity';
 
   connection.query(sql, function(err, result){
     res.json({new: result});
   });
 })
 
-app.get('/', function (req, res) {
+router.get('/', function (req, res, next) {
+  res.render('login');
+});
+
+router.post('/login', function (req, res, next) {
+  //var userId = req.body['userId'];
+  //var userPw = req.body['userPw'];
+  let userId = "test";
+  let userPw = "test";
+  connection.query('select * from test_user where id=\'' + userId + '\' and pw=\'' + userPw + '\'', function (err, rows, fields) {
+      if (!err) {
+          if (rows[0]!=undefined) {
+              res.send('id : ' + rows[0]['id'] + '<br>' +
+                  'pw : ' + rows[0]['pw']);
+          } else {
+              res.send('no data');
+          }
+
+      } else {
+          res.send('error : ' + err);
+      }
+  });
+});
+
+app.get('/home', function (req, res) {
   res.send('hello world')
 })
 
