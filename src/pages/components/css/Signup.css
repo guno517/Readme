@@ -28,6 +28,7 @@
     width: 45%;
     border:1px solid #d3d3d3;
     border-radius: 5px;
+    background-color: white;
 }
 .signup_form > input{
     padding:5px;
@@ -80,6 +81,10 @@ button a{
     }
 }
 @media (max-width: 480px) {
+    .signup_wrap {
+        margin: 60px 0px 50px 0px;
+        width:90%;
+    }
     .signup_form{
         width: 100%;
         border:none;
@@ -87,15 +92,20 @@ button a{
 	.signup_form > h2{
         margin:30px 0px;
         font-size: 20px;
+        width:100%;
     }
     .signup_form input{
-        padding:15px 10px;
+        width: 100%;
     }
     .signup_form .sign_up{
         height: 35px;
     }
+    .signup_signup{
+        width: 100%;
+    }
     .idCheck{
         right:5%;
         height: 45px;
+        display: block;
     }
 }
