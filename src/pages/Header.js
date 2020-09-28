@@ -5,6 +5,7 @@ import Menu from "./components/Menu";
 import Logo from "../img/readmeLogo.png"
 import "./css/Header.css";
 
+
 const Header = (props) =>{
     const dispatch = useDispatch()
      const menuActive = (id) => {
@@ -13,6 +14,14 @@ const Header = (props) =>{
             id:id
         })
     }
+
+    useEffect(()=>{
+        if(window.sessionStorage.getItem("id") !== null){
+            dispatch({
+                type:"LOGIN_MENU",
+            })
+        }
+    })
 
     return (
         <div className = {"header"}>

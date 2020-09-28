@@ -184,7 +184,8 @@ export default function CustomPaginationActionsTable() {
     // 이태희 네비게이션을 위해
        dispatch({
            type:'UPDATE_MENU',
-           id:3
+           id:3,
+           name:"공지사항"
        })
   }, [])
   

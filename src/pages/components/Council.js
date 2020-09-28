@@ -8,7 +8,8 @@ const Council = (props) => {
     useEffect(()=>{
         dispatch({
             type:'UPDATE_MENU',
-            id:1
+            id:1,
+            name:"학생회"
         })
      })
     return(
