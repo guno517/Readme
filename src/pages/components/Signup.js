@@ -3,8 +3,6 @@ import { Link } from 'react-router-dom';
 import "./css/Signup.css";
 const Signup = () => {
     // const [idOverlapCheck, setIdOverlapCheck] = useState(false);
-    const [signUpSuccess, setSignUpSuccess] = useState(false);
-
     const [name, setName] = useState('');
     const [id, setId] = useState('');
     const [college, setCollege] = useState('');
@@ -12,6 +10,38 @@ const Signup = () => {
     const [student_number, setStudent_number] = useState('');
     const [userPw, setUserPw] = useState('');
     const [userPwCheck, setUserPwCheck] = useState('');
+
+    const signOk = async() =>{
+        const response = await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/signup',{
+            method:"POST",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body:JSON.stringify({
+                name:name,
+                id:id,
+                college:college,
+                department:department,
+                student_number:student_number,
+                pass:userPw,
+                userPwCheck:userPwCheck
+            })
+        })
+        .then(async(response) =>{
+            console.log(response)
+            // 건오 api 개발시 수정 
+            // if(idOverlapCheck){
+            //     alert("ID 중복 체크를 해주세요");
+            // }
+            // else{
+                alert("회원가입이 완료 되었습니다.");
+                window.history.go(0)
+            // }
+        })
+        .catch(e => {  // API 호출이 실패한 경우
+            alert("회원가입에 실패하였습니다.")
+        });
+    }
 
     const onChangeValue = (e) => {
         if(e.target.className === "name"){
@@ -30,7 +60,7 @@ const Signup = () => {
             setUserPwCheck(e.target.value)
         }
     }
-    const dataSubmit = async() =>{
+    const dataSubmit = () =>{
         let day = new Date();
         let y = day.getFullYear();
         let m = day.getMonth()+1;
@@ -38,40 +68,7 @@ const Signup = () => {
         let h = day.getHours();
         let i = day.getMinutes();
         let time = y+"-"+m+"-"+d+" "+h+":"+i;
-        if(!signUpSuccess){
-            checkSignUp(college, department, name, id, student_number, userPw, userPwCheck);
-        }else{
-            const response = await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/signup',{
-                method:"POST",
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body:JSON.stringify({
-                    name:name,
-                    id:id,
-                    college:college,
-                    department:department,
-                    student_number:student_number,
-                    pass:userPw,
-                    userPwCheck:userPwCheck
-                })
-            })
-            .then(async(response) =>{
-                console.log(response)
-                // 건오 api 개발시 수정 
-                // if(idOverlapCheck){
-                //     alert("ID 중복 체크를 해주세요");
-                // }
-                // else{
-                    alert("회원가입이 완료 되었습니다.");
-                    window.history.go(0)
-                // }
-            })
-            .catch(e => {  // API 호출이 실패한 경우
-                alert("회원가입에 실패하였습니다.")
-                // window.history.go(0)
-            });
-        }
+        checkSignUp(college, department, name, id, student_number, userPw, userPwCheck);
     }
     // 건오 api 개발시 수정 
     //   const IdCheck = () =>{
@@ -143,7 +140,8 @@ const Signup = () => {
             //     alert('이메일 형식을 확인해주세요');
             // }
             else{
-                setSignUpSuccess(true);
+                signOk()
+                window.history.go(-1)
             }
         }
 
@@ -185,7 +183,7 @@ const Signup = () => {
                     <h4>Password Check</h4>
                     <input className={"userPwCheck"} type="password" placeholder="password" onChange={onChangeValue}></input>
                     
-                    <button className={"signup_signup"} type="button" onClick = {dataSubmit}><Link to="/" >Sign up</Link></button>
+                    <button className={"signup_signup"} type="button" onClick = {dataSubmit}>Sign up</button>
                     </div>
             </div>
         </div>
