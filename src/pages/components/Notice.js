@@ -162,9 +162,8 @@ export default function CustomPaginationActionsTable() {
   };
 
   const [noticeData, setNoticeData] = useState(['']);
-
   const fetchApi = async() =>{
-    await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:5000/notice")
+    await fetch("http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice")
       .then((response) =>{
         if(response.status === 200){
           response.json()
@@ -184,8 +183,7 @@ export default function CustomPaginationActionsTable() {
     // 이태희 네비게이션을 위해
        dispatch({
            type:'UPDATE_MENU',
-           id:3,
-           name:"공지사항"
+           id:3
        })
   }, [])
   

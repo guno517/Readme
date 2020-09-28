@@ -104,7 +104,7 @@ const Login = (props) => {
                     <input className={"pass"} type="PassWord" onChange={changeInput} placeholder="PassWord"></input>
                     <div className={"sign_button"}>
                         <button className={"sign_in"} type="button" onClick = {LoginSubmit}><Link to="/">Sign in</Link></button>
-                        <button className={"sign_up"} type="button"><Link onClick={ready} to="/">Sign up</Link></button>
+                        <button className={"sign_up"} type="button"><Link to="/signup">Sign up</Link></button>
                         <span className={"forget"}><Link onClick={ready} to="/">로그인 정보를 잊어 버리 셨나요?</Link></span>
                     </div>
                 </div>
