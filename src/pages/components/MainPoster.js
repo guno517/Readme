@@ -155,8 +155,8 @@ document.addEventListener('scroll', () => {
                     <p className={animateText}>중요한건 <span className={animateText1}>실천 </span>입니다</p>
                 </div>
             </div>
-            <Poster class={posterImg2} img={poster2}></Poster>
-            <Poster class={posterImg3} img={poster3}></Poster>
+            <Poster class1={"poster_img"} class2={posterImg2} img={poster2}></Poster>
+            <Poster class1={"poster_img"} class2={posterImg3} img={poster3}></Poster>
             {/* <Poster class={posterImg4} img={poster4}></Poster> */}
         </div>
     )
