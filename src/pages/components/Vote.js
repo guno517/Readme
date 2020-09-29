@@ -7,7 +7,8 @@ const Vote = (props) => {
     useEffect(()=>{
        dispatch({
            type:'UPDATE_MENU',
-           id:2
+           id:2,
+           name:"선거"
        })
     })
 

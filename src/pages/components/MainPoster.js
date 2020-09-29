@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux'
 
 const poster1 =  require("../../img/poster1.png");
 const poster2 =  require("../../img/poster2.png");
-const poster3 =  require("../../img/poster1.png");
-const poster4 =  require("../../img/poster2.png");
+const poster3 =  require("../../img/poster3.png");
+// const poster4 =  require("../../img/poster2.png");
 
 const MainPoster = () => {
 
@@ -17,16 +17,17 @@ const MainPoster = () => {
     const [animateText1, setAnimateText1] = useState('none')
     const [posterImg2, setAnimatePoster2] = useState('none')
     const [posterImg3, setAnimatePoster3] = useState('none')
-    const [posterImg4, setAnimatePoster4] = useState('none')
+    // const [posterImg4, setAnimatePoster4] = useState('none')
     const [width, setWidth] = useState()
     const [width2, setWidth2] = useState()
-    const [width3, setWidth3] = useState()
+    // const [width3, setWidth3] = useState()
     const [device, setDevice] = useState('pc')
 
 useEffect( () => {
     dispatch({
         type:'UPDATE_MENU',
-        id:0
+        id:0,
+        name:"Home"
     })
 
     mobileCheck();
@@ -50,24 +51,24 @@ const onAnimateText = () =>{
 const mobileCheck = () =>{
     if (window.innerWidth < 424){
         setWidth(0)
-        setWidth2(1)
-        setWidth3(250)
+        setWidth2(50)
+        // setWidth3(250)
         setTimeout(()=>{
             setAnimatePoster2('poster_img_on')
-        },1500)
+        },500)
     }
     else if(424 <= window.innerWidth && window.innerWidth <550){
         setWidth(0)
         setWidth2(100)
-        setWidth3(400)
+        // setWidth3(400)
         setTimeout(()=>{
             setAnimatePoster2('poster_img_on')
-        },1500)
+        },500)
     }
     else if(550 <= window.innerWidth && window.innerWidth  < 700){ 
         setWidth(0)
         setWidth2(250)
-        setWidth3(680)
+        // setWidth3(680)
         setTimeout(()=>{
             setAnimatePoster2('poster_img_on')
         },1500)
@@ -75,7 +76,7 @@ const mobileCheck = () =>{
     else if(700 <= window.innerWidth && window.innerWidth  < 800){ 
         setWidth(0)
         setWidth2(450)
-        setWidth3(950)
+        // setWidth3(950)
         setTimeout(()=>{
             setAnimatePoster2('poster_img_on')
         },1500)
@@ -83,37 +84,37 @@ const mobileCheck = () =>{
     else if(800 <= window.innerWidth && window.innerWidth  < 1000){ 
         setWidth(100)
         setWidth2(600)
-        setWidth3(1320)
+        // setWidth3(1320)
     }
     else if(1000 <= window.innerWidth && window.innerWidth  < 1200){ 
         setWidth(260)
         setWidth2(1000)
-        setWidth3(1800)
+        // setWidth3(1800)
     }
     else if(1200 <= window.innerWidth && window.innerWidth  < 1400){
         setWidth(430)
         setWidth2(1280)
-        setWidth3(2150)
+        // setWidth3(2150)
     }
     else if(1400 <= window.innerWidth && window.innerWidth  < 1600){ 
         setWidth(600)
         setWidth2(1550)
-        setWidth3(2650)
+        // setWidth3(2650)
     }
     else if(1600 <= window.innerWidth && window.innerWidth  < 1800){
         setWidth(700)
         setWidth2(1800)
-        setWidth3(3080)
+        // setWidth3(3080)
     }
     else if(1800 <= window.innerWidth){
         setWidth(900)
         setWidth2(2100)
-        setWidth3(3400)
+        // setWidth3(3400)
     }
     else{
         setWidth(1)
         setWidth2(1)
-        setWidth3(1)
+        // setWidth3(1)
     }
 }
 
@@ -129,11 +130,17 @@ document.addEventListener('scroll', () => {
         }
         else if (width <= currentScroll && currentScroll < width2){
             setAnimatePoster2('poster_img_on')
-        }else if(width2<= currentScroll && currentScroll < width3){
-            setAnimatePoster3('poster_img_on')
-        }else if(width3 <= currentScroll){
-            setAnimatePoster4('poster_img_on')
         }
+        else if(width2<= currentScroll){
+            setAnimatePoster3('poster_img_on')
+        }
+        // 포스터 3 추가시 위에 분기 지우고
+        // else if(width2<= currentScroll && currentScroll < width3){
+        //     setAnimatePoster3('poster_img_on')
+        // }
+        // else if(width3 <= currentScroll){
+        //     setAnimatePoster4('poster_img_on')
+        // }
         else{
             return 0;
         }
@@ -150,7 +157,7 @@ document.addEventListener('scroll', () => {
             </div>
             <Poster class={posterImg2} img={poster2}></Poster>
             <Poster class={posterImg3} img={poster3}></Poster>
-            <Poster class={posterImg4} img={poster4}></Poster>
+            {/* <Poster class={posterImg4} img={poster4}></Poster> */}
         </div>
     )
 }
