@@ -36,6 +36,9 @@ const StyledTableCell = withStyles((theme) => ({
 const useStyles = makeStyles((theme) => ({
     button: {
         margin: theme.spacing(1),
+        marginRight: "10%",
+        display: "block",
+        float: "right",
     },
     root: {
         flexShrink: 0,
@@ -135,34 +138,40 @@ export default function CustomPaginationActionsTable() {
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, noticeData.length - page * rowsPerPage);
 
     return (
-        <TableContainer>
+        <TableContainer className={classes.container}>
             <img id="NoticePoster" src={NoticePoster}></img>
-            <Table className={classes.table} aria-label="custom pagination table">
+            <Table className={classes.table} id="NoticeTable" aria-label="custom pagination table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell align="center">번호</StyledTableCell>
                         <StyledTableCell align="center">제목</StyledTableCell>
-                        <StyledTableCell id = "MobileNotice" align="center">작성자</StyledTableCell>
-                        <StyledTableCell id = "MobileNotice" align="center">작성일</StyledTableCell>
-                        <StyledTableCell id = "MobileNotice" align="center">조회수</StyledTableCell>
+                        <StyledTableCell id="MobileNotice" align="center">
+                            작성자
+                        </StyledTableCell>
+                        <StyledTableCell id="MobileNotice" align="center">
+                            작성일
+                        </StyledTableCell>
+                        <StyledTableCell id="MobileNotice" align="center">
+                            조회수
+                        </StyledTableCell>
                     </TableRow>
                 </TableHead>
                 <TableBody>
                     {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row) => (
                         <TableRow key={row.index}>
-                            <TableCell style={{ width: 30 }} align="center" padding="5px">
+                            <TableCell style={{ width: 20 }} align="center" padding="5px">
                                 {row.index}
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 {row.title}
                             </TableCell>
-                            <TableCell id = "MobileNotice" style={{ width: 80 }} align="center" padding="5px">
+                            <TableCell id="MobileNotice" style={{ width: 80 }} align="center" padding="5px">
                                 {row.writer}
                             </TableCell>
-                            <TableCell id = "MobileNotice" style={{ width: 90 }} align="center" padding="5px">
+                            <TableCell id="MobileNotice" style={{ width: 90 }} align="center" padding="5px">
                                 {row.time}
                             </TableCell>
-                            <TableCell id = "MobileNotice" style={{ width: 50 }} align="center" padding="5px">
+                            <TableCell id="MobileNotice" style={{ width: 50 }} align="center" padding="5px">
                                 {row.view}
                             </TableCell>
                         </TableRow>
@@ -172,9 +181,10 @@ export default function CustomPaginationActionsTable() {
                             <TableCell colSpan={10} />
                         </TableRow>
                     )}
-                    {/* <TableFooter>
+                </TableBody>
+                <TableFooter>
+                    <TableRow>
                         <TablePagination
-                            rowsPerPageOptions={[10, 25, { label: "All", value: -1 }]}
                             colSpan={10}
                             count={noticeData.length}
                             rowsPerPage={rowsPerPage}
@@ -187,16 +197,14 @@ export default function CustomPaginationActionsTable() {
                             onChangeRowsPerPage={handleChangeRowsPerPage}
                             ActionsComponent={TablePaginationActions}
                         />
-                    </TableFooter> */}
-                </TableBody>
+                    </TableRow>
+                </TableFooter>
             </Table>
-            <div>
-                <Link to="/editor">
-                    <Button id="uploadbutton" variant="contained" color="default" className={classes.button}>
-                        Upload
-                    </Button>
-                </Link>
-            </div>
+            <Link to="/editor">
+                <Button id="uploadbutton" variant="contained" color="default" className={classes.button} id="Upload">
+                    Upload
+                </Button>
+            </Link>
         </TableContainer>
     );
 }
