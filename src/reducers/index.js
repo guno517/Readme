@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
 import menu from './menu'
-import login from './login'
+import vote from './vote'
 
 export default combineReducers({
     menu,
-    // login
+    vote,
 })

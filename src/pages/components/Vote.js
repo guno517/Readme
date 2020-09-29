@@ -1,5 +1,9 @@
 import React, {useState, useEffect} from "react";
-import { useDispatch } from 'react-redux'
+import {useSelector, useDispatch } from 'react-redux'
+import VoteHeader from "./VoteHeader";
+import VoteInfo from "./VoteInfo";
+import VoteCandidate from "./VoteCandidate";
+import VoteResult from "./VoteResult";
 
 const Vote = (props) => {
     const dispatch = useDispatch()
@@ -12,9 +16,15 @@ const Vote = (props) => {
        })
     })
 
+    const state = useSelector(state => state.vote)
     return(
         <div>
-            선거 페이지
+            <VoteHeader voteMenu={state}></VoteHeader>
+            {state[0].isActive ? <VoteInfo/>:""}
+            {state[1].isActive ? <VoteCandidate/>:""}
+            {state[2].isActive ? <VoteResult/>:""}
+
+            {/* <VoteInfo></VoteInfo> */}
         </div>
     )
 }

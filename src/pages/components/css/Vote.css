@@ -1,0 +1,44 @@
+
+.vote_ul{
+    color: "black";
+    background-color: "white";
+    padding:3px;
+    width:40%;
+    height:50px;
+    margin:0 auto;
+    margin-top:100px;
+    display: flex;
+}
+
+.vote_ul > li{
+    float:left;
+    flex:1;
+    padding:5px 0px;
+    font-size: 22px;
+    font-weight: 600;
+    border:1px solid rgb(90, 130, 190);
+    text-align: center;
+}
+
+.vote_poster{
+    width:60%;
+    margin:0 auto;
+    margin-top:100px;
+    border:5px solid black;
+}
+
+@media (max-width: 768px) {
+    .vote_ul{
+        width:60%;
+        margin-top:30px;
+    }
+    .vote_poster{
+        width:80%;
+    }
+}
+@media (max-width: 540px) {
+    .vote_ul{
+        width:80%;
+    }
+
+}

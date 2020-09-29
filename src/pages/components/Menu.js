@@ -8,7 +8,7 @@ const Menu = () => {
     return (
         <ul>
              {menu.map((list, index)=>(
-                <LinkComponent key={index} menu={list} />
+                <LinkComponent key={index} link={list.link} name={list.name} isActive={list.isActive} activeColor={"white"} isNotActiveColor={"black"} />
              ))}
         </ul>
     )
