@@ -5,34 +5,15 @@ const router = express.Router();
 const app = express();
 const cors = require('cors');
 
-app.use(cors());
+const signupRouter = require('./routes/signup');
 
+app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-
-// app.use((req, res, next) => { 
-//   res.header("Access-Control-Allow-Origin", "*") 
-//   res.header(
-//       "Access-Control-Allow-Headers",
-//       "Origin, X-Requested-With, Content-Type, Accept, Authorization"
-//   );
-//   if(req.method === 'OPTIONS'){
-//       res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE, GET'); 
-//       return res.status(200).json({});
-//   }
-//   next();
-// })
-
-let db_config = {
-  host: "readme.crmkq7ncuwo3.ap-northeast-2.rds.amazonaws.com",
-  user: "readme",
-  password: "readme1234",
-  database: "readme"
-};
+let db_config = require('./db');
 
 let connection = mysql.createConnection(db_config);
 
@@ -91,6 +72,14 @@ app.use('delete/notice', (req, res) => {
 
 })
 
+// 이태희 검색기능 추가
+app.use('/search', function (req, res, next) {
+  let title = req.body['content']
+  connection.query("select * from notice where title Like '"+title+"'", function (err, rows, fields) {
+      res.json({ notice_search: rows });
+  });
+});
+
 app.use('/activity', (req, res) => {
   let sql = 'SELECT * FROM activity';
 
@@ -122,45 +111,7 @@ app.use('/login', function (req, res, next) {
   });
 });
 
-function checkId(userId) {
-  if (checkId) {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-app.use('/signup', function (req, res, next) {
-  // let userId = req.body['id'];
-  // let userPw = req.body['pass'];
-  // let userPwCheck = req.body['userPwCheck'];
-  // let name = req.body['name'];
-  // let college = req.body['college'];
-  // let department = req.body['department'];
-  // let student_number = req.body['student_number'];
-
-  let userId = "test1"
-  let userPw = "test1"
-  let userPwCheck = "test1"
-  let name = "test"
-  let college = "test"
-  let department = "test"
-  let student_number = 201611111
-
-  if (userPw == userPwCheck) {
-    connection.query('insert into member values(?,?,?,?,?,?,?,?)', ['', userId, userPw, name, college, department, student_number, ''], function (err, result) {
-      if (!err) {
-          res.send('회원가입성공');
-          console.log(req.body);
-      } else {
-        res.send('error:' + err);
-        console.log(err);
-      }
-    });
-  } else {
-    res.send("password is not match")
-  }
-})
+app.use('/signup', signupRouter);
 
 router.get('/', function (req, res, next) {
   res.render('password-change');
