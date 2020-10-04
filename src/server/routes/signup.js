@@ -47,10 +47,12 @@ router.get('/check', function(req,res,next) {
         //console.log(data.length);
         if(data.length == 0){
           console.log("중복되는 ID없음");
-          res.send("사용가능한 ID!")
+          res.send("사용가능한 ID!");
+          return true;
         } else {
           console.log("중복된 아이디가 있음");
           res.send("ID중복!")
+          return false;
         }
       } else {
         console.log(err);

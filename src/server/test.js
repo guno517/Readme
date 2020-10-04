@@ -6,6 +6,7 @@ const app = express();
 const cors = require('cors');
 
 const signupRouter = require('./routes/signup');
+const noticeRouter = require('./routes/notice');
 
 app.use(cors());
 app.use(bodyParser.json());
@@ -41,13 +42,13 @@ function handleDisconnect() {
 
 handleDisconnect();
 
-app.use('/notice', (req, res) => {
-  let sql = 'SELECT  * FROM notice';
+// app.use('/notice', (req, res) => {
+//   let sql = 'SELECT  * FROM notice';
 
-  connection.query(sql, function (err, result) {
-    res.json({ notice: result });
-  });
-})
+//   connection.query(sql, function (err, result) {
+//     res.json({ notice: result });
+//   });
+// })
 
 app.use('/insert/notice', (req, res) => {
   console.log("게시글 db에 저장");
@@ -112,6 +113,7 @@ app.use('/login', function (req, res, next) {
 });
 
 app.use('/signup', signupRouter);
+app.use('/notice', noticeRouter);
 
 router.get('/', function (req, res, next) {
   res.render('password-change');
