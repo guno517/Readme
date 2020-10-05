@@ -12,7 +12,7 @@ import NoticeEditor from './components/NoticeEditor';
 import NoticeDetail from './components/NoticeDetail';
 
 const Content = () => {
-
+ 
     return(
         <div style={{marginTop:"59px"}}>
             <Route exact path="/" component={Main}/>
