@@ -7,7 +7,9 @@ const Footer = (props) =>{
         <div className = {"footer"}>
             <div className = {"pc_footer"}>
                 <div className={"copyright"}>
-                    <p>© 2020 Readme, Inc. All rights reserved</p>
+                    <ul>
+                        <li>© 2020 Readme, Inc. All rights reserved</li>
+                    </ul>
                 </div>
                 <div className={"sitemap"}>
                     <ul>
