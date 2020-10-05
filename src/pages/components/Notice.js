@@ -39,6 +39,8 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "10%",
         display: "block",
         float: "right",
+        backgroundColor:'#59AAEB',
+        color:'white',
     },
     root: {
         flexShrink: 0,
@@ -98,7 +100,6 @@ TablePaginationActions.propTypes = {
 };
 
 export default function CustomPaginationActionsTable() {
-
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -159,12 +160,14 @@ export default function CustomPaginationActionsTable() {
                 </TableHead>
                 <TableBody>
                     {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row) => (
-                        <TableRow key={row.index}>
+                        <TableRow>
                             <TableCell style={{ width: 20 }} align="center" padding="5px">
                                 {row.index}
                             </TableCell>
                             <TableCell component="th" scope="row">
-                                {row.title}
+                                <Link id={row.index} to = {`/notice_detail/${row.index}`}>
+                                    {row.title}
+                                </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 80 }} align="center" padding="5px">
                                 {row.writer}
@@ -202,7 +205,7 @@ export default function CustomPaginationActionsTable() {
                 </TableFooter>
             </Table>
             <Link to="/editor">
-                <Button id="uploadbutton" variant="contained" color="default" className={classes.button} id="Upload">
+                <Button id="uploadbutton" variant="contained" className={classes.button} id="Upload">
                     Upload
                 </Button>
             </Link>
