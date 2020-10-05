@@ -137,10 +137,40 @@ export default function CustomPaginationActionsTable() {
     }, []);
 
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, noticeData.length - page * rowsPerPage);
-
+        
+        const [title, setTitle] = useState('');
+        
+        const onChangeValue = (e) =>{
+            setTitle(e.target.value);
+        }
+    
+        const searchActive = async() =>{
+            const response = await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/search',{
+                method:"POST",
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body:JSON.stringify({
+                    title:title
+                })
+            })
+            .then(async(response)=>{
+                let response_json = await response.json();
+                setNoticeData(response_json.notice_search)    
+            })
+        }
+        
     return (
         <TableContainer className={classes.container}>
             <img id="NoticePoster" src={NoticePoster}></img>
+            <div style={{ width:'80%', margin:'0 auto', textAlign:'right'}}>
+                <div style={{display:'inline-block', width:'100%', marginTop:"100px", marginBottom:"3%"}}>
+                    <span style={{fontSize:'18px', marginRight:"10px"}}>내용: </span>
+                    <input onChange={onChangeValue} type="text" style={{width:'200px',height:'30px',fontSize:'18px'}}></input>
+                    <button onClick={searchActive} style={{fontSize:'18px', marginLeft:"20px", height:'38px', backgroundColor:'white', border:'1px solid #bbbbbb', verticalAlign:'bottom'}}>검색</button>
+                </div>
+            </div>
+
             <Table className={classes.table} id="NoticeTable" aria-label="custom pagination table">
                 <TableHead>
                     <TableRow>

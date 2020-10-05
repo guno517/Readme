@@ -2,26 +2,28 @@ import React, {useState, useEffect} from "react";
 
 const Search = (props) => {
     
-    const [content, setContent] = useState('');
+    const [title, setTitle] = useState('');
     
     const onChangeValue = (e) =>{
-        setContent(e.target.value);
+        setTitle(e.target.value);
     }
 
     const searchActive = async() =>{
-        const response = await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/search',{
+        const response = await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/search',{
             method:"POST",
             headers: {
                 'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                content:content
+                title:title
             })
         })
         .then(async(response)=>{
-            const data = await response.json();
-        })
+            console.log(response)
 
+            let response_json = await response.json();
+            console.log(response_json)
+        })
     }
     return(
         <div style={{width:'500px', marginTop:"100px", marginLeft:"50px"}}>
