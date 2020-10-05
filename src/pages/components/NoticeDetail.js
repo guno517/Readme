@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/NoticeDetail.css";
 
-const NoticeDatail = ( props ) => {
+const NoticeDetail = ( props ) => {
     const NoticePoster = require("../../img/Notice.png");
     const [noticeData, setNoticeData] = useState([""]);
     const path = props.location.pathname.split("/");
@@ -26,20 +26,18 @@ const NoticeDatail = ( props ) => {
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
-            <div>
-                <dt>index</dt>
-                <dd>{noticeData[0].index}</dd>
-                <dt>title</dt>
-                <dd>{noticeData[0].title}</dd>
-                <dt>writer</dt>
-                <dd>{noticeData[0].writer}</dd>
-                <dt>time</dt>
-                <dd>str.substr({noticeData[0].time}</dd>
-                <dt>content</dt>
-                <dd>{noticeData[0].content}</dd>
+            <div id="NoticeContent">
+                <p id="Hello">제목 | {noticeData[0].title}</p>
+                <p>조회수 | {noticeData[0].view}</p>
+                <p>작성자 | {noticeData[0].writer}</p>
+                <p>작성일 | {noticeData[0].time}</p>
+                <p>첨부파일 | {noticeData[0].attachment}</p>
+                <br></br>
+                <p>{noticeData[0].img}</p>
+                <p>{noticeData[0].content}</p>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default NoticeDatail;
+export default NoticeDetail;

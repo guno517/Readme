@@ -23,6 +23,7 @@ const Content = () => {
             <Route path="/council" component={Council}/>
             <Route path="/vote" component={Vote}/>
             <Route path="/notice" component={Notice}/>
+            <Route path="/editor" component={NoticeEditor}/>
             <Route path="/notice_detail" component={NoticeDetail}/>
         </div>
     )
