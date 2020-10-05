@@ -8,7 +8,7 @@ import Council from './components/Council';
 import Vote from './components/Vote';
 import Search from './components/Search';
 import Notice from './components/Notice';
-import Editor from './components/NoticeEditor'
+import NoticeEditor from './components/NoticeEditor'
 
 const Content = () => {
 
@@ -22,7 +22,7 @@ const Content = () => {
             <Route path="/council" component={Council}/>
             <Route path="/vote" component={Vote}/>
             <Route path="/notice" component={Notice}/>
-            <Route path="/editor" component={Editor}/>
+            <Route path="/editor" component={NoticeEditor}/>
         </div>
     )
 }
