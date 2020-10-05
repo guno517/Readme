@@ -4,14 +4,23 @@
     margin: 0px auto;
 }
 
-@media all and (max-width:699px) {
+@media all and (max-width:768px) {
     #MobileNotice {
         display: none;
     }
     #NoticePoster {
-        width: 100%;
+        width: 80%;
         display: block;
         margin: 0px auto;
+    }
+    #NoticeTable {
+        width: 100%;
+        margin: 0px auto;
+    }
+    #Upload {
+        margin-right: 0%;
+        display: block;
+        float: right;
     }
 }
 
