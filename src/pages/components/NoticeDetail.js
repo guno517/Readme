@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/NoticeDetail.css";
 
-const NoticeDatail = (props) => {
+const NoticeDetail = ( props ) => {
     const NoticePoster = require("../../img/Notice.png");
     const [noticeData, setNoticeData] = useState([""]);
     const path = props.location.pathname.split("/");
@@ -40,4 +40,4 @@ const NoticeDatail = (props) => {
     );
 };
 
-export default NoticeDatail;
+export default NoticeDetail;

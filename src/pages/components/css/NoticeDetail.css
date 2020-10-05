@@ -11,12 +11,12 @@
 }
 
 @media all and (max-width:768px) {
-    #NoticeContent {
-        width: 100%;
-        margin: 0px auto;
-    }
     #NoticePoster {
         width: 80%;
+        margin: 0px auto;
+    }
+    #NoticeContent {
+        width: 100%;
         margin: 0px auto;
     }
 }

@@ -34,6 +34,8 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "10%",
         display: "block",
         float: "right",
+        backgroundColor:'#59AAEB',
+        color:'white',
     },
     table: {
         width: "80%",
