@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import { Link } from 'react-router-dom';
 import "./css/Signup.css";
 const Signup = () => {
-    // const [idOverlapCheck, setIdOverlapCheck] = useState(false);
+    const [idOverlapCheck, setIdOverlapCheck] = useState(1);
     const [name, setName] = useState('');
     const [id, setId] = useState('');
     const [college, setCollege] = useState('');
@@ -28,15 +28,7 @@ const Signup = () => {
             })
         })
         .then(async(response) =>{
-            console.log(response)
-            // 건오 api 개발시 수정 
-            // if(idOverlapCheck){
-            //     alert("ID 중복 체크를 해주세요");
-            // }
-            // else{
-                alert("회원가입이 완료 되었습니다.");
-                window.history.go(0)
-            // }
+            alert("회원가입이 완료되었습니다.")
         })
         .catch(e => {  // API 호출이 실패한 경우
             alert("회원가입에 실패하였습니다.")
@@ -70,27 +62,37 @@ const Signup = () => {
         let time = y+"-"+m+"-"+d+" "+h+":"+i;
         checkSignUp(college, department, name, id, student_number, userPw, userPwCheck);
     }
-    // 건오 api 개발시 수정 
-    //   const IdCheck = () =>{
-    //     let id = document.querySelector(".id").value;
 
-    //     axios
-    //     .post('http://localhost:5000/api/signup/check/id',null,{
-    //         params: {
-    //         id,
-    //         }
-    //     })
-    //     .then(({ data }) => {
-    //         if(data.id.length !== 0){
-    //             alert("이미 가입된 ID 입니다.");
-    //         }else{
-    //             alert("사용하실 수 있는 ID 입니다.")
-    //             setIdOverlapCheck(true);
-    //         }
-    //     })
-    //     .catch(e => {  // API 호출이 실패한 경우
-    //     });
-    //   }
+      const IdCheck = async() =>{
+
+        await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/signup/check',{
+            method:'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                id: id,
+            })
+        })
+        
+        .then((response) => {
+            if (response.status === 200) {
+                response.json()
+                .then((data) => {
+                    if(data.flag===0){
+                        alert("사용 가능한 ID 입니다.");
+                        setIdOverlapCheck(data.flag)
+                    }else{
+                        alert("사용중인 ID 입니다.")
+                    }
+                })
+            }else{
+                alert("server error")
+            }
+        })
+        .catch(e => {  // API 호출이 실패한 경우
+        });
+      }
       
         // // 중복 체크 검증 후 ID 수정을 막기 위해
         // const overLabError = () =>{
@@ -139,6 +141,9 @@ const Signup = () => {
             // else if(!getemail.email){
             //     alert('이메일 형식을 확인해주세요');
             // }
+            else if(idOverlapCheck===1){
+                alert("ID 중복 체크를 해주세요");
+            }
             else{
                 signOk()
                 window.history.go(-1)
@@ -175,7 +180,7 @@ const Signup = () => {
                     
                     <h4>ID</h4>
                     <input className={"id"} type="text" placeholder="ID" onChange={onChangeValue}></input>
-                    <button className={"idCheck"} >중복체크</button>
+                    <button className={"idCheck"} onClick={IdCheck} >중복체크</button>
                     
                     <h4>Password</h4>
                     <input className={"userPw"} type="password" placeholder="password" onChange={onChangeValue}></input>
