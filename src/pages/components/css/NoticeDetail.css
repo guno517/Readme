@@ -1,0 +1,21 @@
+#NoticePoster {
+    width: 50%;
+    margin: 0px auto;
+}
+
+dt, dd {
+    width: 80%;
+    min-width: 200;
+    margin: 0 auto;
+}
+
+@media all and (max-width:768px) {
+    dt, dd {
+        width: 100%;
+        margin: 0px auto;
+    }
+    #NoticePoster {
+        width: 80%;
+        margin: 0px auto;
+    }
+}
