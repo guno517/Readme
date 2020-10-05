@@ -8,7 +8,8 @@ import Council from './components/Council';
 import Vote from './components/Vote';
 import Search from './components/Search';
 import Notice from './components/Notice';
-import NoticeEditor from './components/NoticeEditor'
+import NoticeEditor from './components/NoticeEditor';
+import NoticeDetail from './components/NoticeDetail';
 
 const Content = () => {
  
@@ -22,7 +23,7 @@ const Content = () => {
             <Route path="/council" component={Council}/>
             <Route path="/vote" component={Vote}/>
             <Route path="/notice" component={Notice}/>
-            <Route path="/editor" component={NoticeEditor}/>
+            <Route path="/notice_detail" component={NoticeDetail}/>
         </div>
     )
 }
