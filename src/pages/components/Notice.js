@@ -110,7 +110,6 @@ export default function CustomPaginationActionsTable() {
             setNoticeData(response_json.notice_search);
         });
     };
-
     return (
         <TableContainer className={classes.container}>
             <img id="NoticePoster" src={NoticePoster}></img>
@@ -154,7 +153,7 @@ export default function CustomPaginationActionsTable() {
                                 {row.writer}
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 90 }} align="center" padding="5px">
-                                {row.time}
+                                {String(row.time).substr(0,10)}
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 50 }} align="center" padding="5px">
                                 {row.view}

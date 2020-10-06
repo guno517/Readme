@@ -44,7 +44,7 @@ const NoticeDetail = ( props ) => {
                 <p id="Hello">제목 | {noticeData[0].title}</p>
                 <p>조회수 | {noticeData[0].view}</p>
                 <p>작성자 | {noticeData[0].writer}</p>
-                <p>작성일 | {noticeData[0].time}</p>
+                <p>작성일 | {String(noticeData[0].time).substr(0,10)}</p>
                 <p>첨부파일 | {noticeData[0].attachment}</p>
                 <br></br>
                 <div id="content">{noticeData[0].content}</div>
