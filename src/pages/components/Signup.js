@@ -36,6 +36,7 @@ const Signup = () => {
     }
 
     const onChangeValue = (e) => {
+        setIdOverlapCheck(1)
         if(e.target.className === "name"){
             setName(e.target.value)
         }else if(e.target.className === "id"){
