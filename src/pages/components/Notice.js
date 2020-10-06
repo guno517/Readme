@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 200,
         margin: "0 auto",
     },
-        button: {
+    button: {
         margin: theme.spacing(1),
         marginRight: "10%",
         display: "block",
@@ -123,7 +123,7 @@ export default function CustomPaginationActionsTable() {
                     </button>
                 </div>
             </div>
-            <Table className={classes.table} id="NoticeTable" aria-label="custom pagination table">
+            <Table id="NoticeTable" className={classes.table} aria-label="custom pagination table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell align="center">번호</StyledTableCell>
@@ -186,7 +186,7 @@ export default function CustomPaginationActionsTable() {
                 </TableFooter>
             </Table>
             <Link to="/editor">
-                <Button id="uploadbutton" variant="contained" className={classes.button} id="Upload">
+                <Button id="Upload" className={classes.button} variant="contained" >
                     Upload
                 </Button>
             </Link>

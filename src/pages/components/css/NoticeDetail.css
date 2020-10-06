@@ -16,7 +16,23 @@
         margin: 0px auto;
     }
     #NoticeContent {
-        width: 100%;
+        width: 95%;
         margin: 0px auto;
     }
+    #Delete {
+        margin-right: 3%;
+        display: block;
+        float: right;
+    }
+    #Button {
+        margin-right: 1%;
+        display: block;
+        float: right;
+    }
+}
+
+#NoticePoster {
+    width: 50%;
+    display: block;
+    margin: 0px auto;
 }
