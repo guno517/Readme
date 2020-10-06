@@ -75,7 +75,7 @@ const NoticeDetail = ( props ) => {
                 <div>첨부파일 | {noticeData[0].attachment}</div>
                 <br></br>
                 <div>{noticeData[0].img}</div>
-                <div>{noticeData[0].content}</div>
+                <div id="content">{noticeData[0].content}</div>
                 <Link to="/editor">
                     <Button id="Delete" className={classes.Delete} variant="contained" >
                         삭제
