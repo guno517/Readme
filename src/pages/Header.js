@@ -8,12 +8,6 @@ import "./css/Header.css";
 
 const Header = (props) =>{
     const dispatch = useDispatch()
-     const menuActive = (id) => {
-        dispatch({
-            type:'UPDATE_MENU',
-            id:id
-        })
-    }
 
     useEffect(()=>{
         if(window.sessionStorage.getItem("id") !== null){
@@ -27,7 +21,7 @@ const Header = (props) =>{
         <div className = {"header"}>
             <div className = {"top"}>
                 <div className = {"logo"}>
-                    <Link to="/" onClick={()=>menuActive(0)}><img src={Logo}></img></Link>
+                    <Link to="/"><img src={Logo}></img></Link>
                 </div>
                 <div className = {"navigation"}>
                     <div className={"pc_navigation"}>

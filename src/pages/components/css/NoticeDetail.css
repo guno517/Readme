@@ -3,19 +3,44 @@
     margin: 0px auto;
 }
 
-dt, dd {
+#NoticeContent {
     width: 80%;
     min-width: 200;
     margin: 0 auto;
+    border-style: solid 1px;
 }
-
+#content ul li{
+    list-style:inside;
+}
+#content ol li{
+    list-style:decimal;
+}
+#content img{
+    max-width:100%;
+}
 @media all and (max-width:768px) {
-    dt, dd {
-        width: 100%;
-        margin: 0px auto;
-    }
     #NoticePoster {
         width: 80%;
         margin: 0px auto;
     }
+    #NoticeContent {
+        width: 95%;
+        margin: 0px auto;
+    }
+    #Delete {
+        margin-right: 3%;
+        display: block;
+        float: right;
+    }
+    #Button {
+        margin-right: 1%;
+        display: block;
+        float: right;
+    }
+}
+
+#NoticePoster {
+    width: 50%;
+    display: block;
+    margin: 0px auto;
 }
