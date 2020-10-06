@@ -86,21 +86,23 @@ const NoticeDetail = ( props ) => {
                 <br></br>
                 <div>{noticeData[0].img}</div>
                 <div id="content">{noticeData[0].content}</div>
-                <Link to="/notice">
-                    <Button onClick={deleteNotice} id="Delete" className={classes.Delete} variant="contained" >
-                        삭제
-                    </Button>
-                </Link>
-                <Link to={`/editor/update/${noticeData[0].index}`}>
-                    <Button id="Button" className={classes.button} variant="contained" >
-                        수정
-                    </Button>
-                </Link>
-                <Link to="/notice">
-                    <Button id="Button" className={classes.button} variant="contained" >
-                        목록
-                    </Button>
-                </Link>
+                <div id="NoticeFooter">
+                    <Link to="/notice">
+                        <Button onClick={deleteNotice} id="Delete" className={classes.Delete} variant="contained" >
+                            삭제
+                        </Button>
+                    </Link>
+                    <Link to={`/editor/update/${noticeData[0].index}`}>
+                        <Button id="Button" className={classes.button} variant="contained" >
+                            수정
+                        </Button>
+                    </Link>
+                    <Link to="/notice">
+                        <Button id="Button" className={classes.button} variant="contained" >
+                            목록
+                        </Button>
+                    </Link>
+                </div>
             </div>
         </div>
     );

@@ -1,13 +1,19 @@
 #NoticePoster {
     width: 50%;
     margin: 0px auto;
+    margin-bottom: 5%;
 }
-
 #NoticeContent {
     width: 80%;
     min-width: 200;
     margin: 0 auto;
-    border-style: solid 1px;
+    margin-bottom: 3%;
+}
+#NoticeFooter {
+    margin-bottom: 10%;
+}
+#content {
+    margin-bottom: 3%;
 }
 #content ul li{
     list-style:inside;
@@ -20,12 +26,14 @@
 }
 @media all and (max-width:768px) {
     #NoticePoster {
-        width: 80%;
+        width: 90%;
         margin: 0px auto;
+        margin-bottom: 5%;
     }
     #NoticeContent {
         width: 95%;
         margin: 0px auto;
+        margin-bottom: 18%;
     }
     #Delete {
         margin-right: 3%;
@@ -37,10 +45,7 @@
         display: block;
         float: right;
     }
-}
-
-#NoticePoster {
-    width: 50%;
-    display: block;
-    margin: 0px auto;
+    #NoticeFooter {
+        margin-bottom: 15%;
+    }
 }
