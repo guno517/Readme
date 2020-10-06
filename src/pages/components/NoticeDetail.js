@@ -31,6 +31,8 @@ const NoticeDetail = ( props ) => {
     const NoticePoster = require("../../img/Notice.png");
     const classes = useStyles();
     const [noticeData, setNoticeData] = useState([""]);
+    const [content, setContent] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const path = props.location.pathname.split("/");
     const path_id = path[2];
 
@@ -39,6 +41,7 @@ const NoticeDetail = ( props ) => {
             if (response.status === 200) {
                 response.json().then((data) => {
                     setNoticeData(data.detail);
+                    setIsLoading(true)
                 });
             } else {
                 console.log("server error");
@@ -49,6 +52,17 @@ const NoticeDetail = ( props ) => {
     useEffect(() => {
         fetchApi();
     }, []);
+
+    // 이태희 태그까지 content 출력
+    useEffect(() => {
+        if(isLoading){
+            document.querySelector('#content').innerHTML = text
+        }else{
+            document.querySelector('#content').innerHTML = "<p>loading...</p>"
+        }
+    },[isLoading]);
+    
+    let text = noticeData[0].content;
 
     return (
         <div>
