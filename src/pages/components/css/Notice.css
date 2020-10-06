@@ -14,16 +14,16 @@
         margin: 0px auto;
     }
     #NoticeTable {
-        width: 100%;
+        width: 95%;
         margin: 0px auto;
     }
     #Upload {
-        margin-right: 0%;
+        margin-right: 3%;
         display: block;
         float: right;
     }
     #Search {
-        margin-right: 0%;
+        margin-right: 3%;
         display: block;
         float: right;
     }
