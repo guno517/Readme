@@ -9,7 +9,15 @@
     margin: 0 auto;
     border-style: solid 1px;
 }
-
+#content ul li{
+    list-style:inside;
+}
+#content ol li{
+    list-style:decimal;
+}
+#content img{
+    max-width:100%;
+}
 @media all and (max-width:768px) {
     #NoticePoster {
         width: 80%;
