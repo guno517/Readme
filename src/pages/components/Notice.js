@@ -40,7 +40,7 @@ const useStyles = makeStyles((theme) => ({
         minWidth: 200,
         margin: "0 auto",
     },
-        button: {
+    button: {
         margin: theme.spacing(1),
         marginRight: "10%",
         display: "block",
@@ -123,7 +123,7 @@ export default function CustomPaginationActionsTable() {
                     </button>
                 </div>
             </div>
-            <Table className={classes.table} id="NoticeTable" aria-label="custom pagination table">
+            <Table id="NoticeTable" className={classes.table} aria-label="custom pagination table">
                 <TableHead>
                     <TableRow>
                         <StyledTableCell align="center">번호</StyledTableCell>
@@ -143,7 +143,9 @@ export default function CustomPaginationActionsTable() {
                     {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row) => (
                         <TableRow>
                             <TableCell style={{ width: 20 }} align="center" padding="5px">
-                                {row.index}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.index}
+                                </Link>
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
@@ -151,13 +153,19 @@ export default function CustomPaginationActionsTable() {
                                 </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 80 }} align="center" padding="5px">
-                                {row.writer}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.writer}
+                                </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 90 }} align="center" padding="5px">
-                                {row.time}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.time}
+                                </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 50 }} align="center" padding="5px">
-                                {row.view}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.view}
+                                </Link>
                             </TableCell>
                         </TableRow>
                     ))}
@@ -186,7 +194,7 @@ export default function CustomPaginationActionsTable() {
                 </TableFooter>
             </Table>
             <Link to="/editor">
-                <Button id="uploadbutton" variant="contained" className={classes.button} id="Upload">
+                <Button id="Upload" className={classes.button} variant="contained" >
                     Upload
                 </Button>
             </Link>
