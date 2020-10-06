@@ -72,7 +72,6 @@ const NoticeDetail = ( props ) => {
                 <div>조회수 | {noticeData[0].view}</div>
                 <div>작성자 | {noticeData[0].writer}</div>
                 <div>작성일 | {String(noticeData[0].time).substr(0,10)}</div>
-                <div>첨부파일 | {noticeData[0].attachment}</div>
                 <br></br>
                 <div>{noticeData[0].img}</div>
                 <div id="content">{noticeData[0].content}</div>
