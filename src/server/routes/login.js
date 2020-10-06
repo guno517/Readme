@@ -8,7 +8,7 @@ let connection = mysql.createConnection(db_config)
 
 
 //router.post()
-router.post('/login', function (req, res, next) {
+router.post('/', function (req, res, next) {
     let userId = req.body['id'];
     let userPw = req.body['pass'];
     console.log(req.body)
@@ -26,3 +26,10 @@ router.post('/login', function (req, res, next) {
     });
   });
 
+router.get('/findId',function (req, res, next){
+  //let name = req.body['name'];
+  
+  let sql = 'select id from member where name=?'
+})
+
+module.exports = router;

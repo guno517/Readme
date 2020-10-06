@@ -46,18 +46,12 @@ const Login = (props) => {
                 pass: pass
             }}
         )
-        .catch(e => {
-            alert("login Fail");
-         })
         .then(async(response) => {
             const response_json = await response.json();
             const member = response_json.user[0];
             for (let arr in member){ 
                 sessionSave(arr, member[arr])
             }
-        })
-        .catch(e => {
-           return e.message;
         })
         .then(() =>{
             alert("login Success");

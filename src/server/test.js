@@ -5,6 +5,7 @@ const router = express.Router();
 const app = express();
 const cors = require('cors');
 
+const loginRouter = require('./routes/login');
 const signupRouter = require('./routes/signup');
 const noticeRouter = require('./routes/notice');
 
@@ -42,14 +43,6 @@ function handleDisconnect() {
 
 handleDisconnect();
 
-// app.use('/notice', (req, res) => {
-//   let sql = 'SELECT  * FROM notice';
-
-//   connection.query(sql, function (err, result) {
-//     res.json({ notice: result });
-//   });
-// })
-
 app.use('/insert/notice', (req, res) => {
   console.log("게시글 db에 저장");
   let img = req.body['img'];
@@ -72,14 +65,6 @@ app.use('delete/notice', (req, res) => {
   console.log('게시글 삭제 완료');
 
 })
-
-// 이태희 검색기능 추가
-app.use('/search', function (req, res, next) {
-  let title = req.body['content']
-  connection.query("select * from notice where title Like '"+title+"'", function (err, rows, fields) {
-      res.json({ notice_search: rows });
-  });
-});
 
 app.use('/activity', (req, res) => {
   let sql = 'SELECT * FROM activity';
@@ -112,6 +97,7 @@ app.use('/login', function (req, res, next) {
   });
 });
 
+app.use('/login', loginRouter);
 app.use('/signup', signupRouter);
 app.use('/notice', noticeRouter);
 
@@ -158,28 +144,3 @@ app.get('/home', function (req, res) {
 app.listen(3000, () => {
   console.log('server connected!')
 })
-
-
-
-
-// connection.connect(function (err) {
-//   if (err) {
-//     console.log('error when connecting to db:', err);
-//     setTimeout(handleDisconnect,2000);
-
-//   } else {
-
-//     connection.query("SELECT * FROM pledge", function (err, rows, fields) {
-//       console.log(rows);
-//       connection.end();
-//     })
-
-//     app.use('/db', (req, res) => {
-//       let sql = 'SELECT  * FROM pledge';
-
-//       connection.query(sql, function (err, result) {
-//         res.json({ pledge: result });
-//       });
-//     })
-//   }
-// });

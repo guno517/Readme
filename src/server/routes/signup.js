@@ -39,21 +39,14 @@ router.get('/', function (req, res, next) {
   })
 
   
-router.get('/check', function(req,res,next) { 
-    //let userId = req.body['id'];
-    let userId = "gggg";
-    connection.query('select id from member where id=\'' + userId + '\'', function(err, data){
+router.post('/check', function(req,res,next) { 
+    let userId = req.body['id'];
+    //let id = "test";
+    connection.query('select count(id) as flag from member where `id`=?', [userId], function(err, data){
       if(!err){
-        //console.log(data.length);
-        if(data.length == 0){
-          console.log("중복되는 ID없음");
-          res.send("사용가능한 ID!");
-          return true;
-        } else {
-          console.log("중복된 아이디가 있음");
-          res.send("ID중복!")
-          return false;
-        }
+        console.log(data[0]);
+        console.log(data[0].flag) 
+        res.json(data[0]);
       } else {
         console.log(err);
         res.send('err:' + err);
