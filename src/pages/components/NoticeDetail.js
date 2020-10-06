@@ -34,8 +34,20 @@ const NoticeDetail = ( props ) => {
     const [content, setContent] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const path = props.location.pathname.split("/");
-    const path_id = path[2];
-
+    const path_id = props.match.params.id;
+    const deleteNotice = async() => {
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/delete/${path_id}`,{
+            method:'get'
+        })
+        .then((response)=>{
+            if(response.status === 200){
+                alert("게시글이 삭제 되었습니다.");
+            }
+            else{
+                alert("오류가 발생했습니다. 관리자에게 문의하세요.");
+            }
+        })
+    }
     const fetchApi = async () => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/detail/${path_id}`).then((response) => {
             if (response.status === 200) {
@@ -63,7 +75,6 @@ const NoticeDetail = ( props ) => {
     },[isLoading]);
     
     let text = noticeData[0].content;
-
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
@@ -76,12 +87,12 @@ const NoticeDetail = ( props ) => {
                 <br></br>
                 <div>{noticeData[0].img}</div>
                 <div id="content">{noticeData[0].content}</div>
-                <Link to="/editor">
-                    <Button id="Delete" className={classes.Delete} variant="contained" >
+                <Link to="/notice">
+                    <Button onClick={deleteNotice} id="Delete" className={classes.Delete} variant="contained" >
                         삭제
                     </Button>
                 </Link>
-                <Link to="/editor">
+                <Link to={`/editor/update/${noticeData[0].index}`}>
                     <Button id="Button" className={classes.button} variant="contained" >
                         수정
                     </Button>
