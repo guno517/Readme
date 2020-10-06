@@ -9,7 +9,11 @@ class NoticeEditor extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { content: '', title: '', dbUrl:'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/insert/notice'} // You can also pass a Quill Delta here
+        this.state = { 
+            content: '',
+            title: '',
+            dbUrl:'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/insert/notice'
+        }
         this.handleChange = this.handleChange.bind(this)
         this.titleChange = this.titleChange.bind(this)
         this.dataSubmit = this.dataSubmit.bind(this)
@@ -71,13 +75,18 @@ class NoticeEditor extends React.Component {
         'list', 'bullet', 'indent',
         'image'
       ]
+
+      path_id = this.props.match.params.id;
       async fetchApi(){
-        let path_id = this.props.match.params.id;
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/detail/${path_id}`)
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/detail/${this.path_id}`)
         .then((response) => {
             if (response.status === 200) {
                 response.json().then(({detail}) => {
-                    this.setState({ content: detail[0].content, title:detail[0].title, dbUrl:`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/update/${path_id}`})
+                    this.setState({ 
+                            content: detail[0].content,
+                            title:detail[0].title, 
+                            dbUrl:`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/update/${this.path_id}`
+                        })
                     console.log(this.state)
                 });
             } else {
@@ -89,7 +98,7 @@ class NoticeEditor extends React.Component {
     render() {
       return (
             <>
-                <h1 style={{marginTop:"100px", marginLeft:'3%', marginBottom:'40px'}}>공지사항 작성</h1>
+                <h1 style={{marginTop:"100px", marginLeft:'3%', marginBottom:'40px'}}>{this.path_id?"공지사항 수정":"공지사항 작성"}</h1>
                 <input
                     value={this.state.title} 
                     type="text" placeholder="제목을 작성해주세요" 
