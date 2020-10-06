@@ -143,7 +143,9 @@ export default function CustomPaginationActionsTable() {
                     {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row) => (
                         <TableRow>
                             <TableCell style={{ width: 20 }} align="center" padding="5px">
-                                {row.index}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.index}
+                                </Link>
                             </TableCell>
                             <TableCell component="th" scope="row">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
@@ -151,13 +153,19 @@ export default function CustomPaginationActionsTable() {
                                 </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 80 }} align="center" padding="5px">
-                                {row.writer}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.writer}
+                                </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 90 }} align="center" padding="5px">
-                                {row.time}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.time}
+                                </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 50 }} align="center" padding="5px">
-                                {row.view}
+                                <Link id={row.index} to={`/notice_detail/${row.index}`}>
+                                    {row.view}
+                                </Link>
                             </TableCell>
                         </TableRow>
                     ))}
