@@ -9,6 +9,13 @@
     margin: 0 auto;
     margin-bottom: 3%;
 }
+#Button {
+    margin-right: 1%;
+    display: block;
+    float: right;
+    background-color: "#59AAEB";
+    color: "white";
+}
 #NoticeFooter {
     margin-bottom: 10%;
 }
@@ -34,16 +41,6 @@
         width: 95%;
         margin: 0px auto;
         margin-bottom: 18%;
-    }
-    #Delete {
-        margin-right: 3%;
-        display: block;
-        float: right;
-    }
-    #Button {
-        margin-right: 1%;
-        display: block;
-        float: right;
     }
     #NoticeFooter {
         margin-bottom: 15%;
