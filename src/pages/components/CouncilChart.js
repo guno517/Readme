@@ -6,6 +6,9 @@ const options = {
     chart: {
         type: "pie",
     },
+    credits: {
+        enabled: false,
+    },
     title: {
         text: "총학생회 공약 이행 현황",
     },
