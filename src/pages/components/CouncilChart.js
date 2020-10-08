@@ -14,16 +14,16 @@ const options = {
     },
     series: [
         {
-            name: "Brands",
+            name: "공약",
             colorByPoint: true,
             data: [
                 {
                     name: "공약 개수",
-                    y: 61.41,
+                    y: 12,
                 },
                 {
                     name: "이행 완료",
-                    y: 11.84,
+                    y: 3,
                 },
             ],
         },
