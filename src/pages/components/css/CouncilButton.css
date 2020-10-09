@@ -1,0 +1,15 @@
+@media all and (min-width:480px) and (max-width:768px) {
+    #buttondiv {
+        width: 80%;
+        padding: 5%;
+        margin-bottom: 5%;
+    }
+}
+
+@media all and (max-width:480px) {
+    #buttondiv {
+        width: 80%;
+        padding: 5%;
+        margin-bottom: 10%;
+    }
+}
