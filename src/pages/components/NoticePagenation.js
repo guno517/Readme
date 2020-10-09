@@ -7,6 +7,13 @@ import LastPageIcon from "@material-ui/icons/LastPage";
 import KeyboardArrowLeft from "@material-ui/icons/KeyboardArrowLeft";
 import KeyboardArrowRight from "@material-ui/icons/KeyboardArrowRight";
 
+TablePaginationActions.propTypes = {
+    count: PropTypes.number.isRequired,
+    onChangePage: PropTypes.func.isRequired,
+    page: PropTypes.number.isRequired,
+    rowsPerPage: PropTypes.number.isRequired,
+};
+
 const useStyles = makeStyles((theme) => ({
     root: {
         flexShrink: 0,
@@ -52,12 +59,5 @@ function TablePaginationActions(props) {
         </div>
     );
 }
-
-TablePaginationActions.propTypes = {
-    count: PropTypes.number.isRequired,
-    onChangePage: PropTypes.func.isRequired,
-    page: PropTypes.number.isRequired,
-    rowsPerPage: PropTypes.number.isRequired,
-};
 
 export default TablePaginationActions;
