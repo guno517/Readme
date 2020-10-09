@@ -1,10 +1,11 @@
 import React, {useState, useEffect} from 'react';
+import {useSelector, useDispatch } from 'react-redux'
+import SelectCollege from "./SelectCollege";
 
 const VoteCandidate = () => {
-
-    return (
-        <div className={""}>
-            입후보
+    return(
+        <div className={"VoteCandidate"}>
+            <SelectCollege></SelectCollege>
         </div>
     )
 }

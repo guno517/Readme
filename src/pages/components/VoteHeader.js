@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import "./css/Vote.css";
-import LinkComponent from "./Common";
+import { LinkComponent } from "./Common";
 const VoteHeader = (props) => {
     const {voteMenu} = props;
     const dispatch = useDispatch()

@@ -4,8 +4,13 @@ import VoteHeader from "./VoteHeader";
 import VoteInfo from "./VoteInfo";
 import VoteCandidate from "./VoteCandidate";
 import VoteResult from "./VoteResult";
+import { fetchSelectCode } from "./Common";
+import "./css/Vote.css";
+
+const VoteInfoPoster = require("../../img/Notice.png");
 
 const Vote = (props) => {
+
     const dispatch = useDispatch()
 
     useEffect(()=>{
@@ -14,11 +19,14 @@ const Vote = (props) => {
            id:2,
            name:"선거"
        })
-    })
-
-    const state = useSelector(state => state.vote)
+    // select 최초 모든 데이터 fetch
+       fetchSelectCode(dispatch);
+    },[])
+ 
+    const state = useSelector(state => state.voteMenu)
     return(
-        <div>
+        <div className="votecontainer">
+            <img className={"VoteInfoPoster"} src={VoteInfoPoster} alt="선거 공지 설명 이미지"></img>
             <VoteHeader voteMenu={state}></VoteHeader>
             {state[0].isActive ? <VoteInfo/>:""}
             {state[1].isActive ? <VoteCandidate/>:""}

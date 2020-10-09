@@ -1,4 +1,6 @@
-
+.votecontainer{
+    min-height: 600px;
+}
 .vote_ul{
     color: "black";
     background-color: "white";
@@ -6,7 +8,7 @@
     width:40%;
     height:50px;
     margin:0 auto;
-    margin-top:100px;
+    margin-top:50px;
     display: flex;
 }
 
@@ -23,8 +25,19 @@
 .vote_poster{
     width:60%;
     margin:0 auto;
-    margin-top:100px;
     border:5px solid black;
+    margin-top: 50px;
+}
+
+.VoteInfoPoster {
+    width: 50%;
+    display: block;
+    margin: 0px auto;
+}
+.VoteCandidate, .VoteResult{
+    width:80%;
+    margin:0 auto;
+    margin-top:50px;
 }
 
 @media (max-width: 768px) {
@@ -35,7 +48,13 @@
     .vote_poster{
         width:80%;
     }
+    .VoteInfoPoster {
+        width: 90%;
+        display: block;
+        margin: 0px auto;
+    }
 }
+    
 @media (max-width: 540px) {
     .vote_ul{
         width:80%;

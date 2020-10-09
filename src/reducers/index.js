@@ -1,8 +1,14 @@
 import { combineReducers } from 'redux'
 import menu from './menu'
-import vote from './vote'
+import voteMenu  from './vote/voteMenu'
+import selectAll  from './selectForm/selectAll'
+import selectCollege  from './selectForm/selectCollege'
+import selectFlagData  from './selectForm/selectFlagData'
 
 export default combineReducers({
     menu,
-    vote,
+    voteMenu,
+    selectAll,
+    selectCollege,
+    selectFlagData,
 })
