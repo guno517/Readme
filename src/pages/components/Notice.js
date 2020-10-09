@@ -194,7 +194,7 @@ export default function CustomPaginationActionsTable() {
             </Table>
             <Link to="/editor">
                 <Button id="Upload" className={classes.button} variant="contained" >
-                    Upload
+                    공지 작성
                 </Button>
             </Link>
         </TableContainer>
