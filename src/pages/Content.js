@@ -5,7 +5,7 @@ import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
 import Council from './components/Council';
-import Vote from './components/Vote';
+import Vote from './components/vote/Vote';
 import Search from './components/Search';
 import Notice from './components/Notice';
 import NoticeEditor from './components/NoticeEditor';

@@ -1,9 +1,9 @@
 import React, {useState, useEffect} from 'react';
 import { useDispatch } from 'react-redux'
-import Poster from "./Poster"
+import Poster from "../Poster"
 
-const vote1 =  require("../../img/vote1.png");
-const vote2 =  require("../../img/vote2.png");
+const vote1 =  require("../../../img/vote1.png");
+const vote2 =  require("../../../img/vote2.png");
 
 const VoteInfo = () => {
 

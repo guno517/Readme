@@ -39,7 +39,37 @@
     margin:0 auto;
     margin-top:50px;
 }
-
+.candidate_container{
+    margin-top: 50px;
+    min-height: 500px;
+}
+.candidate_list_container{
+    width:20%;
+    display: inline-block;
+    float: left;
+    min-width: 200px;
+}
+.candidate_list{
+    margin-bottom: 50px;
+}
+.candidate_profile{
+    width:200px;
+    height:200px;
+    border:1px solid #cccccc;
+    border-radius: 25px;
+}
+.candidate_profile > img{
+    width:100%;
+    height:70%;
+    border-radius: 25px 25px 0px 0px;
+}
+.candidate_pledge{
+    display: inline-block;
+    margin-left:8%;
+}
+.candidate_profile dl{
+    margin:0;
+}
 @media (max-width: 768px) {
     .vote_ul{
         width:60%;
@@ -53,11 +83,33 @@
         display: block;
         margin: 0px auto;
     }
+    .candidate_list_container{
+        min-width: 150px;
+    }
+    .candidate_profile{
+        width:150px;
+        height:100px;
+    }
+    .candidate_profile > img{
+        width:150px;
+        height:100px;
+    }
 }
     
 @media (max-width: 540px) {
     .vote_ul{
         width:80%;
+    }
+    .candidate_profile{
+        width:100px;
+        height:100px;
+    }
+    .candidate_list_container{
+        min-width: 100px;
+    }
+    .candidate_profile > img{
+        width:100px;
+        height:100px;
     }
 
 }

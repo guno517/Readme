@@ -2,6 +2,23 @@ import React, {useState, useEffect} from "react";
 import {useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom';
 
+// 데이터 getFecth
+export const fetchApiGet = async(ApiUrl) => {
+    const response = await fetch(ApiUrl)
+    .then(async(response)=>{
+        if(response.ok){
+            const response_json = await response.json();
+            console.log(response_json)
+            return response_json;
+        }else{
+        throw new Error('Something went wrong');
+        }
+    })
+    .catch((error) => {
+        console.log(error)
+    });
+}
+
 export const LinkComponent = (props) => {
     const {id, onClick, link, name, isActive, activeColor, isNotActiveColor} = props
     return(

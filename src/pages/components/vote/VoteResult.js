@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux'
-import SelectCollege from "./SelectCollege";
+import SelectCollege from "../SelectCollege";
 
 const VoteResult = () => {
 
