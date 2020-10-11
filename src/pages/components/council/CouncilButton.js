@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import "./css/CouncilButton.css";
+import "../css/CouncilButton.css";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({

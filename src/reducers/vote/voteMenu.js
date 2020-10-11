@@ -36,7 +36,6 @@ const voteMenu = (state = menuItem, action) => {
                 return state.map((menu)=>
                     menu.id === action.id ? {...menu, isActive:true} : {...menu, isActive:false}
                 )
-           
             default:
                 return state
         }

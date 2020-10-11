@@ -2,11 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import "./css/CouncilCarousel.css";
+import "../css/CouncilCarousel.css";
 
-const poster1 = require("../../img/poster1.png");
-const poster2 = require("../../img/poster2.png");
-const poster3 = require("../../img/poster3.png");
+const poster1 = require("../../../img/poster1.png");
+const poster2 = require("../../../img/poster2.png");
+const poster3 = require("../../../img/poster3.png");
 
 function CouncilCarousel() {
     return (

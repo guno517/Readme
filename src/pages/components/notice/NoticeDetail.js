@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./css/NoticeDetail.css";
+import "../css/NoticeDetail.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import { withStyles, makeStyles } from "@material-ui/core/styles";
+import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -13,12 +13,9 @@ const useStyles = makeStyles((theme) => ({
 
 const NoticeDetail = (props) => {
     const classes = useStyles();
-    const NoticePoster = require("../../img/Notice.png");
-    // const classes = useStyles();
+    const NoticePoster = require("../../../img/Notice.png");
     const [noticeData, setNoticeData] = useState([""]);
-    const [content, setContent] = useState("");
     const [isLoading, setIsLoading] = useState(false);
-    const path = props.location.pathname.split("/");
     const path_id = props.match.params.id;
     const deleteNotice = async () => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/delete/${path_id}`, {
