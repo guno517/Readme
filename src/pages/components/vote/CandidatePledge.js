@@ -1,9 +1,16 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react';
 
-const CandidatePledge = () => {
+
+const CandidatePledge = (props) => {
+    const {pledgeData} = props;
+    const [pledge, setPledge] = useState(); 
+    useEffect(()=>{
+        setPledge(pledgeData)
+    })
+    // pledge && console.log(pledge)
     return (
         <div className={"candidate_pledge"}>
-            asdsad
+           {pledge&&pledge.name}
         </div>
     )
 }

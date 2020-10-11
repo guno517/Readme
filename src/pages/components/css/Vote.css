@@ -55,7 +55,7 @@
 .candidate_profile{
     width:200px;
     height:200px;
-    border:1px solid #cccccc;
+    border:1px solid #bbbbbb;
     border-radius: 25px;
 }
 .candidate_profile > img{
@@ -66,6 +66,11 @@
 .candidate_pledge{
     display: inline-block;
     margin-left:8%;
+    border:1px solid #bbbbbb;
+    width:50%;
+    min-height: 400px;
+    padding:10px;
+    border-radius: 5px;
 }
 .candidate_profile dl{
     margin:0;
@@ -85,14 +90,26 @@
     }
     .candidate_list_container{
         min-width: 150px;
+        float: none;
+        width: 100%;
+    }
+    .candidate_list{
+        display: inline-block;
+        margin-right: 20px;
     }
     .candidate_profile{
         width:150px;
-        height:100px;
+        height:200px;
     }
     .candidate_profile > img{
         width:150px;
-        height:100px;
+        height:130px;
+    }
+    .candidate_pledge{
+        width:60%;
+        margin-left: 0px;
+        margin:0 auto;
+        display: block;
     }
 }
     
@@ -101,15 +118,17 @@
         width:80%;
     }
     .candidate_profile{
-        width:100px;
-        height:100px;
+        width:120px;
+        height:170px;
     }
     .candidate_list_container{
         min-width: 100px;
     }
     .candidate_profile > img{
-        width:100px;
+        width:120px;
         height:100px;
     }
-
+    .candidate_pledge{
+        width:80%;
+    }
 }

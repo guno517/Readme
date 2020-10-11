@@ -6,6 +6,7 @@ import selectCollege  from './selectForm/selectCollege'
 import selectFlagData  from './selectForm/selectFlagData'
 import voteCandidate  from './vote/voteCandidate'
 import voteCandidateCollege  from './vote/voteCandidateCollege'
+import votePledge  from './vote/votePledge'
 
 export default combineReducers({
     menu,
@@ -15,4 +16,5 @@ export default combineReducers({
     selectFlagData,
     voteCandidate,
     voteCandidateCollege,
+    votePledge,
 })
