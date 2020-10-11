@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import TablePaginationActions from "./NoticePagenation"
-import "./css/Notice.css";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
+import TablePaginationActions from "./NoticePagenation"
 import Table from "@material-ui/core/Table";
 import TableRow from "@material-ui/core/TableRow";
 import TableHead from "@material-ui/core/TableHead";
@@ -13,8 +12,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import Button from "@material-ui/core/Button";
+import "../css/HeaderPoster.css";
 
-const NoticePoster = require("../../img/Notice.png");
+const NoticePoster = require("../../../img/Notice.png");
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
@@ -50,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function CustomPaginationActionsTable() {
+function NoticeTable() {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
@@ -200,3 +200,5 @@ export default function CustomPaginationActionsTable() {
         </TableContainer>
     );
 }
+
+export default NoticeTable
