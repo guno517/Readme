@@ -31,7 +31,6 @@ const Vote = (props) => {
     
     //select 박스 변경시
     const dataDispatch = (college, major) =>{
-        console.log(college,major)
         let voteCandidateCollege = voteCandidate.candidate.filter(f => {
             return f.collegeId === college && f.deptId===major
         });

@@ -35,7 +35,12 @@ const CandidateList = (props) => {
     return (
     <div className={"candidate_container"}>
         <Profile listdata={listdata} onClick={ClickProfile}></Profile>
-        <CandidatePledge pledgeData={pledgeData}></CandidatePledge>
+        {listdata.length !==0 && 
+            <CandidatePledge pledgeData={pledgeData}></CandidatePledge>
+        }
+        <div className={"candidate_setting"}>
+            <button type="button">후보자 관리</button>
+        </div>
     </div>
     )
 }
