@@ -7,6 +7,11 @@
     outline: none;
     padding:0px 5px;
 }
+@media (max-width: 1058px) {
+    .select{
+        width:30%;
+    }
+}
 @media (max-width: 768px) {
     .select{
         width:43%;
