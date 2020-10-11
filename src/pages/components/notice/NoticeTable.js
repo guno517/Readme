@@ -12,6 +12,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableFooter from "@material-ui/core/TableFooter";
 import TablePagination from "@material-ui/core/TablePagination";
 import Button from "@material-ui/core/Button";
+import "../css/HeaderPoster.css";
 
 const NoticePoster = require("../../../img/Notice.png");
 

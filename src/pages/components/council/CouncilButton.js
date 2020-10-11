@@ -8,7 +8,7 @@ const useStyles = makeStyles((theme) => ({
     buttondiv: {
         width: "51%",
         margin: "0 auto",
-        padding: "1%"
+        padding: "1%",
     },
     button: {
         backgroundColor: "#59AAEB",

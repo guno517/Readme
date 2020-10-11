@@ -6,8 +6,11 @@ import VoteCandidate from "./VoteCandidate";
 import VoteResult from "./VoteResult";
 import { fetchSelectCode } from "../Common";
 import "../css/Vote.css";
+import "../css/HeaderPoster.css";
 
-const VoteInfoPoster = require("../../../img/Notice.png");
+const VoteInfoPoster = require("../../../img/VoteNotice.png");
+const VoteCandidatePoster = require("../../../img/CandidateList.png")
+const VoteResultPoster = require("../../../img/CandidateResult.png")
 
 const Vote = (props) => {
 
@@ -39,7 +42,9 @@ const Vote = (props) => {
     const state = useSelector(state => state.voteMenu)
     return(
         <div className="votecontainer">
-            <img className={"VoteInfoPoster"} src={VoteInfoPoster} alt="선거 공지 설명 이미지"></img>
+            {state[0].isActive ? <img id="NoticePoster" src={VoteInfoPoster} alt="선거 공지 설명 이미지"></img>:""}
+            {state[1].isActive ? <img id="NoticePoster" src={VoteCandidatePoster} alt="입후보자 설명 이미지"></img>:""}
+            {state[2].isActive ? <img id="NoticePoster" src={VoteResultPoster} alt="선거 공지 설명 이미지"></img>:""}
             <VoteHeader voteMenu={state}></VoteHeader>
             {state[0].isActive ? <VoteInfo/>:""}
             {state[1].isActive ? <VoteCandidate dataDispatch={dataDispatch}/>:""}
