@@ -1,10 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
+import { fetchSelectCode } from "../Common";
+import SelectCollege from "../SelectCollege";
 import CouncilChart from "./CouncilChart";
+import CouncilList from "./CouncilList";
 import CouncilCarousel from "./CouncilCarousel";
 import CouncilButton from "./CouncilButton";
-import SelectCollege from "../SelectCollege";
-import { fetchSelectCode } from "../Common";
+import "../css/HeaderPoster.css";
+import "../css/CouncilSelect.css"
+
+const CouncilPoster = require("../../../img/Council.png")
 
 const Council = (props) => {
     const dispatch = useDispatch();
@@ -22,13 +27,16 @@ const Council = (props) => {
 
     return (
         <div>
+            <img id="NoticePoster" src={CouncilPoster} alt="학생회 이미지"></img>
             <div>
                 <SelectCollege dataDispatch={dataDispatch}></SelectCollege>
             </div>
             <div>
                 <CouncilChart />
             </div>
-            <div>공약 목록 버튼</div>
+            <div>
+                <CouncilList />
+            </div>
             <div>
                 <CouncilCarousel />
             </div>

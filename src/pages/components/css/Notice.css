@@ -1,17 +1,6 @@
-#NoticePoster {
-    width: 50%;
-    display: block;
-    margin: 0px auto;
-}
-
 @media all and (max-width:768px) {
     #MobileNotice {
         display: none;
-    }
-    #NoticePoster {
-        width: 90%;
-        display: block;
-        margin: 0px auto;
     }
     #NoticeTable {
         width: 95%;

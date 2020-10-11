@@ -66,8 +66,8 @@ const SelectCollege = (props) => {
     },[])
 
     return (
-        <div>
-            <select className={"select"} onChange={onChangeCollege} value={collegeValue}>
+        <div className="selectdiv">
+            <select id="college" className={"select"} onChange={onChangeCollege} value={collegeValue}>
                 <option value="0">총학생회</option>
                 <option value="1">경영대학</option>
                 <option value="2">사회과학대학</option>
