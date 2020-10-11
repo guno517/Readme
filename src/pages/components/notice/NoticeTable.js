@@ -193,7 +193,7 @@ function NoticeTable() {
             </Table>
             <Link to="/editor">
                 <Button id="Upload" className={classes.button} variant="contained" >
-                    공지 작성
+                    Upload
                 </Button>
             </Link>
         </TableContainer>

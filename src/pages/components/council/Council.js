@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
 import CouncilChart from "./CouncilChart";
 import CouncilCarousel from "./CouncilCarousel";
 import CouncilButton from "./CouncilButton";
@@ -8,17 +8,17 @@ import { fetchSelectCode } from "../Common";
 
 const Council = (props) => {
     const dispatch = useDispatch();
-    const voteCandidate = useSelector(state => state.voteCandidate)
+    const voteCandidate = useSelector((state) => state.voteCandidate);
 
     useEffect(() => {
         fetchSelectCode(dispatch);
     });
 
-    const dataDispatch = (college, major) =>{
+    const dataDispatch = (college, major) => {
         console.log(document.querySelector("#major").value);
-    }
-    
-    const state = useSelector(state => state.voteMenu)
+    };
+
+    const state = useSelector((state) => state.voteMenu);
 
     return (
         <div>
