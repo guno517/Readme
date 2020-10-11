@@ -1,0 +1,17 @@
+.carousel-wrapper {
+    width: 50%;
+    min-width: 200;
+    margin: 0 auto;
+    margin-top: 5%;
+}
+.carousel .slide .legend {
+    background: #59AAEB !important; 
+    bottom: 20px !important;
+}
+@media all and (max-width:768px) {
+    .carousel-wrapper {
+        width: 80%;
+        margin: 0px auto;
+        margin-top: 5%;
+    }
+}
