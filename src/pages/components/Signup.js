@@ -1,6 +1,10 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux'
+import { fetchSelectCode } from "./Common";
+import SelectCollege from "./SelectCollege";
 import "./css/Signup.css";
+
 const Signup = () => {
     const [idOverlapCheck, setIdOverlapCheck] = useState(1);
     const [name, setName] = useState('');
@@ -105,14 +109,7 @@ const Signup = () => {
             // let getemail= RegExp(/^[0-9a-zA-Z][0-9a-zA-Z\_\-]*[0-9a-zA-Z](\.[a-zA-Z]{2,6}){1,2}$/);
             // let getName = RegExp(/^[가-힣]+$/);
             // let getNum  = RegExp(/^[0-9]*$/);
-            
-            if(!college){
-                alert("소속 단대를 선택하여주세요.");
-            }
-            else if(!department){
-                alert("소속 학과를 선택하여주세요.");
-            }
-            else if(!name){
+            if(!name){
                 alert("이름을 입력하여주세요.");
             }
             // else if(!getName.name){
@@ -151,27 +148,21 @@ const Signup = () => {
             }
         }
 
+        const dataDispatch = (college, major) =>{
+        }
+
+        const dispatch= useDispatch()
+        useEffect(()=>{
+            fetchSelectCode(dispatch);
+        },[])
     return(
         <div className={"content"}>
             <div className={"signup_wrap"}>
                 <div className={"signup_form"}>
                     <h2>Sign up</h2>
                     
-                    <h4>단과대학</h4>
-                    <select className={"college"} onChange={onChangeValue}>
-                        <option value="">선택</option>
-                        <option value="총학생회">총학생회</option>
-                        <option value="IT대학">IT대학</option>
-                        <option value="예술대학">예술대학</option>
-                    </select>
-
-                    <h4>학과</h4>
-                    <select className={"department"} type="date" onChange={onChangeValue}>
-                        <option value="">선택</option>
-                        <option value="컴퓨터공학과">컴퓨터공학과</option>
-                        <option value="시각디자인학과">시각디자인학과</option>
-                        <option value="건축학과">건축학과</option>
-                    </select>
+                    <h4>단과대학 / 학과</h4>
+                    <SelectCollege dataDispatch={dataDispatch}></SelectCollege> 
 
                     <h4>학번</h4>
                     <input className={"student_number"} type="text" placeholder="학번" onChange={onChangeValue}></input>
@@ -182,7 +173,6 @@ const Signup = () => {
                     <h4>ID</h4>
                     <input className={"id"} type="text" placeholder="ID" onChange={onChangeValue}></input>
                     <button className={"idCheck"} onClick={IdCheck} >중복체크</button>
-                    
                     <h4>Password</h4>
                     <input className={"userPw"} type="password" placeholder="password" onChange={onChangeValue}></input>
                     

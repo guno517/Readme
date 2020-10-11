@@ -34,20 +34,21 @@
     display: block;
     margin: 0px auto;
 }
-.VoteCandidate, .VoteResult{
-    width:80%;
+.VoteCandidate, .VoteResult, .candidate_pledge_container{
+    width:60%;
     margin:0 auto;
     margin-top:50px;
 }
 .candidate_container{
     margin-top: 50px;
     min-height: 500px;
+    margin-bottom: 50px;
 }
 .candidate_list_container{
     width:20%;
     display: inline-block;
-    float: left;
     min-width: 200px;
+    margin-right: 15%;
 }
 .candidate_list{
     margin-bottom: 50px;
@@ -55,7 +56,7 @@
 .candidate_profile{
     width:200px;
     height:200px;
-    border:1px solid #cccccc;
+    border:1px solid #bbbbbb;
     border-radius: 25px;
 }
 .candidate_profile > img{
@@ -63,12 +64,36 @@
     height:70%;
     border-radius: 25px 25px 0px 0px;
 }
-.candidate_pledge{
+.candidate_pledge_container{
+    width:40%;
     display: inline-block;
-    margin-left:8%;
+    vertical-align: top;
+}
+.candidate_pledge{
+    width: 100%;
+    border: 3px solid black;
+    min-height: 400px;
+    padding:25px;
+    border-radius: 5px;
 }
 .candidate_profile dl{
     margin:0;
+}
+.candidate_setting{
+    width: 100%;
+    text-align: right;
+    margin-top:70px;
+}
+.candidate_setting > button{
+    height:40px;
+    width:100px;
+    outline: none;
+    font-weight: 600;
+    margin-right:8%;
+    border: 2px solid rgb(89, 170, 235);
+    background-color: white;
+    color: black;
+    border-radius: 5px;
 }
 @media (max-width: 768px) {
     .vote_ul{
@@ -83,16 +108,29 @@
         display: block;
         margin: 0px auto;
     }
+    .VoteCandidate, .VoteResult, .candidate_pledge_container{
+        width:80%;
+    }
     .candidate_list_container{
         min-width: 150px;
+        float: none;
+        width: 100%;
+        text-align: center;
+    }
+    .candidate_list{
+        display: inline-block;
+        margin-right: 20px;
     }
     .candidate_profile{
         width:150px;
-        height:100px;
+        height:200px;
     }
     .candidate_profile > img{
         width:150px;
-        height:100px;
+        height:130px;
+    }
+    .candidate_setting > button{
+        margin-right:1%;
     }
 }
     
@@ -101,15 +139,18 @@
         width:80%;
     }
     .candidate_profile{
-        width:100px;
-        height:100px;
+        width:120px;
+        height:170px;
     }
     .candidate_list_container{
         min-width: 100px;
     }
+    .candidate_pledge_container{
+        margin-left: 5%;
+        margin-top: 0px;
+    }
     .candidate_profile > img{
-        width:100px;
+        width:120px;
         height:100px;
     }
-
 }
