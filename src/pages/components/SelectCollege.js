@@ -49,13 +49,19 @@ const SelectCollege = (props) => {
     }
 
     useEffect(()=>{
-        // 최초의 두번째 select option 데이터 초기값을 위해 dispatch 실행
-        let stateFilter = allSelectList.codeTable.filter(f=>{
-            return f.collegeId === parseInt(0);
-        })
+        // // 최초의 두번째 select option 데이터 초기값을 위해 dispatch 실행
+        // let stateFilter = allSelectList.codeTable.filter(f=>{
+        //     return f.collegeId === parseInt(0);
+        // })
         dispatch({
             type:"FETCH_SELECT_MENU_COLLEGE",
-            data:stateFilter
+            data:[{
+                "index": 1,
+                "collegeId": 0,
+                "deptId": 0,
+                "collegeName": "총학생회",
+                "deptName": "총학생회"
+              }]
         })
     },[])
 
