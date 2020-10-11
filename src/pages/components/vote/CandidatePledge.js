@@ -24,7 +24,7 @@ const CandidatePledge = (props) => {
             ?
             <div className={"candidate_pledge"}>
                 <ul>
-                    <li>기호: <span style={{marginLeft:'10px'}}>{pledgeData.number}</span></li>
+                    <li>기호: <span style={{marginLeft:'10px', color:'red', fontWeight:600}}>{pledgeData.number}</span> 번</li>
                     <li>이름: <span style={{marginLeft:'10px'}}>{pledgeData.name}</span></li>
                     <li>학년: <span style={{marginLeft:'10px'}}>{pledgeData.grade}</span></li>
                 </ul>
