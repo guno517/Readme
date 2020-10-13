@@ -4,12 +4,12 @@ import Main from './Main';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import Logout from './components/Logout';
-import Council from './components/Council';
+import Council from './components/council/Council';
 import Vote from './components/vote/Vote';
 import Search from './components/Search';
-import Notice from './components/Notice';
-import NoticeEditor from './components/NoticeEditor';
-import NoticeDetail from './components/NoticeDetail';
+import Notice from './components/notice/Notice';
+import NoticeEditor from './components/notice/NoticeEditor';
+import NoticeDetail from './components/notice/NoticeDetail';
 
 const Content = () => {
  
