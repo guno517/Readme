@@ -18,7 +18,7 @@ import CandidateSet from './components/vote/CandidateSet';
 const Content = () => {
  
     return(
-        <div style={{marginTop:"59px"}}>
+        <div style={{marginTop:"57px"}}>
             <Route exact path="/" component={Main}/>
             <Route path="/login" component={Login}/>
             <Route path="/logout" component={Logout}/>
