@@ -13,6 +13,7 @@ import NoticeDetail from './components/notice/NoticeDetail';
 import CouncilEditor from "./components/council/CouncilEditor";
 import CouncilDetail from "./components/council/CouncilDetail";
 import CouncilList from "./components/council/CouncilList";
+import CandidateSet from './components/vote/CandidateSet';
 
 const Content = () => {
  
@@ -32,6 +33,7 @@ const Content = () => {
             <Route exact path="/editor" component={NoticeEditor}/>
             <Route exact path="/editor/update/:id" component={NoticeEditor}/>
             <Route path="/notice_detail/:id" component={NoticeDetail}/>
+            <Route path="/candidateSet/:collegeCode/:majorCode" component={CandidateSet}/>
         </div>
     )
 }

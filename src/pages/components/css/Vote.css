@@ -34,10 +34,14 @@
     display: block;
     margin: 0px auto;
 }
-.VoteCandidate, .VoteResult, .candidate_pledge_container{
+.VoteCandidate, .VoteResult{
     width:60%;
     margin:0 auto;
     margin-top:50px;
+}
+.candidate_pledge_container{
+width:60%;
+margin:0 auto;
 }
 .candidate_container{
     margin-top: 50px;
@@ -86,7 +90,7 @@
 }
 .candidate_setting > button{
     height:40px;
-    width:100px;
+    width:120px;
     outline: none;
     font-weight: 600;
     margin-right:8%;
