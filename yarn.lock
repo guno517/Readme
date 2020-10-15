@@ -10303,11 +10303,20 @@ shallow-clone@^3.0.0:
   dependencies:
     kind-of "^6.0.2"
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> 92ad4d6d47b394b237348f1c5c403c3322946ab9
 shallowequal@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/shallowequal/-/shallowequal-1.1.0.tgz#188d521de95b9087404fd4dcb68b13df0ae4e7f8"
   integrity sha512-y0m1JoUZSlPAjXVtPPW70aZWfIL/dSP7AFkRnniLCrK/8MDKog3TySTBmckD+RObVxH0v4Tox67+F14PdED2oQ==
 
+<<<<<<< HEAD
+>>>>>>> 46adba443157f84d02f89de77ade5db052927a13
+=======
+>>>>>>> 92ad4d6d47b394b237348f1c5c403c3322946ab9
 shebang-command@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/shebang-command/-/shebang-command-1.2.0.tgz#44aac65b695b03398968c39f363fee5deafdf1ea"

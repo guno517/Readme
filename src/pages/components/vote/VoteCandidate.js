@@ -34,6 +34,7 @@ const VoteCandidate = (props) => {
             console.log(error)
         });
     }
+   
     // selected 된 데이터 store에서 가져오기
     const voteCandidateData = useSelector(state => state.voteCandidateCollege)
     
