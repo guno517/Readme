@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSelectCode } from "../Common";
-import SelectCollege from "./CouncilDropdownbox";
+import SelectCollege from "./CouncilSelect";
 import CouncilChart from "./CouncilChart";
 import CouncilList from "./CouncilListButton";
 import CouncilCarousel from "./CouncilCarousel";
