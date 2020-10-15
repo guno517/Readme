@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSelectCode } from "../Common";
-import SelectCollege from "../SelectCollege";
+import SelectCollege from "./CouncilDropdownbox";
 import CouncilChart from "./CouncilChart";
-import CouncilList from "./CouncilList";
+import CouncilList from "./CouncilListButton";
 import CouncilCarousel from "./CouncilCarousel";
 import CouncilButton from "./CouncilButton";
 import "../css/HeaderPoster.css";
@@ -29,7 +29,7 @@ const Council = (props) => {
         <div>
             <img id="NoticePoster" src={CouncilPoster} alt="학생회 이미지"></img>
             <div>
-                <SelectCollege dataDispatch={dataDispatch}></SelectCollege>
+                <SelectCollege dataDispatch={dataDispatch} />
             </div>
             <div>
                 <CouncilChart />

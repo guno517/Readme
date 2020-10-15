@@ -162,7 +162,7 @@ const Signup = () => {
                     <h2>Sign up</h2>
                     
                     <h4>단과대학 / 학과</h4>
-                    <SelectCollege dataDispatch={dataDispatch}></SelectCollege> 
+                    <SelectCollege style={{ display:"block" }} dataDispatch={dataDispatch}></SelectCollege> 
 
                     <h4>학번</h4>
                     <input className={"student_number"} type="text" placeholder="학번" onChange={onChangeValue}></input>
