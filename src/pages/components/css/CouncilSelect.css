@@ -1,4 +1,6 @@
-.selectdiv{
+.selectCouncilDiv{
+    display: flex;
+    justify-content: center;
     margin: 0 auto;
     margin-bottom: 3%;
 }
@@ -9,7 +11,7 @@
     margin: 0%;
 }
 .select {
-    width:17%;
+    width:20%;
     height:50px;
     border:2px solid rgb(89, 170, 235);
     border-radius:5px;
