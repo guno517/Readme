@@ -10,6 +10,7 @@ import Search from './components/Search';
 import Notice from './components/notice/Notice';
 import NoticeEditor from './components/notice/NoticeEditor';
 import NoticeDetail from './components/notice/NoticeDetail';
+import CandidateSet from './components/vote/CandidateSet';
 
 const Content = () => {
  
@@ -26,6 +27,7 @@ const Content = () => {
             <Route exact path="/editor" component={NoticeEditor}/>
             <Route exact path="/editor/update/:id" component={NoticeEditor}/>
             <Route path="/notice_detail/:id" component={NoticeDetail}/>
+            <Route path="/candidateSet/:collegeCode/:majorCode" component={CandidateSet}/>
         </div>
     )
 }

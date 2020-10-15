@@ -7,6 +7,7 @@
     outline: none;
     padding:0px 5px;
 }
+
 @media (max-width: 1058px) {
     .select{
         width:30%;
@@ -19,5 +20,8 @@
         border:2px solid rgb(89, 170, 235);
         margin-right:20px;
         border-radius:5px;
+    }
+    .selectdiv{
+        text-align: center;
     }
 }

@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux'
+import { Link } from "react-router-dom";
 import Profile from "./Profile"
 import CandidatePledge from "./CandidatePledge"
 
@@ -30,16 +31,21 @@ const CandidateList = (props) => {
             })
        }
     },[pledge])
+
+    let collegeCode = useSelector(state=>state.selectFlagData.college)
+    let majorCode = useSelector(state=>state.selectFlagData.major)
+
     pledgeData = useSelector(state=>state.votePledge); 
 
     return (
     <div className={"candidate_container"}>
         <Profile listdata={listdata} onClick={ClickProfile}></Profile>
-        {listdata.length !==0 && 
-            <CandidatePledge pledgeData={pledgeData}></CandidatePledge>
+        {listdata.length !==0 
+            ? <CandidatePledge pledgeData={pledgeData}></CandidatePledge>
+            : <p>등록된 후보가 없습니다.</p>
         }
         <div className={"candidate_setting"}>
-            <button type="button">후보자 관리</button>
+            <button type="button"><Link to={`/candidateSet/${collegeCode}/${majorCode}`}>후보자 관리</Link></button>
         </div>
     </div>
     )
