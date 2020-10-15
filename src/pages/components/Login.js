@@ -89,7 +89,7 @@ const Login = (props) => {
             
             return response;
         }else{
-            alert("ID / Password 를 입력해주세요");
+            alert("ID / Password 를 입력해 주세요.");
         }
     }
 
