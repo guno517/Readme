@@ -10,10 +10,10 @@ const CouncilList = () => {
             <img id="NoticePoster" src={councilListPoster} />
             <div className="councilListTitle">
                 <div className="councilTitleLeft">
-                    공약 전체 목록
+                    <strong>공약 전체 목록</strong>
                 </div>
                 <div className="councilTitleRight">
-                    이행 완료 목록
+                    <strong>이행 완료 목록</strong>
                 </div>       
             </div>
             <div className="councilListContent">

@@ -3,7 +3,7 @@
     justify-content: center;
     text-align: center;
     margin-bottom: 3%;
-    font-size: 28px;
+    font-size: 17px;
 }
 .councilTitleLeft {
     width: 35%;
@@ -12,6 +12,7 @@
     border-style: solid;
     border-color: #59AAEB;
     border-radius: 10em;
+    padding-top: 1%;
 }
 .councilTitleRight {
     width: 35%;
@@ -19,6 +20,7 @@
     border-style: solid;
     border-color: #59AAEB;
     border-radius: 10em;
+    padding-top: 1%;
 }
 .councilListContent {
     display: flex;
@@ -41,9 +43,11 @@
 @media all and (max-width:768px) {
     .councilTitleLeft {
         width: 40%;
+        padding-top: 2%;
     }
     .councilTitleRight {
         width: 40%;
+        padding-top: 2%;
     }
     .councilContentLeft {
         width: 40%;

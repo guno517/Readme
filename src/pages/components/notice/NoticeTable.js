@@ -116,8 +116,8 @@ function NoticeTable() {
             <div id="Search" className={classes.search}>
                 <div style={{ display: "inline-block", width: "100%", marginTop: "50px", marginBottom: "3%" }}>
                     <span style={{ fontSize: "18px", marginRight: "10px" }}>제목: </span>
-                    <input onChange={onChangeValue} type="text" style={{ width: "100px", height: "30px", fontSize: "18px" }}></input>
-                    <button onClick={searchActive} style={{ fontSize: "18px", marginLeft: "20px", height: "38px", backgroundColor: "white", border: "1px solid #bbbbbb", verticalAlign: "bottom" }}>
+                    <input onChange={onChangeValue} type="text" style={{ width: "120px", height: "30px", fontSize: "18px", borderRadius: "5px" }}></input>
+                    <button onClick={searchActive} style={{ fontSize: "15px", marginLeft: "10px", paddingLeft:"15px", paddingRight:"15px", height: "38px", color:"white", backgroundColor: "#59AAEB", border: "1px solid #bbbbbb", borderRadius: "5px", verticalAlign: "bottom" }}>
                         검색
                     </button>
                 </div>
