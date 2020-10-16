@@ -89,7 +89,7 @@ const Login = (props) => {
             
             return response;
         }else{
-            alert("ID / PassWord 를 입력해주세요");
+            alert("ID / Password 를 입력해 주세요.");
         }
     }
 
@@ -100,8 +100,8 @@ const Login = (props) => {
                     <h2>Sign in</h2>
                     <h4>ID</h4>
                     <input className={"id"} type="text" onChange={changeInput} placeholder="ID"></input>
-                    <h4>PassWord</h4>
-                    <input className={"pass"} type="PassWord" onChange={changeInput} placeholder="PassWord"></input>
+                    <h4>Password</h4>
+                    <input className={"pass"} type="PassWord" onChange={changeInput} placeholder="Password"></input>
                     <div className={"sign_button"}>
                         <button className={"sign_in"} type="button" onClick = {LoginSubmit}><Link to="/">Sign in</Link></button>
                         <button className={"sign_up"} type="button"><Link to="/signup">Sign up</Link></button>

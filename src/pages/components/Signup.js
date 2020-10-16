@@ -162,22 +162,22 @@ const Signup = () => {
                     <h2>Sign up</h2>
                     
                     <h4>단과대학 / 학과</h4>
-                    <SelectCollege dataDispatch={dataDispatch}></SelectCollege> 
+                    <SelectCollege style={{ display:"block" }} dataDispatch={dataDispatch}></SelectCollege> 
 
                     <h4>학번</h4>
                     <input className={"student_number"} type="text" placeholder="학번" onChange={onChangeValue}></input>
 
                     <h4>이름</h4>
-                    <input className={"name"} type="text" placeholder="name" onChange={onChangeValue}></input>
+                    <input className={"name"} type="text" placeholder="이름" onChange={onChangeValue}></input>
                     
                     <h4>ID</h4>
                     <input className={"id"} type="text" placeholder="ID" onChange={onChangeValue}></input>
                     <button className={"idCheck"} onClick={IdCheck} >중복체크</button>
                     <h4>Password</h4>
-                    <input className={"userPw"} type="password" placeholder="password" onChange={onChangeValue}></input>
+                    <input className={"userPw"} type="password" placeholder="Password" onChange={onChangeValue}></input>
                     
                     <h4>Password Check</h4>
-                    <input className={"userPwCheck"} type="password" placeholder="password" onChange={onChangeValue}></input>
+                    <input className={"userPwCheck"} type="password" placeholder="Password" onChange={onChangeValue}></input>
                     
                     <button className={"signup_signup"} type="button" onClick = {dataSubmit}>Sign up</button>
                     </div>

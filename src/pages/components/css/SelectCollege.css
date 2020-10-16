@@ -2,7 +2,6 @@
     width:22%;
     height:50px;
     border:2px solid rgb(89, 170, 235);
-    margin-right:50px;
     border-radius:5px;
     outline: none;
     padding:0px 5px;
@@ -20,8 +19,5 @@
         border:2px solid rgb(89, 170, 235);
         margin-right:20px;
         border-radius:5px;
-    }
-    .selectdiv{
-        text-align: center;
     }
 }

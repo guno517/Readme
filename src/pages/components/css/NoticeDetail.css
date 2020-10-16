@@ -1,7 +1,7 @@
 #NoticePoster {
     width: 50%;
     margin: 0px auto;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
 }
 #NoticeContent {
     width: 80%;
@@ -35,7 +35,7 @@
     #NoticePoster {
         width: 90%;
         margin: 0px auto;
-        margin-bottom: 5%;
+        margin-bottom: 2%;
     }
     #NoticeContent {
         width: 95%;

@@ -21,8 +21,10 @@ const Footer = (props) =>{
                 </div>
                 <div className={"SNS"}>
                     <ul>
-                        <li><Link to="https://www.facebook.com/gachongeneralstudentcouncil"><img src="https://cdn.pixabay.com/photo/2017/06/22/06/22/facebook-2429746_960_720.png" width="30px" height="30px" alt="facebook"></img></Link></li>
-                        <li><Link to="https://www.instagram.com/36th_gc_wind/?hl=ko"><img src="https://cdn.pixabay.com/photo/2016/09/17/07/03/instagram-1675670_960_720.png" width="30px" height="30px" alt="instagram"></img></Link></li>
+                        <li><a href="https://www.gachon.ac.kr/main.jsp"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcQWvSQ-r6RM4fjyoHDIMNgq-6LI0RGKne0pnw&usqp=CAU" width="30px" height="30px" alt="instagram"></img></a></li>
+                        <li><a href="https://www.facebook.com/gachongeneralstudentcouncil/"><img src="https://img.icons8.com/ios-filled/50/000000/facebook-new.png" width="30px" height="30px" alt="facebook"></img></a></li>
+                        <li><a href="https://www.instagram.com/36th_gc_wind/?hl=ko"><img src="https://img.icons8.com/ios/50/000000/instagram-new.png" width="30px" height="30px" alt="instagram"></img></a></li>
+                        <li><a href="https://github.com/th0532/Readme"><img src="https://img.icons8.com/material-outlined/50/000000/github.png" width="30px" height="30px" alt="instagram"></img></a></li>
                     </ul>
                 </div>
             </div>

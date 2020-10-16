@@ -12,7 +12,7 @@ function CouncilCarousel() {
     return (
         <div class="carousel-wrapper">
             <Carousel showStatus={false} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay>
-                <Link>
+                <Link to="/council_detail">
                     <div>
                         <img src={poster1}></img>
                         <p className="legend">제목 미리보기</p>

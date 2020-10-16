@@ -1,7 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {useSelector, useDispatch } from 'react-redux';
-import Highcharts from "highcharts/highstock";
-import PieChart from "highcharts-react-official";
+import {useSelector, useDispatch } from 'react-redux'
 
 const SelectCollege = (props) => {
     const {dataDispatch} = props
@@ -65,44 +63,32 @@ const SelectCollege = (props) => {
               }]
         })
     },[])
-    console.log(document.querySelector("#college").value);
-    console.log(document.querySelector("#major").value);
-}
 
-const options = {
-    chart: {
-        type: "pie",
-    },
-    credits: {
-        enabled: false,
-    },
-    title: {
-        text: "총학생회 공약 이행 현황",
-    },
-    series: [
-        {
-            name: "공약",
-            colorByPoint: true,
-            data: [
-                {
-                    name: "공약 개수",
-                    y: 12,
-                },
-                {
-                    name: "이행 완료",
-                    y: 3,
-                },
-            ],
-        },
-    ],
-};
-
-function CouncilChart() {
     return (
-        <div>
-            <PieChart highcharts={Highcharts} options={options}></PieChart>
+        <div className="selectCouncilDiv">
+            <select id="college" className={"select"} onChange={onChangeCollege} value={collegeValue}>
+                <option value="0">총학생회</option>
+                <option value="1">경영대학</option>
+                <option value="2">사회과학대학</option>
+                <option value="3">인문대학</option>
+                <option value="4">법과대학</option>
+                <option value="5">공과대학</option>
+                <option value="6">바이오나노대학</option>
+                <option value="7">IT융합대학</option>
+                <option value="8">한의과대학</option>
+                <option value="9">예술/체육대학</option>
+                <option value="10">가천리버럴아츠칼리지대학</option>
+            </select>
+
+            <select id="major" className={"select"} onChange={onChangeMajor} >
+                {collegeSelectList&&
+                    collegeSelectList.map((list,index)=>(
+                        <option key={index} value={list.deptId}>{list.deptName}</option>
+                    ))
+                }
+            </select>
         </div>
-    );
+    )
 }
 
-export default CouncilChart;
+export default SelectCollege
