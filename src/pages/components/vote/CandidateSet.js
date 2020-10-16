@@ -23,6 +23,7 @@ const CandidateSet = (props) =>{
 
     let dbUrl = `http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate/insert/${collegeCode}/${majorCode}`
     
+    // 해당 input onChange
     const numberChange = (e) =>{
         setNumber(e.target.value);
     } 
@@ -38,12 +39,16 @@ const CandidateSet = (props) =>{
     const electionPledgeChange = (e) =>{
         setElectionPledge(e.target.value);
     } 
+    // 목록
     const prev = () =>{
         window.history.go(-1);
     }
+    
+    // 데이터 등록
     const dataSubmit = async()=>{
         let career = careerList.join("#");
         let election_pledge = electionPledgeList.join("#");
+
         await fetch(dbUrl,{
             method:"POST",
             headers: {
@@ -64,6 +69,8 @@ const CandidateSet = (props) =>{
             window.history.go(-1);
         })
     }
+
+    // 이미지 미리보기
     const [previewURL, setPreviewURL] = useState('');
     const handleFileOnChange = (e) => {
         e.preventDefault();
@@ -75,65 +82,83 @@ const CandidateSet = (props) =>{
         reader.readAsDataURL(file);
       }
  
+    //   경력, 공약 데이터 리스트 변경
     const careerDataAdd = () =>{
+        if(career===""){
+            alert("공백을 입력하실 수 없습니다.")
+        }
         setCareerList(careerList.concat(career));
         setCareer("")
         careerInput.current.focus();
     }
     const electionPledgeDataAdd = () =>{
+        if(electionPledge===""){
+            alert("공백을 입력하실 수 없습니다.")
+        }
         setElectionPledgeList(electionPledgeList.concat(electionPledge));
         setElectionPledge("")
         electionPledgeInput.current.focus();
     }
-    
+
+    // 엔터 클릭시
+    const handleKeyPress = (e) => {
+        if (e.key === "Enter") {
+            if(e.target.name === "career"){
+                careerDataAdd();
+            }else{
+                electionPledgeDataAdd();
+            }
+        }
+      };
 
     return(
-        <div>
-            <h1 style={{marginTop:"100px", marginLeft:'3%', marginBottom:'40px'}}>입후보 등록</h1>
-            <input
-                value={number} 
-                type="text" placeholder="후보자 기호 번호를 작성해주세요" 
-                onChange={numberChange}
-                style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}>
-            </input>
-            <input
-                value={name} 
-                type="text" placeholder="이름을 작성해주세요" 
-                onChange={nameChange}
-                style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}>
-            </input>
-            <input
-                value={grade} 
-                type="text" placeholder="학년을 작성해주세요" 
-                onChange={gradeChange}
-                style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}>
-            </input>
-          
-            <div className={"career"} style={{ marginLeft:'3%', marginBottom:'40px'}}>
-                <h1>경력</h1>
-                <input ref={careerInput} value = {career} onChange={careerChange} type="text" placeholder="경력을 입력하세요" style={{width:'250px', height:'35px'}}/>
-                <button onClick={careerDataAdd}>등록</button>
+        <div style={{marginLeft:'5%'}}>
+            <h1 style={{marginTop:"100px", marginBottom:'40px'}}>입후보 등록</h1>
+            <Input 
+                type={number} 
+                placeholder={"후보자 기호 번호를 작성해주세요"} 
+                changeEvent={numberChange}
+            ></Input>
+            <Input 
+                type={name} 
+                placeholder={"이름을 작성해주세요"} 
+                changeEvent={nameChange}
+            ></Input>
+            <Input 
+                type={grade} 
+                placeholder={"학년을 작성해주세요"} 
+                changeEvent={gradeChange}
+            ></Input>
 
-                <ul>
-                    {careerList && careerList.map((data, index)=>(
-                        <li key={index} style={{marginTop:"10px"}}>{data}</li>
-                    ))}
-                </ul>
-            </div>
+            <CandidateSubmit 
+                className= {"career"}
+                title = {"경력"}
+                refs = {careerInput}
+                type = {career}
+                changeEvent = {careerChange}
+                pressEvent = {handleKeyPress}
+                name = {"career"}
+                placeholder = {"경력을 입력하세요" }
+                clickEvent = {careerDataAdd}
+                listName={careerList}
+            >
+           </CandidateSubmit>
+
+           <CandidateSubmit 
+                className= {"electionPledge"}
+                title = {"공약"}
+                refs = {electionPledgeInput}
+                type = {electionPledge}
+                changeEvent = {electionPledgeChange}
+                pressEvent = {handleKeyPress}
+                name = {"electionPledge"}
+                placeholder = {"공약을 입력하세요" }
+                clickEvent = {electionPledgeDataAdd}
+                listName={electionPledgeList}
+            >
+           </CandidateSubmit>
             
-            <div className={"electionPledge"} style={{ marginLeft:'3%', marginBottom:'40px'}}>
-                <h1>공약</h1>
-                <input ref={electionPledgeInput} value = {electionPledge} onChange={electionPledgeChange} type="text" placeholder="공약을 입력하세요" style={{width:'250px', height:'35px'}}/>
-                <button onClick={electionPledgeDataAdd}>등록</button>
-
-                <ul>
-                    {electionPledgeList && electionPledgeList.map((data, index)=>(
-                        <li key={index} style={{marginTop:"10px"}}>{data}</li>
-                    ))}
-                </ul>
-            </div>
-
-            <div className={"thumbnail"} style={{ marginLeft:'3%', marginBottom:'40px'}}>
+            <div className={"thumbnail"} style={{ marginBottom:'40px'}}>
                 <h1>프로필 이미지 (선택)</h1>
                 <input type='file' 
                         accept='image/jpg,impge/png,image/jpeg,image/gif' 
@@ -147,104 +172,60 @@ const CandidateSet = (props) =>{
                 <button onClick={prev} style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'white', color:'#59AAEB', borderRadius:'5px', outline:'none'}}>목록</button>
                 <button onClick={dataSubmit} style={{width:'100px', height:'30px',marginRight:'3%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#59AAEB', color:'white', borderRadius:'5px'}}>등록</button>
             </div>
+          
         </div>
     )
 }
-// class CandidateSet extends React.Component {
+// 입후보자 기호, 이름, 학년
+const Input = (props) =>{
+    const {type, placeholder, changeEvent} = props;
+    return(
+        <input
+            value={type} 
+            type="text" placeholder={placeholder}
+            onChange={changeEvent}
+            style={{width:'250px', height:'35px', marginBottom:'2%', marginRight:'2%', border:'1px solid #ccc', paddingLeft:'1%'}}>
+        </input>
 
-//     constructor(props) {
-//         super(props)
-//         let collegeCode = this.props.match.params.collegeCode;
-//         let majorCode = this.props.match.params.majorCode;
-//         this.state = { 
-//             content: '',
-//             title: '',
-//             dbUrl:`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate/insert/${collegeCode}/${majorCode}`
-//         }
-//         this.handleChange = this.handleChange.bind(this)
-//         this.titleChange = this.titleChange.bind(this)
-//         this.dataSubmit = this.dataSubmit.bind(this)
+    )
+}
+// 경력 및 공약 등록
+const CandidateSubmit = (props) =>{
+    const {className, title, refs, type, changeEvent, pressEvent, name, placeholder, clickEvent, listName } = props;
+    return(
+        <div className={className} style={{ marginBottom:'40px'}}>
+            <h1>{title}</h1>
+            <input 
+                ref={refs} 
+                value = {type} 
+                onChange={changeEvent} 
+                onKeyPress={pressEvent} 
+                name={name}
+                type="text" 
+                placeholder={placeholder}
+                style={{width:'250px', height:'35px'}}
+            />
+            <button 
+                onClick={clickEvent}
+                style={{
+                    width:"80px",
+                    height:"40px",
+                    border: "1px solid rgb(130, 162, 209)",
+                    backgroundColor: "rgb(89, 170, 235)",
+                    color: "white",
+                    borderRadius: "3px",
+                    marginLeft:'2%',
+                }}
+            >등록</button>
 
-//         if(props.match.params.id){
-//             this.fetchApi()
-//         }
-//     }
-    
-//     handleChange(value) {
-//       this.setState({ content: value})
-//     }
-//     titleChange(e) {
-//         this.setState({ title: e.target.value})
-//     }
-//     prev(){
-//         window.history.go(-1);
-//     }
-//     async dataSubmit(){
-//         let date = new Date();
-//         let year = date.getFullYear();
-//         let month = date.getMonth()+1;
-//         let day = date.getDate();
-//         let hour = date.getHours();
-//         let minute = date.getMinutes();
-//         let second = date.getSeconds();
-//         // 날짜까지
-//         let date1 = `${year}/${month}/${day<10?`0${day}`:`${day}`}`;
-//         let date2 = `${hour}:${minute<10?`0${minute}`:`${minute}`}:${second<10?`0${second}`:`${second}`}`;
-//         let time = date1+" "+ date2;
-//         await fetch(this.state.dbUrl,{
-//             method:"POST",
-//             headers: {
-//                 'Content-Type': 'application/json',
-//             },
-//             body:JSON.stringify({
-//                 title:this.state.title,
-//                 content:this.state.content,
-//                 writer:"가천대학교 총학생회",
-//                 time:time
-//             })
-//         })
-//         .then(()=>{
-//             window.history.go(-1);
-//         })
-//     }
-//     modules = {
-//         toolbar: [
-//           [{ 'header': [1, 2, false] }],
-//           ['bold', 'italic', 'underline','strike', 'blockquote'],
-//           [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-//           ['image']        ],
-//       }
-     
-//       formats = [
-//         'header',
-//         'bold', 'italic', 'underline', 'strike', 'blockquote',
-//         'list', 'bullet', 'indent',
-//         'image'
-//       ]
+            <ul style={{padding:'10px'}}>
+                {listName && listName.map((data, index)=>(
+                    <li key={index} style={{marginTop:"10px"}}>{data}</li>
+                ))}
+            </ul>
+        </div>
+    )
+}
 
-//     render() {
-//       return (
-//             <>
-//                 <h1 style={{marginTop:"100px", marginLeft:'3%', marginBottom:'40px'}}>{this.path_id?"입후보 수정":"입후보 등록"}</h1>
-//                 <input
-//                     value={this.state.title} 
-//                     type="text" placeholder="제목을 작성해주세요" 
-//                     onChange={this.titleChange}
-//                     style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}></input>
-//                 <ReactQuill 
-//                     value={this.state.content}
-//                     modules={this.modules}
-//                     formats={this.formats}
-//                     onChange={this.handleChange} 
-//                     style={{marginLeft:'3%',marginRight:'3%',marginBottom:'3%', minHeight:'500px'}}
-//                 />
-//                 <div style={{width:'100%', textAlign: 'right'}}>
-//                     <button onClick={this.prev} style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'white', color:'#59AAEB', borderRadius:'5px', outline:'none'}}>목록</button>
-//                     <button onClick={this.dataSubmit} style={{width:'100px', height:'30px',marginRight:'3%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#59AAEB', color:'white', borderRadius:'5px'}}>등록</button>
-//                 </div>
-//             </>
-//       )
-//     }
-//   }
 
   export default CandidateSet;

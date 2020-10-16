@@ -13,8 +13,8 @@ const CandidatePledge = (props) => {
     useEffect(()=>{
         if(pledge !== undefined && pledge.length !== 0){
             setIsLoading(true)
-            setCareer(pledge.career.substr(0,pledge.career.length-1).split("#",-1))
-            setElectionPledge(pledge.election_pledge.substr(0,pledge.election_pledge.length-1).split("#"))
+            setCareer(pledge.career.split("#"))
+            setElectionPledge(pledge.election_pledge.split("#"))
         }
     },[pledge])
     return (

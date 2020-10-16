@@ -17,6 +17,9 @@ const Vote = (props) => {
     const dispatch = useDispatch()
     const voteCandidate = useSelector(state => state.voteCandidate)
 
+    const [sessionId, setSessionId] = useState('')
+
+
     useEffect(()=>{
        dispatch({
            type:'UPDATE_MENU',
@@ -30,6 +33,8 @@ const Vote = (props) => {
         })
     // select 최초 모든 데이터 fetch
        fetchSelectCode(dispatch);
+
+        setSessionId(window.sessionStorage.getItem("id"));
     },[])
     
     //select 박스 변경시
@@ -52,7 +57,7 @@ const Vote = (props) => {
             {state[2].isActive ? <img id="NoticePoster" src={VoteResultPoster} alt="선거 공지 설명 이미지"></img>:""}
             <VoteHeader voteMenu={state}></VoteHeader>
             {state[0].isActive ? <VoteInfo/>:""}
-            {state[1].isActive ? <VoteCandidate dataDispatch={dataDispatch}/>:""}
+            {state[1].isActive ? <VoteCandidate dataDispatch={dataDispatch} sessionId={sessionId}/>:""}
             {state[2].isActive ? <VoteResult/>:""}
 
             {/* <VoteInfo></VoteInfo> */}

@@ -5,7 +5,7 @@ import Profile from "./Profile"
 import CandidatePledge from "./CandidatePledge"
 
 const CandidateList = (props) => {
-    const {listdata} = props;
+    const {listdata, sessionId} = props;
     // 프로필 클릭시 event
     
     const dispatch = useDispatch();  
@@ -39,13 +39,15 @@ const CandidateList = (props) => {
 
     return (
     <div className={"candidate_container"}>
-        <Profile listdata={listdata} onClick={ClickProfile}></Profile>
+        <Profile listdata={listdata} onClick={ClickProfile} sessionId={sessionId}></Profile>
         {listdata.length !==0 
             ? <CandidatePledge pledgeData={pledgeData}></CandidatePledge>
             : <p>등록된 후보가 없습니다.</p>
         }
         <div className={"candidate_setting"}>
+        {sessionId === "admin" &&
             <button type="button"><Link to={`/candidateSet/${collegeCode}/${majorCode}`}>후보자 관리</Link></button>
+        }
         </div>
     </div>
     )
