@@ -1,9 +1,11 @@
 import React, { useState, useEffect, useRef } from "react";
 import {useSelector, useDispatch } from 'react-redux'
-import 'react-quill/dist/quill.snow.css'; // ES6
-import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill'; // ES6
 
 const CandidateSet = (props) =>{
+    
+
+    const [college, setCollege] = useState('');
+    const [major, setMajor] = useState('');
     const [number, setNumber] = useState('');
     const [name, setName] = useState('');
     const [grade, setGrade] = useState('');
@@ -17,13 +19,19 @@ const CandidateSet = (props) =>{
 
     let collegeCode = props.match.params.collegeCode;
     let majorCode = props.match.params.majorCode;
-    let selectInfo =  useSelector(state => state.selectFlagData)
-    let collegeName = selectInfo.collegeName;
-    let majorName = selectInfo.majorName;
+    // let selectInfo =  useSelector(state => state.selectFlagData)
+    // let collegeName = selectInfo.collegeName;
+    // let majorName = selectInfo.majorName;
 
     let dbUrl = `http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate/insert/${collegeCode}/${majorCode}`
     
     // 해당 input onChange
+    const collegeChange = (e) =>{
+        setCollege(e.target.value);
+    } 
+    const majorChange = (e) =>{
+        setMajor(e.target.value);
+    } 
     const numberChange = (e) =>{
         setNumber(e.target.value);
     } 
@@ -55,8 +63,8 @@ const CandidateSet = (props) =>{
                 'Content-Type': 'application/json',
             },
             body:JSON.stringify({
-                college:collegeName,
-                department:majorName,
+                college:college,
+                department:major,
                 number:number,
                 name:name,
                 grade:grade,
@@ -110,31 +118,45 @@ const CandidateSet = (props) =>{
             }
         }
       };
-
+        
     return(
         <div style={{marginLeft:'5%'}}>
             <h1 style={{marginTop:"100px", marginBottom:'40px'}}>입후보 등록</h1>
-            <Input 
-                type={number} 
-                placeholder={"후보자 기호 번호를 작성해주세요"} 
-                changeEvent={numberChange}
-            ></Input>
-            <Input 
-                type={name} 
-                placeholder={"이름을 작성해주세요"} 
-                changeEvent={nameChange}
-            ></Input>
-            <Input 
-                type={grade} 
-                placeholder={"학년을 작성해주세요"} 
-                changeEvent={gradeChange}
-            ></Input>
+
+            <div style={{marginTop:'50px'}}>
+            
+                <Input 
+                    value={college} 
+                    placeholder={"후보자의 단과대학을 입력해주세요 ex) 경영대학"} 
+                    changeEvent={collegeChange}
+                ></Input>
+                <Input 
+                    value={major} 
+                    placeholder={"후보자의 소속 학과를 입력해주세요 ex) 경영학과"} 
+                    changeEvent={majorChange}
+                ></Input>
+                <Input 
+                    value={number} 
+                    placeholder={"후보자 기호 번호를 입력해주세요 ex) 1"} 
+                    changeEvent={numberChange}
+                ></Input>
+                <Input 
+                    value={name} 
+                    placeholder={"이름을 입력해주세요"} 
+                    changeEvent={nameChange}
+                ></Input>
+                <Input 
+                    value={grade} 
+                    placeholder={"학번을 입력해주세요"} 
+                    changeEvent={gradeChange}
+                ></Input>
+            </div>
 
             <CandidateSubmit 
                 className= {"career"}
                 title = {"경력"}
                 refs = {careerInput}
-                type = {career}
+                value = {career}
                 changeEvent = {careerChange}
                 pressEvent = {handleKeyPress}
                 name = {"career"}
@@ -148,7 +170,7 @@ const CandidateSet = (props) =>{
                 className= {"electionPledge"}
                 title = {"공약"}
                 refs = {electionPledgeInput}
-                type = {electionPledge}
+                value = {electionPledge}
                 changeEvent = {electionPledgeChange}
                 pressEvent = {handleKeyPress}
                 name = {"electionPledge"}
@@ -178,26 +200,25 @@ const CandidateSet = (props) =>{
 }
 // 입후보자 기호, 이름, 학년
 const Input = (props) =>{
-    const {type, placeholder, changeEvent} = props;
+    const {value, placeholder, changeEvent} = props;
     return(
         <input
-            value={type} 
+            value={value} 
             type="text" placeholder={placeholder}
             onChange={changeEvent}
-            style={{width:'250px', height:'35px', marginBottom:'2%', marginRight:'2%', border:'1px solid #ccc', paddingLeft:'1%'}}>
+            style={{ display:'block', width:'290px', height:'35px', marginBottom:'2%', marginRight:'10px', paddingLeft:'1%'}}>
         </input>
-
     )
 }
 // 경력 및 공약 등록
 const CandidateSubmit = (props) =>{
-    const {className, title, refs, type, changeEvent, pressEvent, name, placeholder, clickEvent, listName } = props;
+    const {className, title, refs, value, changeEvent, pressEvent, name, placeholder, clickEvent, listName } = props;
     return(
         <div className={className} style={{ marginBottom:'40px'}}>
             <h1>{title}</h1>
             <input 
                 ref={refs} 
-                value = {type} 
+                value = {value} 
                 onChange={changeEvent} 
                 onKeyPress={pressEvent} 
                 name={name}

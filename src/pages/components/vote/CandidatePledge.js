@@ -26,7 +26,9 @@ const CandidatePledge = (props) => {
                 <ul>
                     <li>기호: <span style={{marginLeft:'10px', color:'red', fontWeight:600}}>{pledgeData.number}</span> 번</li>
                     <li>이름: <span style={{marginLeft:'10px', color:'blue', fontWeight:600}}>{pledgeData.name}</span></li>
-                    <li>학년: <span style={{marginLeft:'10px'}}>{pledgeData.grade}</span></li>
+                    <li>단과대학: <span style={{marginLeft:'10px'}}>{pledgeData.college}</span></li>
+                    <li>학과: <span style={{marginLeft:'10px'}}>{pledgeData.department}</span></li>
+                    <li>학번: <span style={{marginLeft:'10px'}}>{pledgeData.grade}</span></li>
                 </ul>
                 <ul style={{marginTop:'30px'}}>
                     {career.map((data, index)=>(
