@@ -80,6 +80,10 @@ margin:0 auto;
     padding:25px;
     border-radius: 5px;
 }
+.candidate_pledge ul li {
+    font-size: 18px;
+    padding: 5px 0px;
+}
 .candidate_profile dl{
     margin:0;
 }

@@ -16,6 +16,11 @@ const Council = (props) => {
     const voteCandidate = useSelector((state) => state.voteCandidate);
 
     useEffect(() => {
+        dispatch({
+            type:'UPDATE_MENU',
+            id:1,
+            name:"학생회"
+        })
         fetchSelectCode(dispatch);
     });
 
