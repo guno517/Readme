@@ -4,7 +4,7 @@ import {useSelector, useDispatch } from 'react-redux';
 const Profile = (props) => {
     const dispatch = useDispatch()
 
-    const {listdata, onClick, sessionId} = props
+    const {listdata, onClick, authority} = props
     
     const removeProfile = async(id) =>{
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate/delete/${id}`,{
@@ -25,7 +25,7 @@ const Profile = (props) => {
             {listdata.map((candidate, index)=>(
                 <div className={"candidate_list"} key={index}>
                     <div className={"candidate_profile"} onClick={()=>onClick(candidate.number)}>
-                        {sessionId === "admin" && 
+                        {authority === "0" && 
                         <button 
                         onClick={()=>removeProfile(candidate.index)}
                         style={{

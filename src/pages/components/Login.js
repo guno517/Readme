@@ -68,11 +68,13 @@ const Login = (props) => {
                 sessionSave("id", member['id'])
                 sessionSave("college", member['college'])
                 sessionSave("department", member['department'])
+                sessionSave("authority", member['authority'])
                 // dispatch({
                 //     type:'LOGIN_SUCCESS',
                 //     id:member['id'],
                 //     college:member['college'],
                 //     department:member['department'],
+                //     authority:member['authority'],
                 // })
                 dispatch({
                     type:'LOGIN_MENU',
