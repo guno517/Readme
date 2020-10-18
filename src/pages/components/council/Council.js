@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchSelectCode } from "../Common";
 import SelectCollege from "./CouncilSelect";
@@ -7,9 +7,9 @@ import CouncilList from "./CouncilListButton";
 import CouncilCarousel from "./CouncilCarousel";
 import CouncilButton from "./CouncilButton";
 import "../css/HeaderPoster.css";
-import "../css/CouncilSelect.css"
+import "../css/CouncilSelect.css";
 
-const CouncilPoster = require("../../../img/Council.png")
+const CouncilPoster = require("../../../img/Council.png");
 
 const Council = (props) => {
     const dispatch = useDispatch();
@@ -17,10 +17,10 @@ const Council = (props) => {
 
     useEffect(() => {
         dispatch({
-            type:'UPDATE_MENU',
-            id:1,
-            name:"학생회"
-        })
+            type: "UPDATE_MENU",
+            id: 1,
+            name: "학생회",
+        });
         fetchSelectCode(dispatch);
     });
 

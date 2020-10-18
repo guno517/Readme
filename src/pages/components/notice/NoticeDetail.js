@@ -55,6 +55,8 @@ const NoticeDetail = (props) => {
     }, [isLoading]);
 
     let text = noticeData[0].content;
+    console.log(noticeData[0])
+    console.log(noticeData[0].title)
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
