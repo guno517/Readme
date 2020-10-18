@@ -12,7 +12,7 @@ class NoticeEditor extends React.Component {
         this.state = { 
             content: '',
             title: '',
-            dbUrl:'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/insert/notice'
+            dbUrl:'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/insert'
         }
         this.handleChange = this.handleChange.bind(this)
         this.titleChange = this.titleChange.bind(this)

@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import menu from './menu'
+// import login from './login'
 import voteMenu  from './vote/voteMenu'
 import selectAll  from './selectForm/selectAll'
 import selectCollege  from './selectForm/selectCollege'
@@ -10,6 +11,7 @@ import votePledge  from './vote/votePledge'
 
 export default combineReducers({
     menu,
+    // login,
     voteMenu,
     selectAll,
     selectCollege,

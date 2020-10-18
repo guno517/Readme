@@ -40,11 +40,12 @@ const Signup = () => {
     }
 
     const onChangeValue = (e) => {
-        setIdOverlapCheck(1)
         if(e.target.className === "name"){
             setName(e.target.value)
         }else if(e.target.className === "id"){
             setId(e.target.value)
+            setIdOverlapCheck(1)
+
         }else if(e.target.className === "college"){
             setCollege(e.target.value)
         }else if(e.target.className === "department"){
