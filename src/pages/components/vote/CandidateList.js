@@ -25,10 +25,12 @@ const CandidateList = (props) => {
 
     useEffect(()=>{
        if(pledge !== undefined){
-            dispatch({
-                type:"PLEDGE_CHANGE_DATA",
-                data:pledge
-            })
+           if (pledge.grade !== undefined){
+                dispatch({
+                    type:"PLEDGE_CHANGE_DATA",
+                    data:pledge
+                })
+            }
        }
     },[pledge])
 

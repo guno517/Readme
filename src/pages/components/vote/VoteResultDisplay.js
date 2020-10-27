@@ -45,7 +45,6 @@ const VoteResultDisplay = (props) => {
         }
     })
 
-    console.log(elected);
     return (
         <div className="result_candidate_wrap">
             <h2>개표결과</h2>
