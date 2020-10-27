@@ -6,7 +6,6 @@ import CandidatePledge from "./CandidatePledge"
 
 const CandidateList = (props) => {
     const {listdata, authority} = props;
-    console.log(authority)
     // 프로필 클릭시 event
     
     const dispatch = useDispatch();  
