@@ -5,7 +5,6 @@ import Highcharts from "highcharts/highstock";
 import PieChart from "highcharts-react-official";
 
 const CouncilChart = (props) => {
-    const [chartData, setChartData] = useState([""]);
     const dispatch = useDispatch();
 
     useEffect(() => {
@@ -17,41 +16,17 @@ const CouncilChart = (props) => {
         fetchSelectCode(dispatch);
     });
 
-    const dataDispatch = (college, major) => {
-        const collegeDate = document.getElementById("college").value;
-        const majorData = document.getElementById("major").value;
-    };
 
-    console.log(document.getElementById("college"))
-    console.log(document.getElementById("major"))
 
     // const collegeDate = document.querySelector("#college").value;
-    let major = document.getElementById("major");
     // let majorData = major.value;
-
-    console.log(major)
 
     // let collegeValue = document.querySelector("#college").value = 0;
     // let majorValue = document.querySelector("#major").value = 0;
 
-    const fetchDataApi = async () => {
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/0/${major}`).then((response) => {
-            if (response.status === 200) {
-                response.json().then((data) => {
-                    setChartData(data.council[0][0]);
-                });
-            } else {
-                console.log("server error");
-            }
-        });
-    };
-
-    useEffect(() => {
-        fetchDataApi();
-    }, []);
-
-    const chartRate1 = chartData.total_pledge - chartData.fulfilled_pledge;
-    const chartRate2 = chartData.fulfilled_pledge;
+    
+    const chartRate1 = props.chartData.total_pledge - props.chartData.fulfilled_pledge;
+    const chartRate2 = props.chartData.fulfilled_pledge;
 
     const options = {
         chart: {

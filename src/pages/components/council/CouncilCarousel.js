@@ -35,17 +35,14 @@ function CouncilCarousel() {
         });
     };
 
-    console.log(carouselData);
-
     useEffect(() => {
         fetchDataApi();
     }, []);
 
-    console.log(carouselData[0].img);
 
     return (
         <div>
-            <div class="carousel-wrapper">
+            <div className="carousel-wrapper">
                 <Carousel showStatus={false} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay={true}>
                     {carouselData.map((data, index) => (
                         <Link to="/council_detail">
