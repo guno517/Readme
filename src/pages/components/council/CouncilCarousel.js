@@ -6,10 +6,6 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../css/CouncilCarousel.css";
 
-const poster1 = require("../../../img/poster1.png");
-const poster2 = require("../../../img/poster2.png");
-const poster3 = require("../../../img/poster3.png");
-
 function CouncilCarousel() {
     const [carouselData, setCarouselData] = useState([""]);
     const dispatch = useDispatch();
@@ -35,18 +31,14 @@ function CouncilCarousel() {
         });
     };
 
-    console.log(carouselData);
-
     useEffect(() => {
         fetchDataApi();
     }, []);
 
-    console.log(carouselData[0].img);
-
     return (
         <div>
             <div class="carousel-wrapper">
-                <Carousel showStatus={false} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay={true}>
+                <Carousel showStatus={true} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay={true}>
                     {carouselData.map((data, index) => (
                         <Link to="/council_detail">
                             <div>

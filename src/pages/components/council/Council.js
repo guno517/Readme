@@ -25,7 +25,7 @@ const Council = (props) => {
     });
 
     const dataDispatch = (college, major) => {
-        console.log(document.querySelector("#major").value);
+        
     };
 
     const state = useSelector((state) => state.voteMenu);
@@ -37,7 +37,7 @@ const Council = (props) => {
                 <SelectCollege dataDispatch={dataDispatch} />
             </div>
             <div>
-                <CouncilChart />
+                <CouncilChart dataDispatch={dataDispatch} />
             </div>
             <div>
                 <CouncilList />
