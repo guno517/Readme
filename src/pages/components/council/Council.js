@@ -29,12 +29,9 @@ const Council = (props) => {
         const collegeData = document.getElementById("college").value;
         const majorData = document.getElementById("major").value;
         fetchDataApi(collegeData, majorData)
-
     };
 
     const fetchDataApi = async (collegeData, majorData) => {
-        console.log(collegeData)
-        console.log(majorData)
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/${collegeData}/${majorData}`).then((response) => {
             if (response.status === 200) {
                 response.json().then((data) => {
