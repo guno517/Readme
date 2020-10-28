@@ -9,7 +9,7 @@ const CouncilChart = (props) => {
     const chartRate2 = props.chartData.fulfilled_pledge;
 
     const options = {
-        colors: ["#7cb5ec", "#4572A7"],
+        colors: ["#7cb5ec", "#8085e9"],
         chart: {
             type: "pie",
         },
