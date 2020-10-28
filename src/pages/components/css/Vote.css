@@ -103,6 +103,32 @@ margin:0 auto;
     color: black;
     border-radius: 5px;
 }
+.result_candidate_wrap{
+    width:48%;
+}
+.result_candidate_list_wrap{
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+.result_candidate_list{
+    flex:1 1 50%;
+    max-width: 50%;
+    margin-bottom: 40px;
+    margin-top: 20px;
+}
+.result_candidate_img > img{
+    border-radius: 25px;
+    width:80%;
+}
+.result_candidate_list > p{
+    font-size: 1.2rem;
+    margin-left:10%;
+}
+.result_turnout{
+    font-size: 1.4rem;
+    margin-left:25% !important;
+}
 @media (max-width: 768px) {
     .vote_ul{
         width:60%;

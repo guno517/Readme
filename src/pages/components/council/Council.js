@@ -14,6 +14,7 @@ const CouncilPoster = require("../../../img/Council.png");
 const Council = (props) => {
     const dispatch = useDispatch();
     const voteCandidate = useSelector((state) => state.voteCandidate);
+    const [chartData, setChartData] = useState([""]);
 
     useEffect(() => {
         dispatch({
@@ -24,9 +25,28 @@ const Council = (props) => {
         fetchSelectCode(dispatch);
     });
 
-    const dataDispatch = (college, major) => {
-        
+    const dataDispatch = () => {
+        const collegeData = document.getElementById("college").value;
+        const majorData = document.getElementById("major").value;
+        fetchDataApi(collegeData, majorData)
     };
+
+    const fetchDataApi = async (collegeData, majorData) => {
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/${collegeData}/${majorData}`).then((response) => {
+            if (response.status === 200) {
+                response.json().then((data) => {
+                    setChartData(data.council[0][0]);
+                });
+            } else {
+                console.log("server error");
+            }
+        });
+    };
+
+    useEffect(() => {
+        fetchDataApi(0, 0);
+    
+    }, []);
 
     const state = useSelector((state) => state.voteMenu);
 
@@ -37,7 +57,7 @@ const Council = (props) => {
                 <SelectCollege dataDispatch={dataDispatch} />
             </div>
             <div>
-                <CouncilChart dataDispatch={dataDispatch} />
+                <CouncilChart chartData={chartData} />
             </div>
             <div>
                 <CouncilList />

@@ -36,7 +36,7 @@ const VoteCandidate = (props) => {
     }
    
     // selected 된 데이터 store에서 가져오기
-    const voteCandidateData = useSelector(state => state.voteCandidateCollege)
+    const voteCandidateData = useSelector(state => state.voteDataCollege)
     
     useEffect(()=>{
         let ApiUrl = 'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate';

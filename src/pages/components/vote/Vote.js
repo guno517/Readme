@@ -15,8 +15,9 @@ const VoteResultPoster = require("../../../img/CandidateResult.png")
 const Vote = (props) => {
 
     const dispatch = useDispatch()
-    const voteCandidate = useSelector(state => state.voteCandidate)
-
+    const voteCandidate = useSelector(state => state.voteData)
+    const voteResult = useSelector(state => state.voteData)
+    
     const [authority, setAuthority] = useState('')
 
 
@@ -41,11 +42,20 @@ const Vote = (props) => {
         let voteCandidateCollege = voteCandidate.candidate.filter(f => {
             return f.collegeId === college && f.deptId===major
         });
+            dispatch({
+                type:'FETCH_CANDIDATE_DATA_COLLEGE',
+                data:voteCandidateCollege,
+            })
+    }
 
-        dispatch({
-            type:'FETCH_CANDIDATE_DATA_COLLEGE',
-            data:voteCandidateCollege,
-        })
+    const resultDataDispatch = (college, major) =>{
+        let voteResultCollege = voteResult.vote_result.filter(f => {
+            return f.collegeId === college && f.deptId===major
+        });
+            dispatch({
+                type:'FETCH_RESULT_DATA_COLLEGE',
+                data:voteResultCollege,
+            })
     }
     
     const state = useSelector(state => state.voteMenu)
@@ -57,7 +67,7 @@ const Vote = (props) => {
             <VoteHeader voteMenu={state}></VoteHeader>
             {state[0].isActive ? <VoteInfo/>:""}
             {state[1].isActive ? <VoteCandidate dataDispatch={dataDispatch} authority={authority}/>:""}
-            {state[2].isActive ? <VoteResult/>:""}
+            {state[2].isActive ? <VoteResult dataDispatch={resultDataDispatch}/>:""}
 
             {/* <VoteInfo></VoteInfo> */}
         </div>

@@ -34,11 +34,11 @@ function CouncilCarousel() {
     useEffect(() => {
         fetchDataApi();
     }, []);
-
+  
     return (
         <div>
-            <div class="carousel-wrapper">
-                <Carousel showStatus={true} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay={true}>
+            <div className="carousel-wrapper">
+                <Carousel showStatus={false} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay={true}>
                     {carouselData.map((data, index) => (
                         <Link to="/council_detail">
                             <div>
