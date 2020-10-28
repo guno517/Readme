@@ -6,10 +6,6 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../css/CouncilCarousel.css";
 
-const poster1 = require("../../../img/poster1.png");
-const poster2 = require("../../../img/poster2.png");
-const poster3 = require("../../../img/poster3.png");
-
 function CouncilCarousel() {
     const [carouselData, setCarouselData] = useState([""]);
     const dispatch = useDispatch();
@@ -38,8 +34,7 @@ function CouncilCarousel() {
     useEffect(() => {
         fetchDataApi();
     }, []);
-
-
+  
     return (
         <div>
             <div className="carousel-wrapper">

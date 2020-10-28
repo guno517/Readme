@@ -1,34 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { fetchSelectCode } from "../Common";
 import Highcharts from "highcharts/highstock";
 import PieChart from "highcharts-react-official";
 
 const CouncilChart = (props) => {
     const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch({
-            type: "UPDATE_MENU",
-            id: 1,
-            name: "학생회",
-        });
-        fetchSelectCode(dispatch);
-    });
-
-
-
-    // const collegeDate = document.querySelector("#college").value;
-    // let majorData = major.value;
-
-    // let collegeValue = document.querySelector("#college").value = 0;
-    // let majorValue = document.querySelector("#major").value = 0;
-
-    
     const chartRate1 = props.chartData.total_pledge - props.chartData.fulfilled_pledge;
     const chartRate2 = props.chartData.fulfilled_pledge;
 
     const options = {
+        colors: ["#7cb5ec", "#4572A7"],
         chart: {
             type: "pie",
         },
@@ -61,6 +42,6 @@ const CouncilChart = (props) => {
             <PieChart highcharts={Highcharts} options={options}></PieChart>
         </div>
     );
-}
+};
 
 export default CouncilChart;
