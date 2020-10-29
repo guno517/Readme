@@ -15,6 +15,7 @@ const Council = (props) => {
     const dispatch = useDispatch();
     const voteCandidate = useSelector((state) => state.voteCandidate);
     const [chartData, setChartData] = useState([""]);
+    const [carouselData, setCarouselData] = useState([""]);
 
     useEffect(() => {
         dispatch({
@@ -36,6 +37,7 @@ const Council = (props) => {
             if (response.status === 200) {
                 response.json().then((data) => {
                     setChartData(data.council[0][0]);
+                    setCarouselData(data.council[2]);
                 });
             } else {
                 console.log("server error");
@@ -45,7 +47,6 @@ const Council = (props) => {
 
     useEffect(() => {
         fetchDataApi(0, 0);
-    
     }, []);
 
     const state = useSelector((state) => state.voteMenu);
@@ -63,7 +64,7 @@ const Council = (props) => {
                 <CouncilList />
             </div>
             <div>
-                <CouncilCarousel />
+                <CouncilCarousel carouselData={carouselData} />
             </div>
             <div>
                 <CouncilButton />
