@@ -6,34 +6,8 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../css/CouncilCarousel.css";
 
-function CouncilCarousel() {
-    const [carouselData, setCarouselData] = useState([""]);
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch({
-            type: "UPDATE_MENU",
-            id: 1,
-            name: "학생회",
-        });
-        fetchSelectCode(dispatch);
-    });
-
-    const fetchDataApi = async () => {
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/0/0`).then((response) => {
-            if (response.status === 200) {
-                response.json().then((data) => {
-                    setCarouselData(data.council[2]);
-                });
-            } else {
-                console.log("server error");
-            }
-        });
-    };
-
-    useEffect(() => {
-        fetchDataApi();
-    }, []);
+function CouncilCarousel(props) {
+    const carouselData = props.carouselData
   
     return (
         <div>
