@@ -7,7 +7,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import "../css/CouncilCarousel.css";
 
 function CouncilCarousel(props) {
-    const carouselData = props.carouselData
+    const carouselData = props.carouselData;
   
     return (
         <div>

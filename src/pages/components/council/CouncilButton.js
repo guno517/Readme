@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import "../css/CouncilButton.css";
@@ -16,8 +17,9 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function CouncilButton() {
+function CouncilButton(props) {
     const classes = useStyles();
+
     return (
         <div id="buttondiv" className={classes.buttondiv}>
             <Link to="/councileditor">
