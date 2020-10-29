@@ -1,17 +1,22 @@
 import React, {useState, useEffect} from 'react';
 import {useSelector, useDispatch } from 'react-redux'
 import VoteResultDisplay from "./VoteResultDisplay";
+import VoteResultChart from "./VoteResultChart";
+import VoteResultTurnoutChart from "./VoteResultTurnoutChart";
 import SelectCollege from "../SelectCollege";
 
 const VoteResult = (props) => {
 
     const [isLoading, setIsLoading] = useState(false);
+    const [isLoading2, setIsLoading2] = useState(false);
 
     const dispatch = useDispatch()
     const { dataDispatch } = props;
     const voteResultData = useSelector(state => state.voteDataCollege)
+    const voteTurnOutCollege = useSelector(state => state.voteTurnOutCollege)
+    
     // VoteResult 데이터 get
-    const fetchApiGet = async(ApiUrl) => {
+    const fetchApiGetResult = async(ApiUrl) => {
         const response = await fetch(ApiUrl)
         let voteResult = await response.json();
         dispatch({
@@ -20,21 +25,41 @@ const VoteResult = (props) => {
         })
         setIsLoading(true)
     }
+    const fetchApiGetTurnout = async(ApiUrl) => {
+        const response = await fetch(ApiUrl)
+        let voteTurnOut = await response.json();
+        dispatch({
+            type:'FETCH_VOTE_TURNOUT_DATA_ALL',
+            data:voteTurnOut
+        })
+        setIsLoading2(true)
+
+    }
 
     useEffect(()=>{
-        let ApiUrl = 'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/vote/result';
-        fetchApiGet(ApiUrl)
+        let ApiUrlResult = 'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/vote/result';
+        let ApiUrlTurnOut = 'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/vote/participation';
+        fetchApiGetResult(ApiUrlResult)
+        fetchApiGetTurnout(ApiUrlTurnOut)
     },[])
+    
     useEffect(()=>{
-        isLoading && dataDispatch(0,0)
-    },[isLoading])
+        isLoading && isLoading2 && dataDispatch(0,0)
+    },[isLoading && isLoading2])
+    
+    
 
     return (
         <div className={"VoteResult"}>
             <SelectCollege dataDispatch={dataDispatch}></SelectCollege>
-            <VoteResultDisplay listdata={voteResultData} ></VoteResultDisplay>
+            <div style={{marginTop:"5%"}}>
+                <VoteResultDisplay listdata={voteResultData} ></VoteResultDisplay>
+                <VoteResultChart listdata={voteResultData}></VoteResultChart>
+                <VoteResultTurnoutChart listdata={voteTurnOutCollege}></VoteResultTurnoutChart>
+            </div>
         </div>
     )
 }
+            // {voteResultData.length !== 0  && <VoteResultDisplay listdata={voteResultData} ></VoteResultDisplay>}
 
 export default VoteResult

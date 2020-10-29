@@ -4,6 +4,8 @@ const voteDataCollege = (state = [], action) => {
             return action.data;
         case 'FETCH_RESULT_DATA_COLLEGE':
             return action.data;
+        case 'FETCH_RESULT_DATA_COLLEGE2':
+            return {...state, candidate:action.data};
         default:
             return state
     }
