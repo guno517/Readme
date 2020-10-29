@@ -17,6 +17,7 @@ const Vote = (props) => {
     const dispatch = useDispatch()
     const voteCandidate = useSelector(state => state.voteData)
     const voteResult = useSelector(state => state.voteData)
+    const voteTurnOut = useSelector(state => state.voteTurnOut)
     
     const [authority, setAuthority] = useState('')
 
@@ -52,11 +53,20 @@ const Vote = (props) => {
         let voteResultCollege = voteResult.vote_result.filter(f => {
             return f.collegeId === college && f.deptId===major
         });
-            dispatch({
+        let voteTurnOutCollege = voteTurnOut.participation.filter(f => {
+            return f.collegeId === college && f.deptId===major
+        });
+        dispatch({
                 type:'FETCH_RESULT_DATA_COLLEGE',
                 data:voteResultCollege,
             })
+        
+        dispatch({
+            type:'FETCH_TURNOUT_DATA_COLLEGE',
+            data:voteTurnOutCollege,
+        })
     }
+  
     
     const state = useSelector(state => state.voteMenu)
     return(
@@ -67,7 +77,7 @@ const Vote = (props) => {
             <VoteHeader voteMenu={state}></VoteHeader>
             {state[0].isActive ? <VoteInfo/>:""}
             {state[1].isActive ? <VoteCandidate dataDispatch={dataDispatch} authority={authority}/>:""}
-            {state[2].isActive ? <VoteResult dataDispatch={resultDataDispatch}/>:""}
+            {state[2].isActive ? <VoteResult dataDispatch={resultDataDispatch} />:""}
 
             {/* <VoteInfo></VoteInfo> */}
         </div>

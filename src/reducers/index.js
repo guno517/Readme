@@ -8,7 +8,8 @@ import selectFlagData  from './selectForm/selectFlagData'
 import voteDataCollege  from './vote/voteDataCollege'
 import votePledge  from './vote/votePledge'
 import voteData  from './vote/voteData'
-
+import voteTurnOut  from './vote/voteTurnOut'
+import voteTurnOutCollege  from './vote/voteTurnOutCollege'
 export default combineReducers({
     menu,
     // login,
@@ -19,4 +20,6 @@ export default combineReducers({
     voteDataCollege,
     votePledge,
     voteData,
+    voteTurnOut,
+    voteTurnOutCollege,
 })

@@ -105,6 +105,8 @@ margin:0 auto;
 }
 .result_candidate_wrap{
     width:48%;
+    display:inline-block;
+    float:left;
 }
 .result_candidate_list_wrap{
     display: flex;
@@ -126,8 +128,15 @@ margin:0 auto;
     margin-left:10%;
 }
 .result_turnout{
-    font-size: 1.4rem;
+    font-size: 1.4rem !important;
     margin-left:25% !important;
+}
+.vote_result_chart_wrap{
+    width:48%;
+    display: inline-block;
+}
+.vote_result_turnout_chart_wrap{
+    clear:left;
 }
 @media (max-width: 768px) {
     .vote_ul{
