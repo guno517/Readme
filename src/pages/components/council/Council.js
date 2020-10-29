@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { fetchSelectCode } from "../Common";
 import SelectCollege from "./CouncilSelect";
 import CouncilChart from "./CouncilChart";
-import CouncilList from "./CouncilListButton";
+import CouncilListButton from "./CouncilListButton";
 import CouncilCarousel from "./CouncilCarousel";
 import CouncilButton from "./CouncilButton";
 import "../css/HeaderPoster.css";
@@ -61,7 +61,7 @@ const Council = (props) => {
                 <CouncilChart chartData={chartData} />
             </div>
             <div>
-                <CouncilList />
+                <CouncilListButton/>
             </div>
             <div>
                 <CouncilCarousel carouselData={carouselData} />
