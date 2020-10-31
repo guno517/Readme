@@ -1,5 +1,5 @@
 .select{
-    width:22%;
+    width:50%;
     height:50px;
     border:2px solid rgb(89, 170, 235);
     border-radius:5px;
@@ -19,5 +19,8 @@
         border:2px solid rgb(89, 170, 235);
         margin-right:20px;
         border-radius:5px;
+    }
+    .selectdiv{
+        margin-left: 10%;
     }
 }
