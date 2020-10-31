@@ -13,7 +13,8 @@ const CandidateSet = (props) =>{
     const [careerList, setCareerList] = useState([]);
     const [electionPledge, setElectionPledge] = useState('');
     const [electionPledgeList, setElectionPledgeList] = useState([]);
-
+    const [flag, setFlagChange] = useState();
+    
     const careerInput = useRef();
     const electionPledgeInput = useRef();
 
@@ -47,6 +48,10 @@ const CandidateSet = (props) =>{
     const electionPledgeChange = (e) =>{
         setElectionPledge(e.target.value);
     } 
+    const flagChange = (e) =>{
+        console.log(e)
+        setFlagChange(e.target.value);
+    } 
     // 목록
     const prev = () =>{
         window.history.go(-1);
@@ -70,7 +75,8 @@ const CandidateSet = (props) =>{
                 grade:grade,
                 img:previewURL,
                 career:career,
-                election_pledge:election_pledge
+                election_pledge:election_pledge,
+                flag:flag
             })
         })
         .then(()=>{
@@ -150,6 +156,10 @@ const CandidateSet = (props) =>{
                     placeholder={"학번을 입력해주세요"} 
                     changeEvent={gradeChange}
                 ></Input>
+                <input type="radio" name="flag" value="정" onChange={flagChange}></input>
+                <label>정</label>
+                <input type="radio" name="flag" value="부" onChange={flagChange}></input>
+                <label>부</label>
             </div>
 
             <CandidateSubmit 

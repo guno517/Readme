@@ -5,7 +5,7 @@ const Profile = (props) => {
     const dispatch = useDispatch()
 
     const {listdata, onClick, authority} = props
-    
+    console.log(listdata);
     const removeProfile = async(id) =>{
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate/delete/${id}`,{
             method:'get',
@@ -24,7 +24,7 @@ const Profile = (props) => {
         <div className={"candidate_list_container"}>
             {listdata.map((candidate, index)=>(
                 <div className={"candidate_list"} key={index}>
-                    <div className={"candidate_profile"} onClick={()=>onClick(candidate.number)}>
+                    <div className={"candidate_profile"} onClick={()=>onClick(candidate.number, candidate.flag)}>
                         {authority === "0" && 
                         <button 
                         onClick={()=>removeProfile(candidate.index)}
@@ -41,6 +41,7 @@ const Profile = (props) => {
                         <dl>
                             <dt style={{marginLeft:'10px'}}>기호: <span style={{color:'red', fontWeight:600}}>{candidate.number}</span> 번 </dt>
                             <dt style={{marginLeft:'10px'}}>이름: <span style={{color:'blue'}}>{candidate.name}</span></dt>
+                            <dt style={{marginLeft:'10px'}}>정/부: <span style={{color:'black', fontWeight:600}}>{candidate.flag}</span></dt>
                         </dl>
                     </div>
                 </div>

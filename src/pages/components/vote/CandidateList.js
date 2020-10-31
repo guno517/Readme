@@ -13,9 +13,9 @@ const CandidateList = (props) => {
     let pledge = listdata[0];
     let pledgeData; 
     
-    const ClickProfile = (number) =>{
+    const ClickProfile = (number, flag) =>{
         pledge = listdata.filter(f=>{
-            return f.number===number
+            return f.number===number && f.flag ===flag
         })
         dispatch({
             type:"PLEDGE_CHANGE_DATA",
