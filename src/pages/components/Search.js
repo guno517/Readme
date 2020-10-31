@@ -19,10 +19,7 @@ const Search = (props) => {
             })
         })
         .then(async(response)=>{
-            console.log(response)
-
             let response_json = await response.json();
-            console.log(response_json)
         })
     }
     return(

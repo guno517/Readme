@@ -8,7 +8,6 @@ export const fetchApiGet = async(ApiUrl) => {
     .then(async(response)=>{
         if(response.ok){
             const response_json = await response.json();
-            console.log(response_json)
             return response_json;
         }else{
         throw new Error('Something went wrong');

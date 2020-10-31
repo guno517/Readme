@@ -16,11 +16,12 @@ const CouncilDetail = (props) => {
     const NoticePoster = require("../../../img/Notice.png");
     const [councilDetail, setCouncilDetail] = useState([""]);
     const [isLoading, setIsLoading] = useState(false);
-    let a = props.location.pathname.split("/");
+    let locationValue = props.location.pathname.split("/");
     const path_index = props.match.params.index;
-    const deptId = a[2];
-    const collegeId = a[3];
-    const detail = a[4];
+    const deptId = locationValue[2];
+    const collegeId = locationValue[3];
+    const detail = locationValue[4];
+
     const fetchApi = async () => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/list/${deptId}/${collegeId}/${detail}`).then((response) => {
             if (response.status === 200) {
@@ -46,23 +47,17 @@ const CouncilDetail = (props) => {
                 <div>작성자 | {councilDetail.writer}</div>
                 <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
                 <br></br>
-                <div><img src={councilDetail.img}></img></div>
+                <div>
+                    <img src={councilDetail.img}></img>
+                </div>
                 <div id="content">{councilDetail.pledge_content}</div>
-                {/* <div id="NoticeFooter">
-                    <Button onClick={deleteNotice} id="Button" className={classes.button} variant="contained">
-                        삭제
-                    </Button>
-                    <Link to={`/editor/update/${noticeData[0].index}`}>
-                        <Button id="Button" className={classes.button} variant="contained">
-                            수정
-                        </Button>
-                    </Link>
-                    <Link to="/council">
+                <div id="NoticeFooter">
+                    <Link to={`/council_list/${deptId}/${collegeId}`}>
                         <Button id="Button" className={classes.button} variant="contained">
                             목록
                         </Button>
                     </Link>
-                </div> */}
+                </div>
             </div>
         </div>
     );

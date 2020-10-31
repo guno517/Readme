@@ -13,10 +13,10 @@ const CouncilPoster = require("../../../img/Council.png");
 
 const Council = (props) => {
     const dispatch = useDispatch();
-    const voteCandidate = useSelector((state) => state.voteCandidate);
     const [chartData, setChartData] = useState([""]);
     const [carouselData, setCarouselData] = useState([""]);
-    
+    const voteCandidate = useSelector((state) => state.voteCandidate);
+
     useEffect(() => {
         dispatch({
             type: "UPDATE_MENU",
@@ -29,7 +29,7 @@ const Council = (props) => {
     const dataDispatch = () => {
         const collegeData = document.getElementById("college").value;
         const majorData = document.getElementById("major").value;
-        fetchDataApi(collegeData, majorData)
+        fetchDataApi(collegeData, majorData);
     };
 
     const fetchDataApi = async (collegeData, majorData) => {
@@ -49,8 +49,6 @@ const Council = (props) => {
         fetchDataApi(0, 0);
     }, []);
 
-    console.log(chartData)
-
     const state = useSelector((state) => state.voteMenu);
 
     return (
@@ -63,13 +61,13 @@ const Council = (props) => {
                 <CouncilChart chartData={chartData} />
             </div>
             <div>
-                <CouncilListButton collegeData={chartData.collegeId} majorData={chartData.deptId}/>
+                <CouncilListButton collegeData={chartData.collegeId} majorData={chartData.deptId} />
             </div>
             <div>
                 <CouncilCarousel carouselData={carouselData} />
             </div>
             <div>
-                <CouncilButton collegeData={chartData.collegeId} majorData={chartData.deptId}/>
+                <CouncilButton collegeData={chartData.collegeId} majorData={chartData.deptId} />
             </div>
         </div>
     );
