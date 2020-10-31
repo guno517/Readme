@@ -32,7 +32,7 @@ const NoticeDetail = (props) => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/detail/${path_id}`).then((response) => {
             if (response.status === 200) {
                 response.json().then((data) => {
-                    setNoticeData(data.detail);
+                    setNoticeData(data.detail[0]);
                     setIsLoading(true);
                 });
             } else {
@@ -55,7 +55,7 @@ const NoticeDetail = (props) => {
     }, [isLoading]);
 
     let text = noticeData[0].content;
-    console.log(noticeData[0])
+    console.log(noticeData)
     console.log(noticeData[0].title)
     return (
         <div>
