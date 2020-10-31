@@ -10,7 +10,7 @@
     height: 35px;
     margin-right: 3%;
     border-style: solid;
-    border-color: #59AAEB;
+    border-color: #5CACF2;
     border-radius: 10em;
     padding-top: 1%;
 }
@@ -18,7 +18,7 @@
     width: 30%;
     height: 35px;
     border-style: solid;
-    border-color: #59AAEB;
+    border-color: #5CACF2;
     border-radius: 10em;
     padding-top: 1%;
 }
@@ -31,13 +31,13 @@
     width: 30%;
     margin-right: 3%;
     border-style: solid;
-    border-color: #59AAEB;
+    border-color: #5CACF2;
     border-radius: 1em;
 }
 .councilContentRight {
     width: 30%;
     border-style: solid;
-    border-color: #59AAEB;
+    border-color: #5CACF2;
     border-radius: 1em;
 }
 @media all and (max-width:768px) {

@@ -12,7 +12,7 @@ const useStyles = makeStyles((theme) => ({
         padding: "1%",
     },
     button: {
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
     },
 }));

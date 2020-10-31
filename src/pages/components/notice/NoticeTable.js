@@ -18,7 +18,7 @@ const NoticePoster = require("../../../img/Notice.png");
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
         padding: "5px",
     },
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "10%",
         display: "block",
         float: "right",
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
     },
 }));
@@ -137,7 +137,7 @@ function NoticeTable() {
                             paddingRight: "15px",
                             height: "38px",
                             color: "white",
-                            backgroundColor: "#59AAEB",
+                            backgroundColor: "#5CACF2",
                             border: "1px solid #bbbbbb",
                             borderRadius: "5px",
                             verticalAlign: "bottom",
