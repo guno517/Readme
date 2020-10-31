@@ -10,6 +10,7 @@ import votePledge  from './vote/votePledge'
 import voteData  from './vote/voteData'
 import voteTurnOut  from './vote/voteTurnOut'
 import voteTurnOutCollege  from './vote/voteTurnOutCollege'
+
 export default combineReducers({
     menu,
     // login,

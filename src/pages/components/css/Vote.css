@@ -92,7 +92,7 @@ margin:0 auto;
     text-align: right;
     margin-top:70px;
 }
-.candidate_setting > button{
+.candidate_setting > button, .VoteResult button{
     height:40px;
     width:120px;
     outline: none;
