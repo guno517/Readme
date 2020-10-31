@@ -6,14 +6,14 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
     button: {
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
     },
 }));
 
 const CouncilDetail = (props) => {
     const classes = useStyles();
-    const NoticePoster = require("../../../img/Notice.png");
+    const NoticePoster = require("../../../img/CouncilDetail.png");
     const [councilDetail, setCouncilDetail] = useState([""]);
     const [isLoading, setIsLoading] = useState(false);
     let locationValue = props.location.pathname.split("/");

@@ -132,8 +132,8 @@ class CouncilEditor extends React.Component {
                     style={{marginLeft:'3%',marginRight:'3%',marginBottom:'3%', minHeight:'500px'}}
                 />
                 <div style={{width:'100%', textAlign: 'right'}}>
-                    <button onClick={this.prev} style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'white', color:'#59AAEB', borderRadius:'5px', outline:'none'}}>목록</button>
-                    <button onClick={this.dataSubmit} style={{width:'100px', height:'30px',marginRight:'3%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#59AAEB', color:'white', borderRadius:'5px'}}>등록</button>
+                    <button onClick={this.prev} style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'white', color:'#5CACF2', borderRadius:'5px', outline:'none'}}>목록</button>
+                    <button onClick={this.dataSubmit} style={{width:'100px', height:'30px',marginRight:'3%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px'}}>등록</button>
                 </div>
             </>
       )
