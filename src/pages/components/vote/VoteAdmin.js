@@ -15,6 +15,15 @@ const VoteAdmin = () => {
     const [num3, setNum3] = useState();
     const [invalid, setInvalid] = useState();
     const [total_votes, setTotalVotes] = useState();
+    
+    const [vote1_1, setvote1_1] = useState();
+    const [vote1_2, setvote1_2] = useState();
+    const [vote2_1, setvote2_1] = useState();
+    const [vote2_2, setvote2_2] = useState();
+    const [vote3_1, setvote3_1] = useState();
+    const [vote3_2, setvote3_2] = useState();
+
+    
 
 
     const dataDispatch = (college, major) =>{
@@ -34,7 +43,15 @@ const VoteAdmin = () => {
                 num3,
             ],
             invalid:invalid,
-            total_votes:total_votes
+            total_votes:total_votes,
+            turn_out:[
+                parseInt(vote1_1),
+                parseInt(vote1_2),
+                parseInt(vote2_1),
+                parseInt(vote2_2),
+                parseInt(vote3_1),
+                parseInt(vote3_2)
+            ]
         }
         datasubmit(data)
         
@@ -59,6 +76,12 @@ const VoteAdmin = () => {
                 setNum3("")
                 setInvalid("")
                 setTotalVotes("")
+                setvote1_1("")
+                setvote1_2("")
+                setvote2_1("")
+                setvote2_2("")
+                setvote3_1("")
+                setvote3_2("")
             })
     }
 
@@ -81,6 +104,23 @@ const changeData = (e) =>{
     }
     else if(id === "total_votes"){
         setTotalVotes(value);
+    }else if(id === "1_1"){
+        setvote1_1(value);
+    }
+    else if(id === "1_2"){
+        setvote1_2(value);
+    }
+    else if(id === "2_1"){
+        setvote2_1(value);
+    }
+    else if(id === "2_2"){
+        setvote2_2(value);
+    }
+    else if(id === "3_1"){
+        setvote3_1(value);
+    }
+    else if(id === "3_2"){
+        setvote3_2(value);
     }
 }
 
@@ -113,11 +153,32 @@ const handleKeyPress = (e) => {
                         <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="num2" value={num2} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
                         <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="num3" value={num3} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
                         <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="invalid" value={invalid} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
-                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="total_votes" value={total_votes} style={{width:"80%", marginLeft:"10%"}} onKeyPress = {handleKeyPress} onChange={changeData}></input></td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="total_votes" value={total_votes} style={{width:"80%", marginLeft:"10%"}} onChange={changeData}></input></td>
                     </tr>
                 </tbody>
             </table>
-
+            <table style={{border:'1px solid black',marginTop:"50px", borderCollapse: "collapse"}}>
+                <thead>
+                    <tr>
+                        <td style={{border:'1px solid black', textAlign:"center"}}>1일차 오전</td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}>1일차 오후</td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}>2일차 오전</td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}>2일차 오후</td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}>3일차 오전</td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}>3일차 오후</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input  type="text" id="1_1" value={vote1_1} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="1_2" value={vote1_2} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="2_1" value={vote2_1} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="2_2" value={vote2_2} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="3_1" value={vote3_1} style={{width:"80%", marginLeft:"10%"}}  onChange={changeData}></input></td>
+                        <td style={{border:'1px solid black', textAlign:"center"}}><input type="text" id="3_2" value={vote3_2} style={{width:"80%", marginLeft:"10%"}} onKeyPress = {handleKeyPress} onChange={changeData}></input></td>
+                    </tr>
+                </tbody>
+            </table>
             <Link style={{color:"white"}} to={`/vote`}><button style={{marginTop:"10px", backgroundColor:"#5CACF2", outline:"none", color:"white", border:"1px solid #e3e3e3", width:"50px", height:"23px"}} type="button">목록</button></Link>
             <button style={{marginTop:"10px", marginLeft:"10px", backgroundColor:"#5CACF2", outline:"none", color:"white", border:"1px solid #e3e3e3", width:"50px", height:"23px"}} onClick={setData} type="button">등록</button>
         </div>

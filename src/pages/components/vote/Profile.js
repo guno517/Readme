@@ -5,7 +5,6 @@ const Profile = (props) => {
     const dispatch = useDispatch()
 
     const {listdata, onClick, authority} = props
-    console.log(listdata);
     const removeProfile = async(id) =>{
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/candidate/delete/${id}`,{
             method:'get',
