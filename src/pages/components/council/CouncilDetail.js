@@ -14,26 +14,18 @@ const useStyles = makeStyles((theme) => ({
 const CouncilDetail = (props) => {
     const classes = useStyles();
     const NoticePoster = require("../../../img/Notice.png");
-    const [noticeData, setNoticeData] = useState([""]);
+    const [councilDetail, setCouncilDetail] = useState([""]);
     const [isLoading, setIsLoading] = useState(false);
-    const path_id = props.match.params.id;
-    const deleteNotice = async () => {
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/delete/${path_id}`, {
-            method: "get",
-        }).then((response) => {
-            if (response.status === 200) {
-                alert("게시글이 삭제 되었습니다.");
-            } else {
-                alert("오류가 발생했습니다. 관리자에게 문의하세요.");
-            }
-        });
-    };
+    let a = props.location.pathname.split("/");
+    const path_index = props.match.params.index;
+    const deptId = a[2];
+    const collegeId = a[3];
+    const detail = a[4];
     const fetchApi = async () => {
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/detail/${path_id}`).then((response) => {
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/list/${deptId}/${collegeId}/${detail}`).then((response) => {
             if (response.status === 200) {
                 response.json().then((data) => {
-                    setNoticeData(data.detail);
-                    setIsLoading(true);
+                    setCouncilDetail(data.fulfilled_list[0]);
                 });
             } else {
                 console.log("server error");
@@ -45,28 +37,18 @@ const CouncilDetail = (props) => {
         fetchApi();
     }, []);
 
-    // 이태희 태그까지 content 출력
-    useEffect(() => {
-        if (isLoading) {
-            document.querySelector("#content").innerHTML = text;
-        } else {
-            document.querySelector("#content").innerHTML = "<p>loading...</p>";
-        }
-    }, [isLoading]);
-
-    let text = noticeData[0].content;
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
             <div id="NoticeContent">
-                <div>제목 | {noticeData[0].title}</div>
-                <div>조회수 | {noticeData[0].view}</div>
-                <div>작성자 | {noticeData[0].writer}</div>
-                <div>작성일 | {String(noticeData[0].time).substr(0, 10)}</div>
+                <div>제목 | {councilDetail.pledge_title}</div>
+                <div>조회수 | {councilDetail.view}</div>
+                <div>작성자 | {councilDetail.writer}</div>
+                <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
                 <br></br>
-                <div>{noticeData[0].img}</div>
-                <div id="content">{noticeData[0].content}</div>
-                <div id="NoticeFooter">
+                <div><img src={councilDetail.img}></img></div>
+                <div id="content">{councilDetail.pledge_content}</div>
+                {/* <div id="NoticeFooter">
                     <Button onClick={deleteNotice} id="Button" className={classes.button} variant="contained">
                         삭제
                     </Button>
@@ -80,7 +62,7 @@ const CouncilDetail = (props) => {
                             목록
                         </Button>
                     </Link>
-                </div>
+                </div> */}
             </div>
         </div>
     );

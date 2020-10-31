@@ -19,10 +19,11 @@ const useStyles = makeStyles((theme) => ({
 
 function CouncilButton(props) {
     const classes = useStyles();
-
+    let collegeData = props.collegeData
+    let majorData = props.majorData
     return (
         <div id="buttondiv" className={classes.buttondiv}>
-            <Link to={`/council_list`}>
+            <Link to={`/council_list/${collegeData}/${majorData}`}>
                 <Button id="Button" className={classes.button} variant="contained">
                     공약 목록 전체 보기
                 </Button>

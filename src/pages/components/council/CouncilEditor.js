@@ -7,14 +7,18 @@ import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill'; // ES6
 class CouncilEditor extends React.Component {
     constructor(props) {
         super(props)
+        const collegeData = props.match.params.college;
+        const majorData = props.match.params.major;
         this.state = { 
             content: '',
             title: '',
-            dbUrl:'http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/insert/notice'
+            dbUrl:`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/insert/${collegeData}/${majorData}`
         }
         this.handleChange = this.handleChange.bind(this)
         this.titleChange = this.titleChange.bind(this)
         this.dataSubmit = this.dataSubmit.bind(this)
+        this.writerChange = this.writerChange.bind(this)
+        this.dateChange = this.dateChange.bind(this)
 
         if(props.match.params.id){
             this.fetchApi()
@@ -28,6 +32,13 @@ class CouncilEditor extends React.Component {
     titleChange(e) {
         this.setState({ title: e.target.value})
     }
+    writerChange(e) {
+        this.setState({ writer: e.target.value})
+    }
+    dateChange(e) {
+        this.setState({ date: e.target.value})
+    }
+    
     prev(){
         window.history.go(-1);
     }
@@ -51,8 +62,9 @@ class CouncilEditor extends React.Component {
             body:JSON.stringify({
                 title:this.state.title,
                 content:this.state.content,
-                writer:"가천대학교 총학생회",
-                time:time
+                writer:this.state.writer,
+                time:time,
+                fulfilled_date:this.state.date
             })
         })
         .then(()=>{
@@ -102,6 +114,18 @@ class CouncilEditor extends React.Component {
                     type="text" placeholder="제목을 작성해주세요" 
                     onChange={this.titleChange}
                     style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}></input>
+                <input
+                    value={this.state.date} 
+                    type="date"
+                    onChange={this.dateChange}
+                    style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}></input>
+
+                <input
+                    value={this.state.writer} 
+                    type="text" placeholder="작성자를 작성해주세요" 
+                    onChange={this.writerChange}
+                    style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}></input>
+                
                 <ReactQuill 
                     value={this.state.content}
                     modules={this.modules}

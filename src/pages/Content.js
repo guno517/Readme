@@ -25,9 +25,9 @@ const Content = () => {
             <Route path="/signup" component={Signup}/>
             <Route path="/search" component={Search}/>
             <Route path="/council" component={Council}/>
-            <Route path="/council_detail/:collegeCode/:majorCode/:id" component={CouncilDetail} />
-            <Route path="/council_list" component={CouncilList} />
-            <Route path="/councileditor" component={CouncilEditor}/>
+            <Route path="/council_detail/:index" component={CouncilDetail} />
+            <Route path="/council_list/:college/:major" component={CouncilList} />
+            <Route path="/councileditor/:college/:major" component={CouncilEditor}/>
             <Route path="/vote" component={Vote}/>
             <Route path="/notice" component={Notice}/>
             <Route exact path="/editor" component={NoticeEditor}/>
