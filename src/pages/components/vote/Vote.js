@@ -18,9 +18,10 @@ const Vote = (props) => {
     const voteCandidate = useSelector(state => state.voteData)
     const voteResult = useSelector(state => state.voteData)
     const voteTurnOut = useSelector(state => state.voteTurnOut)
+    const [elected ,setElected] = useState({votes:0})
     
     const [authority, setAuthority] = useState('')
-
+    let winnerVotes = 0;
 
     useEffect(()=>{
        dispatch({
@@ -65,9 +66,16 @@ const Vote = (props) => {
             type:'FETCH_TURNOUT_DATA_COLLEGE',
             data:voteTurnOutCollege,
         })
+
+          // 투표 이긴 사람의 정보를 알아서 style 수정하기위해
+          for(let i = 0; i<voteResultCollege.length; i++){
+                if(winnerVotes < voteResultCollege[i].votes){
+                    winnerVotes = voteResultCollege[i].votes;
+                }
+        }
+        setElected({votes:winnerVotes})
     }
   
-    
     const state = useSelector(state => state.voteMenu)
     return(
         <div className="votecontainer">
@@ -77,7 +85,7 @@ const Vote = (props) => {
             <VoteHeader voteMenu={state}></VoteHeader>
             {state[0].isActive ? <VoteInfo/>:""}
             {state[1].isActive ? <VoteCandidate dataDispatch={dataDispatch} authority={authority}/>:""}
-            {state[2].isActive ? <VoteResult dataDispatch={resultDataDispatch} />:""}
+            {state[2].isActive ? <VoteResult dataDispatch={resultDataDispatch} authority={authority} winnerVotes={elected.votes}/>:""}
 
             {/* <VoteInfo></VoteInfo> */}
         </div>
