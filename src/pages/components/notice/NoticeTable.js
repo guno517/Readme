@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import TableContainer from "@material-ui/core/TableContainer";
-import TablePaginationActions from "./NoticePagenation"
+import TablePaginationActions from "./NoticePagenation";
 import Table from "@material-ui/core/Table";
 import TableRow from "@material-ui/core/TableRow";
 import TableHead from "@material-ui/core/TableHead";
@@ -18,7 +18,7 @@ const NoticePoster = require("../../../img/Notice.png");
 
 const StyledTableCell = withStyles((theme) => ({
     head: {
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
         padding: "5px",
     },
@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
         marginRight: "10%",
         display: "block",
         float: "right",
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
     },
 }));
@@ -54,6 +54,11 @@ function NoticeTable() {
     const classes = useStyles();
     const [page, setPage] = React.useState(0);
     const [rowsPerPage, setRowsPerPage] = React.useState(10);
+    const [authority, setAuthority] = useState("");
+
+    useEffect(() => {
+        setAuthority(window.sessionStorage.getItem("authority"));
+    }, []);
 
     const handleChangePage = (event, newPage) => {
         setPage(newPage);
@@ -115,15 +120,29 @@ function NoticeTable() {
         if (e.key === "Enter") {
             searchActive();
         }
-      };
+    };
     return (
         <TableContainer className={classes.container}>
-            <img id="NoticePoster" src={NoticePoster}></img>
+            <img id="NoticePoster" src={NoticePoster} alt="nullImage"></img>
             <div id="Search" className={classes.search}>
                 <div style={{ display: "inline-block", width: "100%", marginTop: "50px", marginBottom: "3%" }}>
                     <span style={{ fontSize: "18px", marginRight: "10px" }}>제목: </span>
-                    <input onChange={onChangeValue} onKeyPress = {handleKeyPress} type="text" style={{ width: "120px", height: "31.5px", fontSize: "18px", borderRadius: "5px" }}></input>
-                    <button onClick={searchActive} style={{ fontSize: "15px", marginLeft: "10px", paddingLeft:"15px", paddingRight:"15px", height: "38px", color:"white", backgroundColor: "#59AAEB", border: "1px solid #bbbbbb", borderRadius: "5px", verticalAlign: "bottom" }}>
+                    <input onChange={onChangeValue} onKeyPress={handleKeyPress} type="text" style={{ width: "120px", height: "31.5px", fontSize: "18px", borderRadius: "5px" }}></input>
+                    <button
+                        onClick={searchActive}
+                        style={{
+                            fontSize: "15px",
+                            marginLeft: "10px",
+                            paddingLeft: "15px",
+                            paddingRight: "15px",
+                            height: "38px",
+                            color: "white",
+                            backgroundColor: "#5CACF2",
+                            border: "1px solid #bbbbbb",
+                            borderRadius: "5px",
+                            verticalAlign: "bottom",
+                        }}
+                    >
                         검색
                     </button>
                 </div>
@@ -146,7 +165,7 @@ function NoticeTable() {
                 </TableHead>
                 <TableBody>
                     {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row) => (
-                        <TableRow>
+                        <TableRow key={row.index}>
                             <TableCell style={{ width: 20 }} align="center" padding="5px">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
                                     {row.index}
@@ -164,7 +183,7 @@ function NoticeTable() {
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 90 }} align="center" padding="5px">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
-                                     {String(row.time).substr(0,10)}
+                                    {String(row.time).substr(0, 10)}
                                 </Link>
                             </TableCell>
                             <TableCell id="MobileNotice" style={{ width: 50 }} align="center" padding="5px">
@@ -199,12 +218,14 @@ function NoticeTable() {
                 </TableFooter>
             </Table>
             <Link to="/editor">
-                <Button id="Upload" className={classes.button} variant="contained" >
-                    공지 작성
-                </Button>
+                {authority === "0" && (
+                    <Button id="Upload" className={classes.button} variant="contained">
+                        공지 작성
+                    </Button>
+                )}
             </Link>
         </TableContainer>
     );
 }
 
-export default NoticeTable
+export default NoticeTable;

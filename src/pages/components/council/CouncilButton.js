@@ -12,23 +12,31 @@ const useStyles = makeStyles((theme) => ({
         padding: "1%",
     },
     button: {
-        backgroundColor: "#59AAEB",
+        backgroundColor: "#5CACF2",
         color: "white",
     },
 }));
 
 function CouncilButton(props) {
     const classes = useStyles();
-    
-    let collegeData = props.collegeData
-    let majorData = props.majorData
+
+    let collegeData = props.collegeData;
+    let majorData = props.majorData;
+
+    const [authority, setAuthority] = useState("");
+
+    useEffect(() => {
+        setAuthority(window.sessionStorage.getItem("authority"));
+    }, []);
 
     return (
         <div id="buttondiv" className={classes.buttondiv}>
             <Link to={`/councileditor/${collegeData}/${majorData}`}>
-                <Button id="Button" className={classes.button} variant="contained">
-                    이행 인증
-                </Button>
+                {authority === "0" && (
+                    <Button id="Button" className={classes.button} variant="contained">
+                        이행 인증
+                    </Button>
+                )}
             </Link>
         </div>
     );

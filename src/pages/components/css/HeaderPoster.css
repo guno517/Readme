@@ -1,11 +1,11 @@
 #NoticePoster {
-    width: 50%;
+    width: 55%;
     display: block;
     margin: 0px auto;
 }
 @media all and (max-width: 768px) {
     #NoticePoster {
-        width: 90%;
+        width: 95%;
         display: block;
         margin: 0px auto;
     }
