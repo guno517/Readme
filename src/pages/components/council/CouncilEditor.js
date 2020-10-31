@@ -23,7 +23,6 @@ class CouncilEditor extends React.Component {
         if(props.match.params.id){
             this.fetchApi()
         }
-        console.log(props.match.params.id);
     }
     
     handleChange(value) {
@@ -96,8 +95,7 @@ class CouncilEditor extends React.Component {
                             content: detail[0].content,
                             title:detail[0].title, 
                             dbUrl:`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/update/${this.path_id}`
-                        })
-                    console.log(this.state)
+                    })
                 });
             } else {
                 console.log("server error");

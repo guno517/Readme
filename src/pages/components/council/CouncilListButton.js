@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-function CouncilButton(props) {
+function CouncilListButton(props) {
     const classes = useStyles();
     let collegeData = props.collegeData
     let majorData = props.majorData
@@ -32,4 +32,4 @@ function CouncilButton(props) {
     );
 }
 
-export default CouncilButton;
+export default CouncilListButton;
