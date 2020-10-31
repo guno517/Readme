@@ -175,6 +175,18 @@ margin:0 auto;
     .candidate_setting > button{
         margin-right:1%;
     }
+    .result_candidate_wrap{
+        width:100%;
+        display:inline-block;
+        float: none;
+    }
+    .vote_result_chart_wrap{
+        width:100%;
+        display: inline-block;
+    }
+    .result_turnout{
+        margin-left:10% !important;
+    }
 }
     
 @media (max-width: 540px) {

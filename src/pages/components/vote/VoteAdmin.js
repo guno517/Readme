@@ -119,7 +119,7 @@ const handleKeyPress = (e) => {
             </table>
 
             <Link style={{color:"white"}} to={`/vote`}><button style={{marginTop:"10px", backgroundColor:"#59aaeb", outline:"none", color:"white", border:"1px solid #e3e3e3", width:"50px", height:"23px"}} type="button">목록</button></Link>
-            <button style={{marginTop:"10px", marginLeft:"10px", backgroundColor:"#59aaeb", outline:"none", color:"white", border:"1px solid #e3e3e3", width:"50px", height:"23px"}}>등록</button>
+            <button style={{marginTop:"10px", marginLeft:"10px", backgroundColor:"#59aaeb", outline:"none", color:"white", border:"1px solid #e3e3e3", width:"50px", height:"23px"}} onClick={setData} type="button">등록</button>
         </div>
     )
 }
