@@ -51,7 +51,7 @@ const CouncilDetail = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
-            <div id="NoticeContent">
+            <div style={{ fontSize:"18px" }} id="NoticeContent">
                 <div>제목 | {councilDetail.pledge_title}</div>
                 <div>조회수 | {councilDetail.view}</div>
                 <div>작성자 | {councilDetail.writer}</div>

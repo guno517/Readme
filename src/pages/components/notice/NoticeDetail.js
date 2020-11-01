@@ -68,10 +68,10 @@ const NoticeDetail = (props) => {
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
             <div id="NoticeContent">
-                <div>제목 | {noticeData[0].title}</div>
-                <div>조회수 | {noticeData[0].view + 1}</div>
-                <div>작성자 | {noticeData[0].writer}</div>
-                <div>작성일 | {String(noticeData[0].time).substr(0, 10)}</div>
+                <div style={{ fontSize:"18px" }} >제목 | {noticeData[0].title}</div>
+                <div style={{ fontSize:"18px" }} >조회수 | {noticeData[0].view + 1}</div>
+                <div style={{ fontSize:"18px" }} >작성자 | {noticeData[0].writer}</div>
+                <div style={{ fontSize:"18px" }} >작성일 | {String(noticeData[0].time).substr(0, 10)}</div>
                 <br></br>
                 <div>{noticeData[0].img}</div>
                 <div id="content">{noticeData[0].content}</div>
