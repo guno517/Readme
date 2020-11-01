@@ -13,8 +13,7 @@ const CouncilTotalEditor = (props) => {
 
     let collegeCode = props.match.params.college;
     let majorCode = props.match.params.major;
-
-    let dbUrl = `http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/check/${collegeCode}/${majorCode}`
+    let dbUrl = `http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/insert/pledge_list/${collegeCode}/${majorCode}`
 
     const councilChange = (e) => {
         setcouncil(e.target.value);
@@ -41,8 +40,8 @@ const CouncilTotalEditor = (props) => {
     }
     
     // 데이터 등록
-    const dataSubmit = async()=>{
-        await fetch(dbUrl,{
+    const dataSubmit = ()=>{
+        fetch(dbUrl,{
             method:"POST",
             headers: {
                 'Content-Type': 'application/json',
@@ -52,7 +51,7 @@ const CouncilTotalEditor = (props) => {
             })
         })
         .then(()=>{
-            window.history.go(-1);
+            console.log("test");
         })
     }
     
