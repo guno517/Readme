@@ -92,22 +92,23 @@ const CouncilDetail = (props) => {
                         }),
                     }}
                 >
-                    <div className="tableHeader">
+                    <div className="council_tableHeader">
                         <span>제목</span>
                         <span>{councilDetail.pledge_title}</span>
                     </div>
-                    <div className="tableHeader">
+                    <div className="council_tableHeader">
                         <span>작성자</span>
                         <span>{councilDetail.writer}</span>
                     </div>
-                    <div className="tableHeader">
+                    <div className="council_tableHeader">
                         <span>이행 완료 일자</span>
                         <span>{String(councilDetail.fulfilled_date).substr(0, 10)}</span>
                     </div>
-                    <div className="tableHeader">
+                    <div className="council_tableHeader">
                         <span>작성 일자</span>
                         <span>{String(councilDetail.time).substr(0, 10)}</span>
                     </div>
+                    <br></br>
                     <div id="pledge_content">{councilDetail.pledge_content}</div>
                     <div id="NoticeFooter">
                         <Link to={"/council/"}>
