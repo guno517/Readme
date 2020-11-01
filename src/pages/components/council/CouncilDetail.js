@@ -27,6 +27,7 @@ const CouncilDetail = (props) => {
             if (response.status === 200) {
                 response.json().then((data) => {
                     setCouncilDetail(data.fulfilled_list[0]);
+                    setIsLoading(true);
                 });
             } else {
                 console.log("server error");
@@ -36,8 +37,17 @@ const CouncilDetail = (props) => {
 
     useEffect(() => {
         fetchApi();
+        
     }, []);
+    useEffect(()=>{
+        if (isLoading) {
+            document.querySelector("#pledge_content").innerHTML = text;
+        } else {
+            document.querySelector("#pledge_content").innerHTML = "<p>loading...</p>";
+        }
+    },[isLoading])
 
+    let text = councilDetail.pledge_content;
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
@@ -50,7 +60,7 @@ const CouncilDetail = (props) => {
                 <div>
                     <img style={{ width:"99%" }} src={councilDetail.img}></img>
                 </div>
-                <div id="content">{councilDetail.pledge_content}</div>
+                <div id="pledge_content">{councilDetail.pledge_content}</div>
                 <div id="NoticeFooter">
                     <Link to={`/council_list/${deptId}/${collegeId}`}>
                         <Button id="Button" className={classes.button} variant="contained">

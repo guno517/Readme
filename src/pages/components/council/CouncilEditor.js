@@ -53,6 +53,9 @@ class CouncilEditor extends React.Component {
         let date1 = `${year}/${month}/${day<10?`0${day}`:`${day}`}`;
         let date2 = `${hour}:${minute<10?`0${minute}`:`${minute}`}:${second<10?`0${second}`:`${second}`}`;
         let time = date1+" "+ date2;
+        let startImg = this.state.content.indexOf("data:");
+        let endImg = this.state.content.indexOf(`"></p>`)
+        let imgVal = this.state.content.slice(startImg,endImg);
         await fetch(this.state.dbUrl,{
             method:"POST",
             headers: {
@@ -63,7 +66,8 @@ class CouncilEditor extends React.Component {
                 content:this.state.content,
                 writer:this.state.writer,
                 time:time,
-                fulfilled_date:this.state.date
+                fulfilled_date:this.state.date,
+                img:imgVal
             })
         })
         .then(()=>{
@@ -72,7 +76,6 @@ class CouncilEditor extends React.Component {
     }
     modules = {
         toolbar: [
-          [{ 'header': [1, 2, false] }],
           ['bold', 'italic', 'underline','strike', 'blockquote'],
           [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
           ['image']        ],
