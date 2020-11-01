@@ -36,13 +36,33 @@
 #content img{
     max-width:100%;
 }
-#pledge_content p img{
+#pledge_content{
+    margin-top: 3%;
+}
+#pledge_content p{
     max-width:100%;
-    margin-left: 10px;
+    margin-left: 3px;
 }
 #pledge_content p img{
     max-width:100%;
-    margin-left: 10px;
+    margin-left: 3px;
+}
+.council_tableHeader{
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+.council_tableHeader > span:first-child{
+    min-width: 130px;
+    font-Size: 1.2rem;
+    font-weight: 600;
+    border-right-style: solid;
+    border-color: lightgray;
+    text-align: center;
+}
+.council_tableHeader > span:last-child{
+    font-Size: 1.2rem;
+    margin-left: 20px;
 }
 .tableHeader{
     width: 100%;
