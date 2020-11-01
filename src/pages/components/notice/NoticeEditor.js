@@ -2,11 +2,7 @@ import React, { useState, useEffect } from "react";
 import 'react-quill/dist/quill.snow.css'; // ES6
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill'; // ES6
 
-{/* <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link> */}
-
-
 class NoticeEditor extends React.Component {
-
     constructor(props) {
         super(props)
         this.state = { 

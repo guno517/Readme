@@ -85,7 +85,6 @@ app.get('/home', function (req, res) {
 })
 
 app.listen(5000, () => {
-  console.log('server connected!')
 })
 
 
@@ -99,7 +98,6 @@ app.listen(5000, () => {
 //   } else {
 
 //     connection.query("SELECT * FROM pledge", function (err, rows, fields) {
-//       console.log(rows);
 //       connection.end();
 //     })
 

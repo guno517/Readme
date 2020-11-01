@@ -7,9 +7,6 @@
     background: #5CACF2 !important; 
     bottom: 20px !important;
 }
-.carousel_img >img{
-    height:500px;
-}
 @media all and (max-width:768px) {
     .carousel-wrapper {
         width: 80%;

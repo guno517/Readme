@@ -131,7 +131,6 @@ app.use('/update', function (req, res, next) {
 
   connection.query('select * from member where id=? and password=?', [userId, userPw], function (err, rows, fields) {
     if (!err) {
-      console.log("select success");
       if (rows[0] != undefined) {
         connection.query('update member set password=? where id=?', [userPwNew, userId], function (err, rows, fields) {
           if (!err) {
@@ -154,7 +153,6 @@ app.use('/update', function (req, res, next) {
   })
 
   app.listen(5000, () => {
-    console.log('server connected!')
   })
 
 
@@ -168,7 +166,6 @@ app.use('/update', function (req, res, next) {
 //   } else {
 
 //     connection.query("SELECT * FROM pledge", function (err, rows, fields) {
-//       console.log(rows);
 //       connection.end();
 //     })
 
