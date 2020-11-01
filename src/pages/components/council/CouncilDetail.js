@@ -3,6 +3,8 @@ import "../css/NoticeDetail.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import LoadingOverlay from "react-loading-overlay";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -42,16 +44,15 @@ const CouncilDetail = (props) => {
 
     useEffect(() => {
         fetchApi();
-        
     }, []);
 
-    useEffect(()=>{
+    useEffect(() => {
         if (isLoading) {
             document.querySelector("#pledge_content").innerHTML = text;
         } else {
             document.querySelector("#pledge_content").innerHTML = "<p>loading...</p>";
         }
-    },[isLoading])
+    }, [isLoading]);
 
     const deleteCouncil = async () => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/delete/${deptId}/${collegeId}/${detail}`, {
@@ -71,24 +72,43 @@ const CouncilDetail = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
-            <div style={{ fontSize:"18px" }} id="NoticeContent">
-                <div>제목 | {councilDetail.pledge_title}</div>
-                <div>작성자 | {councilDetail.writer}</div>
-                <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
-                <br></br>
-                <div id="pledge_content">{councilDetail.pledge_content}</div>
-                <div id="NoticeFooter">
-                    <Link to={"/council/"}>
-                        <Button id="Button" className={classes.button} variant="contained">
-                            목록
-                        </Button>
-                    </Link>
-                    {authority === "0" && (
-                        <Button onClick={deleteCouncil} id="Button" className={classes.button} variant="contained">
-                            삭제
-                        </Button>
-                    )}
-                </div>
+            <div style={{ fontSize: "18px" }} id="NoticeContent">
+                <LoadingOverlay
+                    active={!isLoading}
+                    spinner={<BounceLoader />}
+                    styles={{
+                        overlay: (base) => ({
+                            ...base,
+                            background: "white",
+                        }),
+                    }}
+                >
+                    <div className="tableHeader">
+                        <span>제목</span>
+                        <span>{councilDetail.pledge_title}</span>
+                    </div>
+                    <div className="tableHeader">
+                        <span>작성자</span>
+                        <span>{councilDetail.writer}</span>
+                    </div>
+                    <div className="tableHeader">
+                        <span>작성일</span>
+                        <span>{String(councilDetail.time).substr(0, 10)}</span>
+                    </div>
+                    <div id="pledge_content">{councilDetail.pledge_content}</div>
+                    <div id="NoticeFooter">
+                        <Link to={"/council/"}>
+                            <Button id="Button" className={classes.button} variant="contained">
+                                목록
+                            </Button>
+                        </Link>
+                        {authority === "0" && (
+                            <Button onClick={deleteCouncil} id="Button" className={classes.button} variant="contained">
+                                삭제
+                            </Button>
+                        )}
+                    </div>
+                </LoadingOverlay>
             </div>
         </div>
     );

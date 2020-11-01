@@ -4,7 +4,7 @@
     margin-bottom: 2%;
 }
 #NoticeContent {
-    width: 80%;
+    width: 60%;
     min-width: 200;
     margin: 0 auto;
     margin-bottom: 3%;
@@ -22,6 +22,7 @@
 #content {
     margin-bottom: 3%;
     font-size: 1.2rem;
+    margin-left: 10px;
 }
 #content ul li{
     list-style:inside;
@@ -31,6 +32,34 @@
 }
 #content img{
     max-width:100%;
+}
+#content img{
+    max-width:100%;
+}
+#pledge_content p img{
+    max-width:100%;
+    margin-left: 10px;
+}
+#pledge_content p img{
+    max-width:100%;
+    margin-left: 10px;
+}
+.tableHeader{
+    width: 100%;
+    display: flex;
+    margin-bottom: 10px;
+}
+.tableHeader > span:first-child{
+    min-width: 80px;
+    font-Size: 1.2rem;
+    font-weight: 600;
+    border-right-style: solid;
+    border-color: lightgray;
+    text-align: center;
+}
+.tableHeader > span:last-child{
+    font-Size: 1.2rem;
+    margin-left: 20px;
 }
 @media all and (max-width:768px) {
     #NoticePoster {

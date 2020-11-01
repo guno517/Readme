@@ -3,7 +3,9 @@ import "../css/NoticeDetail.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
-import {useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from "react-redux";
+import LoadingOverlay from "react-loading-overlay";
+import BounceLoader from "react-spinners/BounceLoader";
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -19,15 +21,15 @@ const NoticeDetail = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const path_id = props.match.params.id;
     const [authority, setAuthority] = useState("");
-    const dispatch = useDispatch()
-    
+    const dispatch = useDispatch();
+
     useEffect(() => {
         setAuthority(window.sessionStorage.getItem("authority"));
         dispatch({
-            type:'UPDATE_MENU',
-            id:3,
-            name:"공지사항"
-        })
+            type: "UPDATE_MENU",
+            id: 3,
+            name: "공지사항",
+        });
     }, []);
 
     const deleteNotice = async () => {
@@ -75,33 +77,56 @@ const NoticeDetail = (props) => {
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
             <div id="NoticeContent">
-                <div style={{fontSize:"1.3rem", fontWeight:"600"}}>제목 | {noticeData[0].title}</div>
-                <div>조회수 | {noticeData[0].view + 1}</div>
-                <div>작성자 | {noticeData[0].writer}</div>
-                <div>작성일 | {String(noticeData[0].time).substr(0, 10)}</div>
-                <br></br>
-                <div>{noticeData[0].img}</div>
-                <div id="content">{noticeData[0].content}</div>
-                <div id="NoticeFooter">
-                    {authority === "0" && (
-                        <Button onClick={deleteNotice} id="Button" className={classes.button} variant="contained">
-                            삭제
-                        </Button>
-                    )}
-
-                    <Link to={`/editor/update/${noticeData[0].index}`}>
+                <LoadingOverlay
+                    active={!isLoading}
+                    spinner={<BounceLoader />}
+                    styles={{
+                        overlay: (base) => ({
+                            ...base,
+                            background: "white",
+                        }),
+                    }}
+                >
+                    <div className="tableHeader">
+                        <span>제목</span>
+                        <span>{noticeData[0].title}</span>
+                    </div>
+                    <div className="tableHeader">
+                        <span>조회수</span>
+                        <span>{noticeData[0].view + 1}</span>
+                    </div>
+                    <div className="tableHeader">
+                        <span>작성자</span>
+                        <span>{noticeData[0].writer}</span>
+                    </div>
+                    <div className="tableHeader">
+                        <span>작성일</span>
+                        <span>{String(noticeData[0].time).substr(0, 10)}</span>
+                    </div>
+                    <br></br>
+                    <div>{noticeData[0].img}</div>
+                    <div id="content">{noticeData[0].content}</div>
+                    <div id="NoticeFooter">
                         {authority === "0" && (
-                            <Button id="Button" className={classes.button} variant="contained">
-                                수정
+                            <Button onClick={deleteNotice} id="Button" className={classes.button} variant="contained">
+                                삭제
                             </Button>
                         )}
-                    </Link>
-                    <Link to="/notice">
-                        <Button id="Button" className={classes.button} variant="contained">
-                            목록
-                        </Button>
-                    </Link>
-                </div>
+
+                        <Link to={`/editor/update/${noticeData[0].index}`}>
+                            {authority === "0" && (
+                                <Button id="Button" className={classes.button} variant="contained">
+                                    수정
+                                </Button>
+                            )}
+                        </Link>
+                        <Link to="/notice">
+                            <Button id="Button" className={classes.button} variant="contained">
+                                목록
+                            </Button>
+                        </Link>
+                    </div>
+                </LoadingOverlay>
             </div>
         </div>
     );
