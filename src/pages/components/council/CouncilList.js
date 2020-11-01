@@ -83,12 +83,13 @@ const CouncilList = (props) => {
                     ))}
                 </div>
             </div>
-            <div id="buttondiv" className={classes.buttondiv}>
+            <div id="buttondiv" className={classes.buttondiv} style={{width:'65%', textAlign: 'right'}}>
+                <Link to={"/council"}>
+                    <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>목록</button>
+                </Link>
                 <Link to={`/council_totaleditor/${collegeData}/${majorData}`}>
                     {authority === "0" && (
-                        <Button id="Button" className={classes.button} style={{marginRight:"0"}} variant="contained">
-                            이행 인증
-                        </Button>
+                        <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>공약 관리</button>
                     )}
                 </Link>
             </div>

@@ -40,12 +40,6 @@
     border-color: #5CACF2;
     border-radius: 1em;
 }
-.makeStyles-buttondiv-1 {
-    width: 63.5% !important;
-}
-.makeStyles-buttondiv-7 {
-    width: 63.5% !important;
-}
 @media all and (max-width:768px) {
     .councilTitleLeft {
         width: 43%;
@@ -60,11 +54,5 @@
     }
     .councilContentRight {
         width: 43%;
-    }
-    .makeStyles-buttondiv-1 {
-        width: 90.5% !important;
-    }
-    .makeStyles-buttondiv-7 {
-        width: 90.5% !important;
     }
 }
