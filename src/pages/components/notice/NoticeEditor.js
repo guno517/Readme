@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import 'react-quill/dist/quill.snow.css'; // ES6
 import ReactQuill, { Quill, Mixin, Toolbar } from 'react-quill'; // ES6
+import '../css/Editor.css'; // ES6
+
 
 {/* <link rel="stylesheet" href="//cdn.quilljs.com/1.2.6/quill.snow.css"></link> */}
 
@@ -82,8 +84,8 @@ class NoticeEditor extends React.Component {
             if (response.status === 200) {
                 response.json().then(({detail}) => {
                     this.setState({ 
-                            content: detail[0].content,
-                            title:detail[0].title, 
+                            content: detail[0][0].content,
+                            title:detail[0][0].title, 
                             dbUrl:`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/notice/update/${this.path_id}`
                     })
                 });
@@ -101,7 +103,7 @@ class NoticeEditor extends React.Component {
                     value={this.state.title} 
                     type="text" placeholder="제목을 작성해주세요" 
                     onChange={this.titleChange}
-                    style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%', border:'1px solid #ccc', paddingLeft:'1%'}}></input>
+                    style={{width:'250px', height:'35px', marginBottom:'2%', marginLeft:'3%',fontSize:'1.2rem', border:'1px solid #ccc', paddingLeft:'1%'}}></input>
                 <ReactQuill 
                     value={this.state.content}
                     modules={this.modules}

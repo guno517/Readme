@@ -11,7 +11,9 @@
     border-radius: 2px !important;
     margin: 1%;
 }
-
+.ql-editor p{
+    font-size: 1.2rem !important;
+}
 #title {
     border: 1px solid #0D3C83;
     padding: 10px;
