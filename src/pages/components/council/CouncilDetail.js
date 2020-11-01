@@ -51,12 +51,15 @@ const CouncilDetail = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
-            <div id="NoticeContent">
+            <div style={{ fontSize:"18px" }} id="NoticeContent">
                 <div>제목 | {councilDetail.pledge_title}</div>
                 <div>조회수 | {councilDetail.view}</div>
                 <div>작성자 | {councilDetail.writer}</div>
                 <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
                 <br></br>
+                <div>
+                    <img style={{ width:"99%" }} src={councilDetail.img}></img>
+                </div>
                 <div id="pledge_content">{councilDetail.pledge_content}</div>
                 <div id="NoticeFooter">
                     <Link to={`/council_list/${deptId}/${collegeId}`}>
