@@ -49,7 +49,6 @@ const CandidateSet = (props) =>{
         setElectionPledge(e.target.value);
     } 
     const flagChange = (e) =>{
-        console.log(e)
         setFlagChange(e.target.value);
     } 
     // 목록

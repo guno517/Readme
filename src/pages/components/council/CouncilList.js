@@ -1,17 +1,36 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import Button from "@material-ui/core/Button";
 import "../css/CouncilList.css";
 import "../css/HeaderPoster.css";
-import { blue } from "@material-ui/core/colors";
+import { withStyles, makeStyles } from "@material-ui/core/styles";
 
 const councilListPoster = require("../../../img/CouncilList.png");
 
+const useStyles = makeStyles((theme) => ({
+    buttondiv: {
+        width: "51%",
+        margin: "0 auto",
+        padding: "1%",
+    },
+    button: {
+        backgroundColor: "#5CACF2",
+        color: "white",
+        marginRight: "0 !important",
+    },
+}));
+
 const CouncilList = (props) => {
+    const classes = useStyles();
     const [listData, setListData] = useState([""]);
     const [fulfillData, setFulfillData] = useState([""]);
     const collegeData = props.match.params.college;
     const majorData = props.match.params.major;
+    const [authority, setAuthority] = useState("");
+
+    useEffect(() => {
+        setAuthority(window.sessionStorage.getItem("authority"));
+    }, []);
 
     const fetchApi = async (collegeData, majorData) => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/list/${collegeData}/${majorData}`).then((response) => {
@@ -63,6 +82,16 @@ const CouncilList = (props) => {
                         </div>
                     ))}
                 </div>
+            </div>
+            <div id="buttondiv" className={classes.buttondiv} style={{width:'65%', textAlign: 'right'}}>
+                <Link to={"/council"}>
+                    <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>목록</button>
+                </Link>
+                <Link to={`/council_totaleditor/${collegeData}/${majorData}`}>
+                    {authority === "0" && (
+                        <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>공약 관리</button>
+                    )}
+                </Link>
             </div>
         </div>
     );

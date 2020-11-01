@@ -245,7 +245,6 @@ app.listen(3000, () => {
 //   } else {
 
 //     connection.query("SELECT * FROM pledge", function (err, rows, fields) {
-//       console.log(rows);
 //       connection.end();
 //     })
 

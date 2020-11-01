@@ -21,6 +21,11 @@ const CouncilDetail = (props) => {
     const deptId = locationValue[2];
     const collegeId = locationValue[3];
     const detail = locationValue[4];
+    const [authority, setAuthority] = useState("");
+
+    useEffect(() => {
+        setAuthority(window.sessionStorage.getItem("authority"));
+    }, []);
 
     const fetchApi = async () => {
         await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/list/${deptId}/${collegeId}/${detail}`).then((response) => {
@@ -39,6 +44,7 @@ const CouncilDetail = (props) => {
         fetchApi();
         
     }, []);
+
     useEffect(()=>{
         if (isLoading) {
             document.querySelector("#pledge_content").innerHTML = text;
@@ -47,26 +53,41 @@ const CouncilDetail = (props) => {
         }
     },[isLoading])
 
+    const deleteCouncil = async () => {
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/delete/${deptId}/${collegeId}/${detail}`, {
+            method: "get",
+        }).then((response) => {
+            if (response.status === 200) {
+                alert("게시글이 삭제 되었습니다.");
+            } else {
+                alert("오류가 발생했습니다. 관리자에게 문의하세요.");
+            }
+        });
+        window.history.back();
+    };
+
     let text = councilDetail.pledge_content;
+
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
             <div style={{ fontSize:"18px" }} id="NoticeContent">
                 <div>제목 | {councilDetail.pledge_title}</div>
-                <div>조회수 | {councilDetail.view}</div>
                 <div>작성자 | {councilDetail.writer}</div>
                 <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
                 <br></br>
-                <div>
-                    <img style={{ width:"99%" }} src={councilDetail.img}></img>
-                </div>
                 <div id="pledge_content">{councilDetail.pledge_content}</div>
                 <div id="NoticeFooter">
-                    <Link to={`/council_list/${deptId}/${collegeId}`}>
+                    <Link to={"/council/"}>
                         <Button id="Button" className={classes.button} variant="contained">
                             목록
                         </Button>
                     </Link>
+                    {authority === "0" && (
+                        <Button onClick={deleteCouncil} id="Button" className={classes.button} variant="contained">
+                            삭제
+                        </Button>
+                    )}
                 </div>
             </div>
         </div>

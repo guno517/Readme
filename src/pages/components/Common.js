@@ -63,7 +63,7 @@ export const DataListAdd = (props) =>{
                     borderRadius: "3px",
                     marginLeft:'2%',
                 }}
-            >등록</button>
+            >추가</button>
 
             <ul style={{padding:'10px'}}>
                 {listName && listName.map((data, index)=>(
