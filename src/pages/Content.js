@@ -15,6 +15,7 @@ import CouncilDetail from "./components/council/CouncilDetail";
 import CouncilList from "./components/council/CouncilList";
 import CandidateSet from './components/vote/CandidateSet';
 import VoteAdmin from './components/vote/VoteAdmin';
+import CouncilTotalEditor from './components/council/CouncilTotalEditor';
 
 const Content = () => {
  
@@ -28,6 +29,7 @@ const Content = () => {
             <Route path="/council" component={Council}/>
             <Route path="/council_detail/:index" component={CouncilDetail} />
             <Route path="/council_list/:college/:major" component={CouncilList} />
+            <Route path="/council_totaleditor/:college/:major" component={CouncilTotalEditor} />
             <Route path="/councileditor/:college/:major" component={CouncilEditor}/>
             <Route path="/vote" component={Vote}/>
             <Route path="/notice" component={Notice}/>
