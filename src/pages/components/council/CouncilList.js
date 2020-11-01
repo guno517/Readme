@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
 import "../css/CouncilList.css";
 import "../css/HeaderPoster.css";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
@@ -8,16 +7,7 @@ import { withStyles, makeStyles } from "@material-ui/core/styles";
 const councilListPoster = require("../../../img/CouncilList.png");
 
 const useStyles = makeStyles((theme) => ({
-    buttondiv: {
-        width: "51%",
-        margin: "0 auto",
-        padding: "1%",
-    },
-    button: {
-        backgroundColor: "#5CACF2",
-        color: "white",
-        marginRight: "0 !important",
-    },
+
 }));
 
 const CouncilList = (props) => {
@@ -51,6 +41,7 @@ const CouncilList = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={councilListPoster} />
+            <br></br>
             <div className="councilListTitle">
                 <div className="councilTitleLeft">
                     <strong>공약 전체 목록</strong>
@@ -83,7 +74,7 @@ const CouncilList = (props) => {
                     ))}
                 </div>
             </div>
-            <div id="buttondiv" className={classes.buttondiv} style={{width:'65%', textAlign: 'right'}}>
+            <div id="listbuttondiv" className={classes.buttondiv} style={{width:'65%', textAlign: 'right'}}>
                 <Link to={"/council"}>
                     <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>목록</button>
                 </Link>
