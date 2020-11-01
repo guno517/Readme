@@ -6,14 +6,14 @@ import "../css/CouncilCarousel.css";
 
 function CouncilCarousel(props) {
     const carouselData = props.carouselData;
-    
+    console.log(carouselData);
     return (
         <div>
             <div className="carousel-wrapper">
                 <Carousel showStatus={false} showThumbs={false} dynamicHeight={true} infiniteLoop useKeyboardArrows autoPlay={true}>
                     {carouselData.map((data, index) => (
                         <Link key={index} to={`/council_detail/${data.collegeId}/${data.deptId}/${data.index}`}>
-                            <div key={index}>
+                            <div key={index} class="carousel_img">
                                 <img src={carouselData[index].img}></img>
                                 <p className="legend">{carouselData[index].pledge_title}</p>
                             </div>
