@@ -16,6 +16,7 @@ const useStyles = makeStyles((theme) => ({
     button: {
         backgroundColor: "#5CACF2",
         color: "white",
+        marginRight: "0 !important",
     },
 }));
 
@@ -85,7 +86,7 @@ const CouncilList = (props) => {
             <div id="buttondiv" className={classes.buttondiv}>
                 <Link to={`/council_totaleditor/${collegeData}/${majorData}`}>
                     {authority === "0" && (
-                        <Button id="Button" className={classes.button} variant="contained">
+                        <Button id="Button" className={classes.button} style={{marginRight:"0"}} variant="contained">
                             이행 인증
                         </Button>
                     )}
