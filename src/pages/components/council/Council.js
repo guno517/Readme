@@ -26,9 +26,7 @@ const Council = (props) => {
         fetchSelectCode(dispatch);
     });
 
-    const dataDispatch = () => {
-        const collegeData = document.getElementById("college").value;
-        const majorData = document.getElementById("major").value;
+    const dataDispatch = (collegeData, majorData) => {
         fetchDataApi(collegeData, majorData);
     };
 

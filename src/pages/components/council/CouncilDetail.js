@@ -55,8 +55,17 @@ const CouncilDetail = (props) => {
     }, [isLoading]);
 
     const deleteCouncil = async () => {
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/delete/${deptId}/${collegeId}/${detail}`, {
-            method: "get",
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/delete`, {
+            method: "post",
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                deptId:deptId,
+                collegeId:collegeId,
+                index:detail,
+                title:councilDetail.pledge_title         
+            })
         }).then((response) => {
             if (response.status === 200) {
                 alert("게시글이 삭제 되었습니다.");
@@ -92,7 +101,11 @@ const CouncilDetail = (props) => {
                         <span>{councilDetail.writer}</span>
                     </div>
                     <div className="tableHeader">
-                        <span>작성일</span>
+                        <span>이행 완료 일자</span>
+                        <span>{String(councilDetail.fulfilled_date).substr(0, 10)}</span>
+                    </div>
+                    <div className="tableHeader">
+                        <span>작성 일자</span>
                         <span>{String(councilDetail.time).substr(0, 10)}</span>
                     </div>
                     <div id="pledge_content">{councilDetail.pledge_content}</div>

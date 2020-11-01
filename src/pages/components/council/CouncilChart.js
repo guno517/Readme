@@ -4,6 +4,7 @@ import Highcharts from "highcharts/highstock";
 import PieChart from "highcharts-react-official";
 
 const CouncilChart = (props) => {
+    console.log(props);
     const dispatch = useDispatch();
     const chartRate1 = props.chartData.total_pledge - props.chartData.fulfilled_pledge;
     const chartRate2 = props.chartData.fulfilled_pledge;
