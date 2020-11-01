@@ -6,7 +6,6 @@ import "../css/CouncilCarousel.css";
 
 function CouncilCarousel(props) {
     const carouselData = props.carouselData;
-
     return (
         <div>
             <div className="carousel-wrapper">

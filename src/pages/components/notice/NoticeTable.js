@@ -164,9 +164,9 @@ function NoticeTable() {
                     </TableRow>
                 </TableHead>
                 <TableBody>
-                    {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row) => (
-                        <TableRow key={row.index}>
-                            <TableCell style={{ width: 20 }} align="center" padding="5px">
+                    {(rowsPerPage > 0 ? noticeData.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage) : noticeData).map((row,index) => (
+                        <TableRow key={index}>
+                            <TableCell style={{ width: 20, padding:"5px" }} align="center">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
                                     {row.index}
                                 </Link>
@@ -176,17 +176,17 @@ function NoticeTable() {
                                     {row.title}
                                 </Link>
                             </TableCell>
-                            <TableCell id="MobileNotice" style={{ width: 80 }} align="center" padding="5px">
+                            <TableCell id="MobileNotice" style={{ width: 80, padding:"5px" }} align="center">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
                                     {row.writer}
                                 </Link>
                             </TableCell>
-                            <TableCell id="MobileNotice" style={{ width: 90 }} align="center" padding="5px">
+                            <TableCell id="MobileNotice" style={{ width: 90, padding:"5px" }} align="center">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
                                     {String(row.time).substr(0, 10)}
                                 </Link>
                             </TableCell>
-                            <TableCell id="MobileNotice" style={{ width: 50 }} align="center" padding="5px">
+                            <TableCell id="MobileNotice" style={{ width: 50, padding:"5px" }} align="center">
                                 <Link id={row.index} to={`/notice_detail/${row.index}`}>
                                     {row.view}
                                 </Link>

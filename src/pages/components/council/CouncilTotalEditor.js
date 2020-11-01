@@ -51,7 +51,7 @@ const CouncilTotalEditor = (props) => {
             })
         })
         .then(()=>{
-            console.log("test");
+            window.history.go(-1);
         })
     }
     
