@@ -18,7 +18,7 @@ const VoteResultTurnoutChart = (props) => {
             categories: ['1일차 오전', '1일차 오후', '1일차 오전', '2일차 오후', '3일차 오전', '3일차오후']
         },
         series: [{
-            name: 'Installation',
+            name: '누적 투표자 수',
             data: listdata && [listdata.day1_1,listdata.day1_2,listdata.day2_1, listdata.day2_2, listdata.day3_1, listdata.day3_2]
         }],
         responsive: {

@@ -8,6 +8,7 @@ const VoteResultChart = (props) => {
     if(listdata.length === 1){
         let negative = listdata[0].total_votes - listdata[0].votes- listdata[0].invalid;
         options = {
+            colors: ["#058DC7", "#50B432", "#8D96A9", "#FCEB2A"],
             chart: {
                 type: "pie",
             },
@@ -16,6 +17,16 @@ const VoteResultChart = (props) => {
             },
             title: {
                 text: "투표결과",
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
             },
             series: [
                 {
@@ -37,6 +48,7 @@ const VoteResultChart = (props) => {
         };
     }else{
         options = {
+            colors: ["#058DC7", "#50B432", "#8D96A9", "#FCEB2A"],
             chart: {
                 type: "pie",
             },
@@ -45,6 +57,16 @@ const VoteResultChart = (props) => {
             },
             title: {
                 text: "투표결과",
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    showInLegend: true
+                }
             },
             series: [
                 {

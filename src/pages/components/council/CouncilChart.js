@@ -20,6 +20,16 @@ const CouncilChart = (props) => {
         title: {
             text: "공약 실천 현황",
         },
+        plotOptions: {
+            pie: {
+                allowPointSelect: true,
+                cursor: 'pointer',
+                dataLabels: {
+                    enabled: false
+                },
+                showInLegend: true
+            }
+        },
         series: [
             {
                 name: "공약",
