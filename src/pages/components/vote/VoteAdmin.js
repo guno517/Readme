@@ -26,12 +26,18 @@ const VoteAdmin = () => {
     
 
 
-    const dataDispatch = (college, major) =>{
+    const dataDispatch = () =>{
         
     }
     useEffect(() => {
         fetchSelectCode(dispatch);
-
+        dispatch({
+            type:"SELECT_MENU_DATA",
+            college:0,
+            collegeName:"총학생회",
+            major:0,
+            majorName:"총학생회",
+        })
     }, [])
 
     const setData = () =>{
@@ -68,7 +74,7 @@ const VoteAdmin = () => {
                 collegeId:college,
                 deptId:major   
                 })
-            }).then(()=>{
+            }).then((data)=>{
                 alert("등록되었습니다.");
                 setVoter("")
                 setNum1("")
