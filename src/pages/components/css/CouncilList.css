@@ -40,6 +40,11 @@
     border-color: #5CACF2;
     border-radius: 1em;
 }
+#listbuttondiv {
+    text-align: right;
+    margin-top: 2%;
+    width: 82.5%;
+}
 @media all and (max-width:768px) {
     .councilTitleLeft {
         width: 43%;
@@ -54,5 +59,9 @@
     }
     .councilContentRight {
         width: 43%;
+    }
+    #listbuttondiv {
+        margin-top: 2%;
+        width: 96%;
     }
 }
