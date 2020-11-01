@@ -1,0 +1,23 @@
+.select{
+    width:22%;
+    height:50px;
+    border:2px solid rgb(89, 170, 235);
+    border-radius:5px;
+    outline: none;
+    padding:0px 5px;
+}
+
+@media (max-width: 1058px) {
+    .select{
+        width:30%;
+    }
+}
+@media (max-width: 768px) {
+    .select{
+        width:43%;
+        height:40px;
+        border:2px solid rgb(89, 170, 235);
+        margin-right:20px;
+        border-radius:5px;
+    }
+}

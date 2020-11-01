@@ -1,0 +1,28 @@
+.selectCouncilDiv{
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+#college {
+    margin-right:10px;
+}
+#major {
+    margin: 0%;
+}
+.select {
+    width:20%;
+    height:50px;
+    border:2px solid rgb(89, 170, 235);
+    border-radius:5px;
+    outline: none;
+}
+@media (max-width: 768px) {
+    .select{
+        width:43%;
+        height:40px;
+        border:2px solid rgb(89, 170, 235);
+        margin-right:20px;
+        border-radius:5px;
+    }
+}

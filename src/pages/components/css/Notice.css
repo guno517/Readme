@@ -1,0 +1,24 @@
+@media all and (max-width:768px) {
+    #MobileNotice {
+        display: none;
+    }
+    #NoticeTable {
+        width: 95%;
+        margin: 0px auto;
+    }
+    #Upload {
+        margin-right: 3%;
+        display: block;
+        float: right;
+    }
+    #Search {
+        margin-right: 3%;
+        display: block;
+        float: right;
+    }
+    
+}
+
+.MuiTableCell-root {
+    padding: 5px;
+}

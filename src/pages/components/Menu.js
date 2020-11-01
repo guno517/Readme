@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
-import { useSelector } from 'react-redux'
-import LinkComponent from "./Common";
+import { useSelector, useDispatch } from 'react-redux'
+import { LinkComponent } from "./Common";
 
 const Menu = () => {
     const menu = useSelector(state => state.menu);
@@ -8,7 +8,7 @@ const Menu = () => {
     return (
         <ul>
              {menu.map((list, index)=>(
-                <LinkComponent key={index} menu={list} />
+                <LinkComponent key={index} link={list.link} name={list.name} isActive={list.isActive} activeColor={"white"} isNotActiveColor={"black"} />
              ))}
         </ul>
     )

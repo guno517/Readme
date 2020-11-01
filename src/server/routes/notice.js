@@ -1,13 +1,22 @@
 const express = require('express');
 const router = express.Router();
 const mysql = require('mysql');
+const app = express();
 
 let db_config = require('../db');
 
 let connection = mysql.createConnection(db_config);
 
+app.use(express.json({
+    limit: "50mb"
+}));
+app.use(express.urlencoded({ 
+    limit:"50mb",
+    extended: false 
+}));
+
 router.get('/', function (req, res) {
-    //let sql = 'SELECT * FROM notice'; // 페이지 당 10개만 보여주기 limit....
+    console.log(req.body);
     let sql = "select * from notice order by `index` desc;"
     connection.query(sql, (err, result) => {
         if(!err){
@@ -19,10 +28,11 @@ router.get('/', function (req, res) {
 });
 
 router.get('/detail/:index', (req, res) => {
+    console.log(req.body);
     let index = req.params.index;
     let indexInt = parseInt(index);
-    let sql = "SELECT * FROM notice where index=?";
-    connection.query('SELECT * FROM notice where `index`=?', [indexInt], function(err, rows, fields){
+    let sql = "SELECT * FROM notice where `index`=?; update notice set view=view+1 where `index`=?;";
+    connection.query(sql, [indexInt,indexInt], function(err, rows, fields){
         if(!err){
             res.json({detail: rows});
         } else {
@@ -33,7 +43,7 @@ router.get('/detail/:index', (req, res) => {
 })
 
 router.post('/insert', (req, res) => {
-    console.log("게시글 db에 저장");
+    // console.log("공지사항 게시글 db에 저장");
     let img = req.body['img'];
     let attachment = req.body['attachment'];
     let title = req.body['title'];
@@ -49,7 +59,8 @@ router.post('/insert', (req, res) => {
     // let time = '2020-10-04';
     let view = 1;
 
-    connection.query('insert into notice values(?,?,?,?,?,?,?,?)', ['', img, attachment, title, content, writer, time, view], function (err, rows, fields) {
+    let sql = 'insert into notice values(?,?,?,?,?,?,?,?);'
+    connection.query(sql, ['', img, attachment, title, content, writer, time, view], function (err, rows, fields) {
         if(!err){
             res.json({insert:rows}); // or 상세페이지   
         } else {

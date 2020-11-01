@@ -1,0 +1,48 @@
+#NoticePoster {
+    width: 50%;
+    margin: 0px auto;
+    margin-bottom: 2%;
+}
+#NoticeContent {
+    width: 80%;
+    min-width: 200;
+    margin: 0 auto;
+    margin-bottom: 3%;
+}
+#Button {
+    margin-right: 1%;
+    display: block;
+    float: right;
+    background-color: "#59AAEB";
+    color: "white";
+}
+#NoticeFooter {
+    margin-bottom: 10%;
+}
+#content {
+    margin-bottom: 3%;
+}
+#content ul li{
+    list-style:inside;
+}
+#content ol li{
+    list-style:decimal;
+}
+#content img{
+    max-width:100%;
+}
+@media all and (max-width:768px) {
+    #NoticePoster {
+        width: 90%;
+        margin: 0px auto;
+        margin-bottom: 2%;
+    }
+    #NoticeContent {
+        width: 95%;
+        margin: 0px auto;
+        margin-bottom: 18%;
+    }
+    #NoticeFooter {
+        margin-bottom: 15%;
+    }
+}
