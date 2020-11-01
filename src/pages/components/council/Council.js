@@ -52,12 +52,15 @@ const Council = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={CouncilPoster} alt="학생회 이미지"></img>
+            <br></br>
             <div>
                 <SelectCollege dataDispatch={dataDispatch} />
             </div>
+            <br></br>
             <div>
                 <CouncilChart chartData={chartData} />
             </div>
+            <br></br>
             <div>
                 <CouncilListButton collegeData={chartData.collegeId} majorData={chartData.deptId} />
             </div>

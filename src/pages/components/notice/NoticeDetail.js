@@ -76,6 +76,7 @@ const NoticeDetail = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
+            <br></br>
             <div id="NoticeContent">
                 <LoadingOverlay
                     active={!isLoading}
@@ -103,7 +104,6 @@ const NoticeDetail = (props) => {
                         <span>작성일</span>
                         <span>{String(noticeData[0].time).substr(0, 10)}</span>
                     </div>
-                    <br></br>
                     <div>{noticeData[0].img}</div>
                     <div id="content">{noticeData[0].content}</div>
                     <div id="NoticeFooter">

@@ -43,7 +43,7 @@
 #listbuttondiv {
     text-align: right;
     margin-top: 2%;
-    width: 82.5%;
+    width: 82.5% !important;
 }
 @media all and (max-width:768px) {
     .councilTitleLeft {
@@ -62,6 +62,7 @@
     }
     #listbuttondiv {
         margin-top: 2%;
-        width: 96%;
+        justify-content: right;
+        width: 96% !important;
     }
 }

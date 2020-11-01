@@ -81,6 +81,7 @@ const CouncilDetail = (props) => {
     return (
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
+            <br></br>
             <div style={{ fontSize: "18px" }} id="NoticeContent">
                 <LoadingOverlay
                     active={!isLoading}
@@ -108,7 +109,6 @@ const CouncilDetail = (props) => {
                         <span>작성 일자</span>
                         <span>{String(councilDetail.time).substr(0, 10)}</span>
                     </div>
-                    <br></br>
                     <div id="pledge_content">{councilDetail.pledge_content}</div>
                     <div id="NoticeFooter">
                         <Link to={"/council/"}>
