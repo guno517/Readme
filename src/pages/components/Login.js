@@ -66,8 +66,8 @@ const Login = (props) => {
                 const response_json = await response.json();
                 const member = response_json.user[0];
                 sessionSave("id", member['id'])
-                sessionSave("college", member['college'])
-                sessionSave("department", member['department'])
+                sessionSave("collegeId", member['collegeId'])
+                sessionSave("deptId", member['deptId'])
                 sessionSave("authority", member['authority'])
                 // dispatch({
                 //     type:'LOGIN_SUCCESS',

@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchSelectCode } from "./Common";
 import SelectCollege from "./SelectCollege";
 import "./css/Signup.css";
@@ -9,12 +9,12 @@ const Signup = () => {
     const [idOverlapCheck, setIdOverlapCheck] = useState(1);
     const [name, setName] = useState('');
     const [id, setId] = useState('');
-    const [college, setCollege] = useState('');
-    const [department, setDepartment] = useState('');
     const [student_number, setStudent_number] = useState('');
     const [userPw, setUserPw] = useState('');
     const [userPwCheck, setUserPwCheck] = useState('');
-
+    const collegeId = useSelector((state) => state.selectFlagData.college);
+    const deptId = useSelector((state) => state.selectFlagData.major);
+    
     const signOk = async() =>{
         const response = await fetch('http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/signup',{
             method:"POST",
@@ -24,8 +24,8 @@ const Signup = () => {
             body:JSON.stringify({
                 name:name,
                 id:id,
-                college:college,
-                department:department,
+                collegeId:collegeId,
+                deptId:deptId,
                 student_number:student_number,
                 pass:userPw,
                 userPwCheck:userPwCheck
@@ -46,10 +46,6 @@ const Signup = () => {
             setId(e.target.value)
             setIdOverlapCheck(1)
 
-        }else if(e.target.className === "college"){
-            setCollege(e.target.value)
-        }else if(e.target.className === "department"){
-            setDepartment(e.target.value)
         }else if(e.target.className === "student_number"){
             setStudent_number(e.target.value)
         }else if(e.target.className === "userPw"){
@@ -66,7 +62,7 @@ const Signup = () => {
         let h = day.getHours();
         let i = day.getMinutes();
         let time = y+"-"+m+"-"+d+" "+h+":"+i;
-        checkSignUp(college, department, name, id, student_number, userPw, userPwCheck);
+        checkSignUp( name, id, student_number, userPw, userPwCheck);
     }
 
       const IdCheck = async() =>{
@@ -105,7 +101,7 @@ const Signup = () => {
         //     setIdOverlapCheck(false);
         // }
         
-        const checkSignUp = (college, department, name, id, student_number, userPw, userPwCheck) =>{
+        const checkSignUp = (name, id, student_number, userPw, userPwCheck) =>{
             // let getCheck= RegExp(/^[a-zA-Z0-9]{4,20}$/);
             // let getemail= RegExp(/^[0-9a-zA-Z][0-9a-zA-Z\_\-]*[0-9a-zA-Z](\.[a-zA-Z]{2,6}){1,2}$/);
             // let getName = RegExp(/^[가-힣]+$/);
