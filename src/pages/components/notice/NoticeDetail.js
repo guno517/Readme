@@ -3,6 +3,7 @@ import "../css/NoticeDetail.css";
 import { Link } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import { makeStyles } from "@material-ui/core/styles";
+import {useSelector, useDispatch } from 'react-redux'
 
 const useStyles = makeStyles((theme) => ({
     button: {
@@ -18,9 +19,15 @@ const NoticeDetail = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     const path_id = props.match.params.id;
     const [authority, setAuthority] = useState("");
-
+    const dispatch = useDispatch()
+    
     useEffect(() => {
         setAuthority(window.sessionStorage.getItem("authority"));
+        dispatch({
+            type:'UPDATE_MENU',
+            id:3,
+            name:"공지사항"
+        })
     }, []);
 
     const deleteNotice = async () => {
@@ -68,7 +75,7 @@ const NoticeDetail = (props) => {
         <div>
             <img id="NoticePoster" src={NoticePoster}></img>
             <div id="NoticeContent">
-                <div>제목 | {noticeData[0].title}</div>
+                <div style={{fontSize:"1.3rem", fontWeight:"600"}}>제목 | {noticeData[0].title}</div>
                 <div>조회수 | {noticeData[0].view + 1}</div>
                 <div>작성자 | {noticeData[0].writer}</div>
                 <div>작성일 | {String(noticeData[0].time).substr(0, 10)}</div>
