@@ -57,6 +57,9 @@ const CouncilDetail = (props) => {
                 <div>작성자 | {councilDetail.writer}</div>
                 <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
                 <br></br>
+                <div>
+                    <img style={{ width:"99%" }} src={councilDetail.img}></img>
+                </div>
                 <div id="pledge_content">{councilDetail.pledge_content}</div>
                 <div id="NoticeFooter">
                     <Link to={`/council_list/${deptId}/${collegeId}`}>
