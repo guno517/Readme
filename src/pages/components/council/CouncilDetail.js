@@ -48,7 +48,7 @@ const CouncilDetail = (props) => {
                 <div>작성일 | {String(councilDetail.time).substr(0, 10)}</div>
                 <br></br>
                 <div>
-                    <img src={councilDetail.img}></img>
+                    <img style={{ width:"99%" }} src={councilDetail.img}></img>
                 </div>
                 <div id="content">{councilDetail.pledge_content}</div>
                 <div id="NoticeFooter">
