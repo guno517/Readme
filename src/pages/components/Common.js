@@ -36,3 +36,40 @@ export const fetchSelectCode = async(dispatch) => {
         })
     })
 }
+
+export const DataListAdd = (props) =>{
+    const {className, title, refs, value, changeEvent, pressEvent, name, placeholder, clickEvent, listName } = props;
+    return(
+        <div className={className} style={{ marginBottom:'40px'}}>
+            <h1>{title}</h1>
+            <input 
+                ref={refs} 
+                value = {value} 
+                onChange={changeEvent} 
+                onKeyPress={pressEvent} 
+                name={name}
+                type="text" 
+                placeholder={placeholder}
+                style={{width:'250px', height:'35px'}}
+            />
+            <button 
+                onClick={clickEvent}
+                style={{
+                    width:"80px",
+                    height:"40px",
+                    border: "1px solid rgb(130, 162, 209)",
+                    backgroundColor: "rgb(89, 170, 235)",
+                    color: "white",
+                    borderRadius: "3px",
+                    marginLeft:'2%',
+                }}
+            >등록</button>
+
+            <ul style={{padding:'10px'}}>
+                {listName && listName.map((data, index)=>(
+                    <li key={index} style={{marginTop:"10px"}}>{data}</li>
+                ))}
+            </ul>
+        </div>
+    )
+}

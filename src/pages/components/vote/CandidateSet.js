@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import {useSelector, useDispatch } from 'react-redux'
-
+import { DataListAdd } from "../Common";
 const CandidateSet = (props) =>{
     
 
@@ -161,7 +161,7 @@ const CandidateSet = (props) =>{
                 <label>부</label>
             </div>
 
-            <CandidateSubmit 
+            <DataListAdd 
                 className= {"career"}
                 title = {"경력"}
                 refs = {careerInput}
@@ -173,9 +173,9 @@ const CandidateSet = (props) =>{
                 clickEvent = {careerDataAdd}
                 listName={careerList}
             >
-           </CandidateSubmit>
+           </DataListAdd>
 
-           <CandidateSubmit 
+           <DataListAdd 
                 className= {"electionPledge"}
                 title = {"공약"}
                 refs = {electionPledgeInput}
@@ -187,7 +187,7 @@ const CandidateSet = (props) =>{
                 clickEvent = {electionPledgeDataAdd}
                 listName={electionPledgeList}
             >
-           </CandidateSubmit>
+           </DataListAdd>
             
             <div className={"thumbnail"} style={{ marginBottom:'40px'}}>
                 <h1>프로필 이미지 (선택)</h1>
@@ -219,43 +219,5 @@ const Input = (props) =>{
         </input>
     )
 }
-// 경력 및 공약 등록
-const CandidateSubmit = (props) =>{
-    const {className, title, refs, value, changeEvent, pressEvent, name, placeholder, clickEvent, listName } = props;
-    return(
-        <div className={className} style={{ marginBottom:'40px'}}>
-            <h1>{title}</h1>
-            <input 
-                ref={refs} 
-                value = {value} 
-                onChange={changeEvent} 
-                onKeyPress={pressEvent} 
-                name={name}
-                type="text" 
-                placeholder={placeholder}
-                style={{width:'250px', height:'35px'}}
-            />
-            <button 
-                onClick={clickEvent}
-                style={{
-                    width:"80px",
-                    height:"40px",
-                    border: "1px solid rgb(130, 162, 209)",
-                    backgroundColor: "rgb(89, 170, 235)",
-                    color: "white",
-                    borderRadius: "3px",
-                    marginLeft:'2%',
-                }}
-            >등록</button>
-
-            <ul style={{padding:'10px'}}>
-                {listName && listName.map((data, index)=>(
-                    <li key={index} style={{marginTop:"10px"}}>{data}</li>
-                ))}
-            </ul>
-        </div>
-    )
-}
-
 
   export default CandidateSet;
