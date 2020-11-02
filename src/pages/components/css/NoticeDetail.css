@@ -27,6 +27,9 @@
 #content ul li{
     list-style:inside;
 }
+#content p img{
+    min-width: 100%;
+}
 #content ol li{
     list-style:decimal;
 }
@@ -44,7 +47,7 @@
     margin-left: 3px;
 }
 #pledge_content p img{
-    max-width:100%;
+    min-width:100%;
     margin-left: 3px;
 }
 .council_tableHeader{
