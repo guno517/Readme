@@ -29,15 +29,18 @@
 }
 #content p img{
     min-width: 100%;
+    min-width: 100%;
 }
 #content ol li{
     list-style:decimal;
 }
 #content img{
-    min-width:100%;
+    min-width: 100%;
+    min-width: 100%;
 }
 #content img{
-    min-width:100%;
+    min-width: 100%;
+    min-width: 100%;
 }
 #pledge_content{
     margin-top: 3%;
@@ -47,7 +50,8 @@
     margin-left: 3px;
 }
 #pledge_content p img{
-    min-width:100%;
+    min-width: 100%;
+    min-width: 100%;
     margin-left: 3px;
 }
 .council_tableHeader{
