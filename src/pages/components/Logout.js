@@ -12,7 +12,7 @@ const Vote = (props) => {
         // dispatch({
         //     type:'LOGOUT_SUCCESS'
         // })
-        alert("로그아웃 되었습니다.");
+        alert("README를 이용해 주셔서 감사합니다.");
         window.history.go(-1)
     })
 

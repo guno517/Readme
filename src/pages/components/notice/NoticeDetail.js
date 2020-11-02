@@ -37,7 +37,7 @@ const NoticeDetail = (props) => {
             method: "get",
         }).then((response) => {
             if (response.status === 200) {
-                alert("게시글이 삭제 되었습니다.");
+                alert("게시글이 삭제되었습니다.");
             } else {
                 alert("오류가 발생했습니다. 관리자에게 문의하세요.");
             }
