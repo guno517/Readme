@@ -20,8 +20,8 @@ const CouncilDetail = (props) => {
     const [isLoading, setIsLoading] = useState(false);
     let locationValue = props.location.pathname.split("/");
     const path_index = props.match.params.index;
-    const deptId = locationValue[2];
-    const collegeId = locationValue[3];
+    const collegeId = locationValue[2];
+    const deptId = locationValue[3];
     const detail = locationValue[4];
     const [authority, setAuthority] = useState("");
 
@@ -30,7 +30,7 @@ const CouncilDetail = (props) => {
     }, []);
 
     const fetchApi = async () => {
-        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/list/${deptId}/${collegeId}/${detail}`).then((response) => {
+        await fetch(`http://ec2-3-34-192-67.ap-northeast-2.compute.amazonaws.com:3000/council/list/${collegeId}/${deptId}/${detail}`).then((response) => {
             if (response.status === 200) {
                 response.json().then((data) => {
                     setCouncilDetail(data.fulfilled_list[0]);
@@ -61,8 +61,8 @@ const CouncilDetail = (props) => {
                 'Content-Type': 'application/json',
             },
             body: JSON.stringify({
-                deptId:deptId,
                 collegeId:collegeId,
+                deptId:deptId,
                 index:detail,
                 title:councilDetail.pledge_title         
             })
