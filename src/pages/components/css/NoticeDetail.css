@@ -57,14 +57,14 @@
 }
 .council_tableHeader > span:first-child{
     min-width: 130px;
-    font-Size: 1.2rem;
+    font-Size: 1.1rem;
     font-weight: 600;
     border-right-style: solid;
     border-color: lightgray;
     text-align: center;
 }
 .council_tableHeader > span:last-child{
-    font-Size: 1.2rem;
+    font-Size: 1.1rem;
     margin-left: 20px;
 }
 .tableHeader{
@@ -74,14 +74,14 @@
 }
 .tableHeader > span:first-child{
     min-width: 80px;
-    font-Size: 1.2rem;
+    font-Size: 1.1rem;
     font-weight: 600;
     border-right-style: solid;
     border-color: lightgray;
     text-align: center;
 }
 .tableHeader > span:last-child{
-    font-Size: 1.2rem;
+    font-Size: 1.1rem;
     margin-left: 20px;
 }
 @media all and (max-width:768px) {
