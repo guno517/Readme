@@ -79,6 +79,7 @@ const CandidateSet = (props) =>{
             })
         })
         .then(()=>{
+            alert("후보자가 등록되었습니다.");
             window.history.go(-1);
         })
     }

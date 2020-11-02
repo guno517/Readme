@@ -82,10 +82,10 @@ const Signup = () => {
                 response.json()
                 .then((data) => {
                     if(data.flag===0){
-                        alert("사용 가능한 ID 입니다.");
+                        alert("사용 가능한 ID입니다.");
                         setIdOverlapCheck(data.flag)
                     }else{
-                        alert("사용중인 ID 입니다.")
+                        alert("사용 중인 ID입니다.")
                     }
                 })
             }else{

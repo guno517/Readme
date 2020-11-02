@@ -55,6 +55,7 @@ class NoticeEditor extends React.Component {
             })
         })
         .then(()=>{
+            alert("게시글이 등록되었습니다.");
             window.history.go(-1);
         })
     }

@@ -51,6 +51,7 @@ const CouncilTotalEditor = (props) => {
             })
         })
         .then(()=>{
+            alert("공약 목록이 등록되었습니다.");
             window.history.go(-1);
         })
     }
