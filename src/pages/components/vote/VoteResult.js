@@ -53,9 +53,16 @@ const VoteResult = (props) => {
         <div className={"VoteResult"}>
             <SelectCollege dataDispatch={dataDispatch}></SelectCollege>
             <div style={{marginTop:"5%"}}>
-                <VoteResultDisplay listdata={voteResultData} winnerVote={props.winnerVotes}></VoteResultDisplay>
-                <VoteResultChart listdata={voteResultData}></VoteResultChart>
-                <VoteResultTurnoutChart listdata={voteTurnOutCollege}></VoteResultTurnoutChart>
+                {voteResultData.length !== 0 ?
+                <div>
+                    <VoteResultDisplay listdata={voteResultData} winnerVote={props.winnerVotes}></VoteResultDisplay>
+                    <VoteResultChart listdata={voteResultData}></VoteResultChart>
+                </div>
+                : <p>등록된 데이터가 없습니다.</p>
+                }
+                 {voteTurnOutCollege.length !== 0 &&
+                    <VoteResultTurnoutChart listdata={voteTurnOutCollege}></VoteResultTurnoutChart>
+                 }
                 {authority === "0" &&
                     <button type="button"><Link to={`/voteAdmin`}>결과 관리</Link></button>
                 }
