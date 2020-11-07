@@ -16,6 +16,11 @@ const Council = (props) => {
     const [chartData, setChartData] = useState([""]);
     const [carouselData, setCarouselData] = useState([""]);
     const voteCandidate = useSelector((state) => state.voteCandidate);
+  
+    const [authority, setAuthority] = useState("");
+    const [collegeId, setCollegeId] = useState("");
+    const [deptId, setDeptId] = useState("");
+
 
     useEffect(() => {
         dispatch({
@@ -42,9 +47,11 @@ const Council = (props) => {
             }
         });
     };
-
     useEffect(() => {
         fetchDataApi(0, 0);
+        setAuthority(window.sessionStorage.getItem("authority"));
+        setCollegeId(window.sessionStorage.getItem("collegeId"));
+        setDeptId(window.sessionStorage.getItem("deptId"));
     }, []);
 
     const state = useSelector((state) => state.voteMenu);
@@ -62,14 +69,18 @@ const Council = (props) => {
             </div>
             <br></br>
             <div>
-                <CouncilListButton collegeData={chartData.collegeId} majorData={chartData.deptId} />
+                <CouncilListButton collegeData={chartData.collegeId} majorData={chartData.deptId} authority={authority} collegeId={collegeId} deptId={deptId}/>
             </div>
             <div>
                 <CouncilCarousel carouselData={carouselData} />
             </div>
-            <div>
-                <CouncilButton collegeData={chartData.collegeId} majorData={chartData.deptId} />
-            </div>
+            {authority == 0 || authority == 1 && collegeId == chartData.collegeId && deptId == chartData.deptId ?
+                <div>
+                    <CouncilButton collegeData={chartData.collegeId} majorData={chartData.deptId} />
+                </div>
+                :
+                ""
+            }
         </div>
     );
 };

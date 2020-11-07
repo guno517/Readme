@@ -17,9 +17,13 @@ const CouncilList = (props) => {
     const collegeData = props.match.params.college;
     const majorData = props.match.params.major;
     const [authority, setAuthority] = useState("");
+    const [collegeId, setCollegeId] = useState("");
+    const [deptId, setDeptId] = useState("");
 
     useEffect(() => {
         setAuthority(window.sessionStorage.getItem("authority"));
+        setCollegeId(window.sessionStorage.getItem("collegeId"));
+        setDeptId(window.sessionStorage.getItem("deptId"));
     }, []);
 
     const fetchApi = async (collegeData, majorData) => {
@@ -79,9 +83,10 @@ const CouncilList = (props) => {
                     <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>목록</button>
                 </Link>
                 <Link to={`/council_totaleditor/${collegeData}/${majorData}`}>
-                    {authority === "0" && (
+                {authority == 0 || authority == 1 && collegeId == collegeData && deptId == majorData ?
                         <button style={{width:'100px', height:'30px',marginRight:'1%',marginBottom:'3%', border:'1px solid rgb(130, 162, 209)', backgroundColor:'#5CACF2', color:'white', borderRadius:'5px', outline:'none'}}>공약 관리</button>
-                    )}
+                    :""
+                }
                 </Link>
             </div>
         </div>

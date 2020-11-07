@@ -49,7 +49,13 @@ const VoteCandidate = (props) => {
     return(
         <div className={"VoteCandidate"}>
             <SelectCollege dataDispatch={dataDispatch}></SelectCollege>
-            <CandidateList listdata={voteCandidateData} authority={props.authority}></CandidateList>
+            <CandidateList 
+                listdata={voteCandidateData} 
+                authority={props.authority}
+                collegeId={props.collegeId}
+                deptId={props.deptId}
+            >
+            </CandidateList>
         </div>
     )
 }

@@ -23,20 +23,12 @@ function CouncilButton(props) {
     let collegeData = props.collegeData;
     let majorData = props.majorData;
 
-    const [authority, setAuthority] = useState("");
-
-    useEffect(() => {
-        setAuthority(window.sessionStorage.getItem("authority"));
-    }, []);
-
     return (
         <div id="buttondiv" className={classes.buttondiv}>
             <Link to={`/councileditor/${collegeData}/${majorData}`}>
-                {authority === "0" && (
-                    <Button id="Button" className={classes.button} variant="contained">
-                        이행 인증
-                    </Button>
-                )}
+                <Button id="Button" className={classes.button} variant="contained">
+                    이행 인증
+                </Button>
             </Link>
         </div>
     );
