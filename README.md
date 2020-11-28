@@ -1,68 +1,63 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# README
 
-## Available Scripts
+👩‍🎓👨‍🎓 학생회 관련 소식을 쉽게 접하고 관리할 수 있는 반응형 웹 서비스입니다.
 
-In the project directory, you can run:
+## 🎞 구현 결과 및 실행 - 학생 관점
 
-### `yarn start`
+🧾 [1] 메인
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![메인](https://drive.google.com/uc?export=view&id=1GYpJVTQ3EyZ737YwFCwcgnIvBoqyHy4j)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+📍 [2] 학생회
 
-### `yarn test`
+![학생회](https://drive.google.com/uc?export=view&id=1Aesf_NceYchf6hjlVesvI4Ip0FKh4RRE)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+📊 [3] 선거
 
-### `yarn build`
+![선거](https://drive.google.com/uc?export=view&id=1G2LEmaD4_XioRDdYW4M_iWoy-rOVIkby)
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+📢 [4] 공지사항
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+![공지사항](https://drive.google.com/uc?export=view&id=1kBh7F4ELha4VZJ6zb9PeYj6dCQ5UCE_b)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ✨ 주요 기능
 
-### `yarn eject`
+💡 홈
+1️⃣ 프로젝트 소개 포스터(주요 기능 설명)<br>
+💡 학생회 (학과별 데이터 반영)
+1️⃣ 공약 이행 현황 그래프
+2️⃣ 전체 공약 목록 및 공약 이행 인증 상세 내용
+3️⃣ 전체 공약 등록
+4️⃣ 공약 이행 인증 글 작성 및 삭제<br>
+💡 선거 (학과별 데이터 반영)
+1️⃣ 선거 정보 공지
+2️⃣ 입후보 목록
+3️⃣ 선거 결과 그래프
+4️⃣ 입후보자 등록 및 삭제
+5️⃣ 선거 결과 관리<br>
+💡 공지사항
+1️⃣ 전체 공지 목록 및 공지 상세 내용
+2️⃣ 공지 검색
+3️⃣ 글 등록, 수정, 삭제<br>
+💡 회원관리
+1️⃣ 회원가입, 로그인 및 로그아웃
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 💻 개발자
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+| <img src="https://avatars1.githubusercontent.com/u/48766355?s=460&u=0419d273d1a31539ee4f1151cdacb6fefd45dacc&v=4" width="50" height="50"> | <img src="https://avatars0.githubusercontent.com/u/60571418?s=460&v=4" width="50" height="50"> | <img src="https://avatars1.githubusercontent.com/u/49905817?s=460&u=42f915292211535284d32fc5d9a9250c3cad93d3&v=4" width="50" height="50"> |
+| --- | --- | --- |
+| [김민지](https://github.com/mnxmnz) | [변건오](https://github.com/guno517) | [이태희](https://github.com/th0532) |
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## 🛠 사용 기술
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+| Front-End | Back-End | DataBase |
+| --- | --- | --- |
+| JavaScript<br>React<br>Redux | Node.js<br>Express | MySQL |
 
-## Learn More
+| Front-Server | Back-Server | Tool |
+| --- | --- | --- |
+| AWS S3 | AWS EC2 | Git<br>Slack<br>Adobe XD<br>Photoshop |
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### :link: URL
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+-   [README 바로가기](http://gachonreadme.s3.ap-northeast-2.amazonaws.com/index.html#/)
