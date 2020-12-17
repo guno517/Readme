@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/mnxmnz/README">
-    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAilLQ%2FbtqQzQGdVmX%2Fk0sIUR4dXgeoR79ZQyNQ41%2Fimg.png" alt="Logo" width="100" height="100">
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcGRxst%2FbtqQt6CZkNX%2FsZDRtaLtLa0PEX968qVhd1%2Fimg.png" alt="Logo" width="100" height="100">
   </a>
 
   <h2 align="center"><a href="http://gachonreadme.s3.ap-northeast-2.amazonaws.com/index.html#/">README</a>
@@ -15,7 +15,7 @@
 
 💡 홈
 
-  - [1] 프로젝트 소개 포스터(주요 기능 설명)
+  - [1] 프로젝트 소개 포스터 (주요 기능 설명)
 
 💡 학생회 (학과별 데이터 반영)
 
