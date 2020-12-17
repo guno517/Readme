@@ -1,6 +1,6 @@
 <p align="center">
   <a href="https://github.com/mnxmnz/README">
-    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcyGltq%2FbtqQwownDQw%2FJuHE8Di0J0NUKT2vcaNGkK%2Fimg.png" alt="Logo" width="100" height="100">
+    <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FAilLQ%2FbtqQzQGdVmX%2Fk0sIUR4dXgeoR79ZQyNQ41%2Fimg.png" alt="Logo" width="100" height="100">
   </a>
 
   <h2 align="center"><a href="http://gachonreadme.s3.ap-northeast-2.amazonaws.com/index.html#/">README</a>
@@ -25,7 +25,7 @@
 
   - [3] 전체 공약 등록
 
-  - [4] 공약 이행 인증 글 작성 및 삭제
+  - [4] 관리자 계정으로 로그인 했을 때 공약 이행 인증 글 작성 및 삭제
 
 💡 선거 (학과별 데이터 반영)
 
@@ -35,9 +35,9 @@
 
   - [3] 선거 결과 그래프
 
-  - [4] 입후보자 등록 및 삭제
+  - [4] 관리자 계정으로 로그인 했을 때 입후보자 등록 및 삭제
 
-  - [5] 선거 결과 관리
+  - [5] 웹 관리자가 직접 선거 결과 관리
 
 💡 공지사항
 
@@ -45,7 +45,7 @@
 
   - [2] 공지 검색
 
-  - [3] 글 등록, 수정, 삭제
+  - [3] 관리자 계정으로 로그인 했을 때 글 등록, 수정, 삭제
 
 💡 회원관리
 
