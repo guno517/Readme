@@ -2,7 +2,7 @@
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcGRxst%2FbtqQt6CZkNX%2FsZDRtaLtLa0PEX968qVhd1%2Fimg.png" alt="Logo" width="150" height="150">
 </p>
 
-<h2 align="center">README</h2>
+<h2 align="center"><a href="http://gachonreadme.s3.ap-northeast-2.amazonaws.com/index.html#/">README</a></h2>
 
 <br>
 
@@ -106,11 +106,98 @@ PROJECT PERIOD: 2020.08.31 ~ 2020.11.10
 
   - [1] 회원가입, 로그인 및 로그아웃
 
+## 🗂 프로젝트 구조
+
+```
+src
+ ┣ img
+ ┃ ┣ CandidateList.png
+ ┃ ┣ ...
+ ┃ ┗ VoteNotice.png
+ ┣ pages
+ ┃ ┣ components
+ ┃ ┃ ┣ council
+ ┃ ┃ ┃ ┣ Council.js
+ ┃ ┃ ┃ ┣ ...
+ ┃ ┃ ┃ ┗ CouncilTotalEditor.js
+ ┃ ┃ ┣ css
+ ┃ ┃ ┃ ┣ CouncilButton.css
+ ┃ ┃ ┃ ┣ ...
+ ┃ ┃ ┃ ┗ Vote.css
+ ┃ ┃ ┣ notice
+ ┃ ┃ ┃ ┣ Notice.js
+ ┃ ┃ ┃ ┣ ...
+ ┃ ┃ ┃ ┗ NoticeTable.js
+ ┃ ┃ ┣ vote
+ ┃ ┃ ┃ ┣ CandidateList.js
+ ┃ ┃ ┃ ┣ ...
+ ┃ ┃ ┃ ┗ VoteResultTurnoutChart.js
+ ┃ ┃ ┣ Common.js
+ ┃ ┃ ┣ ...
+ ┃ ┃ ┗ Signup.js
+ ┃ ┣ css
+ ┃ ┃ ┣ Footer.css
+ ┃ ┃ ┗ Header.css
+ ┃ ┣ Content.js
+ ┃ ┣ ...
+ ┃ ┗ Main.js
+ ┣ reducers
+ ┃ ┣ selectForm
+ ┃ ┃ ┣ selectAll.js
+ ┃ ┃ ┣ selectCollege.js
+ ┃ ┃ ┗ selectFlagData.js
+ ┃ ┣ vote
+ ┃ ┃ ┣ voteData.js
+ ┃ ┃ ┣ ...
+ ┃ ┃ ┗ voteTurnOutCollege.js
+ ┃ ┣ index.js
+ ┃ ┣ login.js
+ ┃ ┗ menu.js
+ ┣ server
+ ┃ ┣ routes
+ ┃ ┃ ┣ candidate.js
+ ┃ ┃ ┣ ...
+ ┃ ┃ ┗ vote.js
+ ┃ ┣ app.js
+ ┃ ┣ db.js
+ ┃ ┗ test.js
+ ┣ App.css
+ ┣ App.js
+ ┣ index.css
+ ┗ index.js
+```
+
 ## 🛠 사용 기술
 
 | Front-End | Back-End | DataBase | Front-Server | Back-Server | Tool |
 | --- | --- | --- | --- | --- | --- |
 | JavaScript<br>React<br>Redux | Node.js<br>Express | MySQL | AWS S3 | AWS EC2 | Git<br>Slack<br>Adobe XD<br>Photoshop |
+
+```
+"@material-ui/core": "^4.11.0",
+"@material-ui/icons": "^4.9.1",
+"@testing-library/jest-dom": "^4.2.4",
+"@testing-library/react": "^9.3.2",
+"@testing-library/user-event": "^7.1.2",
+"@types/highcharts": "^7.0.0",
+"bootstrap": "^4.5.2",
+"highcharts-drilldown": "^0.1.7",
+"highcharts-react-official": "^3.0.0",
+"material-ui": "^1.0.0-beta.47",
+"react": "^16.13.1",
+"react-dom": "^16.13.1",
+"react-highcharts": "^16.1.0",
+"react-loading-overlay": "^1.0.1",
+"react-quill": "^1.3.5",
+"react-redux": "^7.2.1",
+"react-responsive-carousel": "^3.2.10",
+"react-router-dom": "^5.2.0",
+"react-scripts": "3.4.3",
+"react-spinners": "^0.9.0",
+"reactstrap": "^8.6.0",
+"recompose": "^0.30.0",
+"redux": "^4.0.5"
+```
 
 ## 🖥 Local 실행 방법
 
