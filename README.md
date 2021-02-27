@@ -2,7 +2,7 @@
   <img src="https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcGRxst%2FbtqQt6CZkNX%2FsZDRtaLtLa0PEX968qVhd1%2Fimg.png" alt="Logo" width="150" height="150">
 </p>
 
-<h2 align="center"><a href="http://gachonreadme.s3.ap-northeast-2.amazonaws.com/index.html#/">README</a></h2>
+<h2 align="center"><a href="https://gcreadme.vercel.app/">README</a></h2>
 
 <br>
 
@@ -230,4 +230,4 @@ yarn start
 
 ### :link: URL
 
--   [README 바로가기](http://gachonreadme.s3.ap-northeast-2.amazonaws.com/index.html#/)
+-   [README 바로가기](https://gcreadme.vercel.app/)
