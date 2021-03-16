@@ -28,8 +28,8 @@ router.post('/', function (req, res, next) {
   let userPw = req.body['pass'];
   let userPwCheck = req.body['userPwCheck'];
   let name = req.body['name'];
-  let college = req.body['college'];
-  let department = req.body['department'];
+  let collegeId = req.body['collegeId'];
+  let deptId = req.body['deptId'];
   let student_number = req.body['student_number'];
 
   // let userId = "test1"
@@ -59,7 +59,7 @@ router.post('/', function (req, res, next) {
 
 
   if (userPw == userPwCheck) {
-    connection.query('insert into member values(?,?,?,?,?,?,?,?)', ['', userId, cipheredOutput, name, college, department, student_number, 1], function (err, result) {
+    connection.query('insert into member values(?,?,?,?,?,?,?,?)', ['', userId, cipheredOutput, name, collegeId, deptId, student_number, 1], function (err, result) {
       if (!err) {
         res.send('회원가입성공');
         console.log(req.body);

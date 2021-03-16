@@ -63,6 +63,7 @@ router.post('/insert', (req, res) => {
     connection.query(sql, ['', img, attachment, title, content, writer, time, view], function (err, rows, fields) {
         if(!err){
             res.json({insert:rows}); // or 상세페이지   
+            console.log(sql);
         } else {
             res.send(err);
         }

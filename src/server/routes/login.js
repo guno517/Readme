@@ -24,7 +24,7 @@ router.post('/', function (req, res, next) {
   //let salt = Math.round((new Date().valueOf() * Math.random())) + "";
   //let hashPassword = crypto.createHash("sha512").update(userPw + salt).digest("hex");
   console.log(req.body)
-  connection.query('select id,password,college,department,student_number,authority from member where id=\'' + userId + '\' and password=\'' + cipheredOutput + '\'', function (err, results) {
+  connection.query('select id,password,collegeId,deptId,student_number,authority from member where id=\'' + userId + '\' and password=\'' + cipheredOutput + '\'', function (err, results) {
     if (!err) {
       if (results[0] != undefined) {
         res.json({ user: results });

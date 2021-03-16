@@ -59,21 +59,30 @@ router.get('/list/:collegeId/:deptId/:index', function (req, res) {
     })
 })
 
-//안쓰는듯
-router.post('/check/:collegeId/:deptId', function(req, res){
+router.post('/insert/pledge_list/:collegeId/:deptId', function(req, res){
     let collegeId = req.params.collegeId;
     let deptId = req.params.deptId;
-    let pledge_title = req.body['pledge_title'];
-    let fulfillment = req.body['fulfillment'];
-    let sql = 'insert into pledge_list values(?,?,?,?)';
-    connection.query(sql,[collegeId,deptId,pledge_title,fulfillment], function(err, results){
-        if(!err){
-            res.json({checkList: results});
-        } else {
+    let councilList = req.body['councilList'];
+    let length = councilList.length;
+    console.log(length)
+    let sql1 = 'update pledge_rate set total_pledge = total_pledge+? where collegeId=? and deptId=?;'
+    connection.query(sql1,[length,collegeId, deptId],function(err, results){
+        if(err){
             console.log(err);
-            res.send(err);
+        } else {
+            res.send({result:true});
         }
     })
+    for (let i = 0; i<councilList.length;i++){
+        let sql = 'insert into pledge_list values(?,?,?,?,?);'; // total_pledge(pledge_rate테이블 업데이트)
+        connection.query(sql,['',collegeId,deptId,councilList[i],'F'], function(err, results){
+            if (err) {
+                console.log(err);
+            } else {
+                return true;
+            }
+        })
+    }
 })
 
 router.post('/insert/:collegeId/:deptId', function (req, res) {
@@ -87,16 +96,9 @@ router.post('/insert/:collegeId/:deptId', function (req, res) {
     let time = req.body['time'];
     let view = 1;
 
-    //  let img = 'https://t1.daumcdn.net/cfile/blog/2455914A56ADB1E315'
-    //  let title = '총학생회 test';
-    //  let content = '총학생회 test';
-    //  let fulfilled_date = '2020-09-30';
-    //  let writer = '총학생회';
-    //  let time = '2020-10-04';
+    let sql = 'insert into fulfilled_pledge values(?,?,?,?,?,?,?,?,?,?,?); update pledge_list set fulfillment=? where pledge_title=?; update pledge_rate set fulfilled_pledge=fulfilled_pledge+1 where collegeId=? and deptId=?;'
 
-    let sql = 'insert into fulfilled_pledge values(?,?,?,?,?,?,?,?,?,?,?); update pledge_list set fulfillment=? where pledge_title=?;'
-
-    connection.query(sql, ['', collegeId, deptId, img, title, content, fulfilled_date, writer, time, view,'T','T'], function (err, results) {
+    connection.query(sql, ['', collegeId, deptId, img, title, content, fulfilled_date, writer, time, view,'T','T',title,collegeId,deptId], function (err, results) {
         if (!err) {
             res.json({'이행 인증': results});
         } else {
@@ -129,14 +131,18 @@ router.post('/update/:collegeId/:deptId/:index', function(req, res){
     })
 })
 
-router.get('/delete/:collegeId/:deptId/:index', (req, res) => {
-    let index = req.params.index;
-    let collegeId = req.params.collegeId;
-    let deptId = req.params.deptId;
-    let sql = "delete from fulfilled_pledge where collegeId=? and deptId=? and `index`=? "
-    connection.query(sql,[collegeId, deptId, index],function(err, rows, fields){
-        if(!err){   
-            res.send('delete success');
+router.post('/delete', (req, res) => {
+    let index = req.body['index'];
+    let collegeId = req.body['collegeId'];
+    let deptId = req.body['deptId'];
+    let title = req.body['title'];
+    console.log(collegeId)
+    console.log(deptId)
+
+    let sql = "delete from fulfilled_pledge where collegeId=? and deptId=? and `index`=?; update pledge_rate set fulfilled_pledge=fulfilled_pledge-1 where collegeId=? and deptId=?; update pledge_list set fulfillment=? where pledge_title=?"
+    connection.query(sql,[collegeId, deptId, index,collegeId, deptId,'F',title],function(err, rows, fields){
+        if(!err){
+            res.send({result:true})
         } else {
             res.send(err);
             console.log(err);
@@ -145,10 +151,9 @@ router.get('/delete/:collegeId/:deptId/:index', (req, res) => {
 })
 
 router.get('/:collegeId/:deptId', function (req, res) {
-    console.log('deptId 접속')
     let collegeId = req.params.collegeId;
     let deptId = req.params.deptId;
-    let sql1 = 'SELECT * FROM pledge_rate where `collegeId`=? and `deptId`=?; select * from fulfilled_pledge where `collegeId`=? and `deptId`=?;';
+    let sql1 = 'SELECT collegeId, deptId, total_pledge,fulfilled_pledge, (fulfilled_pledge/total_pledge)*100 as fulfillment_rate FROM readme.pledge_rate where `collegeId`=? and `deptId`=?; select * from fulfilled_pledge where `collegeId`=? and `deptId`=?;';
     connection.query(sql1 , [collegeId,deptId,collegeId,deptId], (err, results) => {
         if (!err) {
             res.json({'council':results});
